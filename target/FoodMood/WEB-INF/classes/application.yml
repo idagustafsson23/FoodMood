@@ -10,7 +10,7 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost/foodmood?useSSL=false
     username: root
-    password: kattfot1
+    password: password
   jackson:
     serialization:
       fail-on-empty-beans: false

@@ -42,13 +42,12 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.jsp">LIJC</a></li>  
-       	<li><a href="#"><span class="glyphicon glyphicon-user"></span> Food</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Mood</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Jerrys hörna</a></li>
+       	<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Food</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login/Register</a></li>
+        <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login admin</a></li>
       </ul>
     </div>
   </div>

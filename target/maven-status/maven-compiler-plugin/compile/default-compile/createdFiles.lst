@@ -2,3 +2,4 @@ com\foodmood\models\Recipe.class
 com\foodmood\repositories\RecipeRepository.class
 com\foodmood\controllers\RecipeController.class
 com\foodmood\Application.class
+com\foodmood\services\RecipeService.class

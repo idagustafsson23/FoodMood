@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.foodmood.models.Recipe;
-import com.foodmood.repositories.RecipeRepository;
+import com.foodmood.services.RecipeService;
 
 
 @Controller
@@ -23,7 +23,7 @@ import com.foodmood.repositories.RecipeRepository;
 public class RecipeController {
 	
 	@Autowired
-	private RecipeRepository recipeRepository;
+	private RecipeService recipeService;
 	
 	
 	@RequestMapping(value="/index", method=RequestMethod.GET)
@@ -41,7 +41,7 @@ public class RecipeController {
 		Recipe recipe = new Recipe();
 		recipe.setRecipeName(recipeName);
 		recipe.setRecipeDescription(recipeDescription);
-		recipeRepository.saveAndFlush(recipe);
+		recipeService.saveRecipe(recipe);
 		return "Testing add Recipe!";
 	}
 	

@@ -36,6 +36,10 @@ public class Recipe {
 		this.recipeDescription = recipeDescription;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
 	public Recipe() {
 		
 	}

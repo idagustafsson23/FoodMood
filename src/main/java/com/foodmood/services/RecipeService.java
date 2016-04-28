@@ -19,7 +19,8 @@ public class RecipeService {
 		}
 
 		public Recipe readRecipe(Long id) {
-			return (Recipe) recipeRepository.getOne(id);
+			System.out.println("here");
+			return (Recipe) recipeRepository.findOne(id);
 		}
 
 		public void deleteRecipe(Long id) {

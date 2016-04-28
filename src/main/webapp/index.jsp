@@ -7,7 +7,7 @@
 <div class="row">
 	<div class="col-sm-12">
 
-<form role="form" action="http://localhost:8080/recipe/regRecipe" method="POST">
+<form role="form" action="http://localhost:8080/recipe/addRecipe" method="POST">
   <div class="form-group">
     <label for="recipeName">Name of recipe:</label>
     <input type="text" class="form-control" id="recipeName" name="recipeName">

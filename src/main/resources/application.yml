@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: FoodMood
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQLInnoDBDialect
+      naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+      ddl-auto: update
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/foodmood?useSSL=false
+    username: root
+    password: password
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+server:
+  context-path: /
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    org.hibernate: ERROR
+    com.example.school: INFO

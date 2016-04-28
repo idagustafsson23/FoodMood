@@ -1,5 +1,7 @@
 package com.foodmood.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,12 +24,10 @@ public class RecipeService {
 
 		public void deleteRecipe(Long id) {
 			recipeRepository.delete(id);
+		}	
+			
+		public List<Recipe> getAllRecipes() {
+			List<Recipe> recipes = recipeRepository.findAll();
+			return recipes;
 		}
-		
-
-	
-	
-	
-	
-	
 }

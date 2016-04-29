@@ -1,22 +1,16 @@
 package com.foodmood.test;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.Mockito.*;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 import org.springframework.http.HttpHeaders;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.foodmood.controllers.RecipeController;
 import com.foodmood.models.Recipe;
-import com.foodmood.repositories.RecipeRepository;
-import com.foodmood.services.RecipeService;
-
-import org.junit.*;
-import org.junit.Test;
 
 public class MockTest {
 	

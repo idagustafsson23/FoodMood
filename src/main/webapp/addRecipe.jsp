@@ -10,9 +10,9 @@
     				<input type="text" class="form-control" id="recipeName">
   				</div>
   				<div class="form-group">
-    				<label for="recipeDescription">Recept instruktioner:</label>
-    				<input type="textarea" class="form-control" id="recipeDescription">
-  				</div>
+  					<label for="recipeDescription">Recept information:</label>
+  					<textarea class="form-control" rows="5" id="recipeDescripton"></textarea>
+				</div>
 			</form>
 		</div>
 	</div>

@@ -41,8 +41,7 @@ public class RecipeService {
 		public Recipe createRecipe(HttpServletRequest request) {
 			String recipeName = request.getParameter("recipeName");
 			String[] arrayOfDescription = request.getParameter("recipeDescription").split("\n");
-			ArrayList<String> recipeDescription = (ArrayList<String>) Arrays.asList(arrayOfDescription);
-			
+			ArrayList<String> recipeDescription = new ArrayList<String>(Arrays.asList(arrayOfDescription));
 			Recipe recipe = new Recipe();
 			
 			recipe.setRecipeName(recipeName);

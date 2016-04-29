@@ -39,10 +39,12 @@ public void testInputRecipe() {
     request.setRemoteAddr("127.0.0.1"); 
     
     request.setParameter("recipeName", "testName");
-    request.setParameter("receptDescription", "");
+    request.setParameter("recipeDescription", "hello1\nhello2");
     
     Recipe recipe = recipeService.createRecipe(request);
     Assert.assertEquals("testName", recipe.getRecipeName());
+    Assert.assertEquals("hello1", recipe.getRecipeDescription().get(0));
+    Assert.assertEquals("hello2", recipe.getRecipeDescription().get(1));
    
     
 }

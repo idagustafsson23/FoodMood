@@ -13,6 +13,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -20,11 +22,11 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 //start of defaulthandler for possible sax xml parser interaction
-public class ApiReader extends DefaultHandler {
+public class ApiManager extends DefaultHandler {
 	private URL newURL;
 	private Map<String, String> values = null;
 	
-	public ApiReader(String url) {
+	public ApiManager(String url) {
 		values = new HashMap<String, String>();
 		try {
 			newURL = new URL("http://www.systembolaget.se/api/assortment/products/xml");
@@ -43,7 +45,7 @@ public class ApiReader extends DefaultHandler {
 		}
 	}
     
-	public String readXMLData() throws SAXException, IOException {
+	public void readXMLData() throws SAXException, IOException {
 		try {
 			String xmlFile = newURL.toExternalForm();
 			File file = new File(xmlFile);
@@ -56,17 +58,22 @@ public class ApiReader extends DefaultHandler {
 			
 			for (int i = 0; i < nodes.getLength(); i++) {
 				Node element = nodes.item(i);
-			
+				String nodeName = element.getNodeName();
+				String nodeValue = element.getNodeValue();
+				values.put(nodeName, nodeValue);
 			}
 			
 		} catch (ParserConfigurationException pcEx) {
-			
+			pcEx.printStackTrace();
 		}
-	    return "";
+
 	}
 	
-	public void convertToJSON() {
-	
-		
+	public void convertToJSON() throws JSONException {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (String jsonvalues : values.values()) {
+			stringBuilder.append(jsonvalues);
+		}
+		JSONObject obj = new JSONObject(stringBuilder.toString());		
 	}
 }

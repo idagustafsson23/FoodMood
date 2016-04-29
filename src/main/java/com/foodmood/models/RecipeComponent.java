@@ -1,7 +1,7 @@
 package com.foodmood.models;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,8 +16,8 @@ public class RecipeComponent {
 	Long id;
 	
 	private String componentName;
-	private List<String> componentDescription;
-	private List<Ingredient> componentIngredients; 
+	private ArrayList<String> componentDescription;
+	private ArrayList<Ingredient> componentIngredients; 
 	
 	public RecipeComponent() {
 		componentDescription = new ArrayList<String>();
@@ -32,19 +32,19 @@ public class RecipeComponent {
 		this.componentName = componentName;
 	}
 
-	public List<String> getComponentDescription() {
+	public ArrayList<String> getComponentDescription() {
 		return componentDescription;
 	}
 
-	public void setComponentDescription(List<String> componentDescription) {
+	public void setComponentDescription(ArrayList<String> componentDescription) {
 		this.componentDescription = componentDescription;
 	}
 
-	public List<Ingredient> getComponentIngredients() {
+	public ArrayList<Ingredient> getComponentIngredients() {
 		return componentIngredients;
 	}
 
-	public void setComponentIngredients(List<Ingredient> componentIngredients) {
+	public void setComponentIngredients(ArrayList<Ingredient> componentIngredients) {
 		this.componentIngredients = componentIngredients;
 	}
 

@@ -1,12 +1,12 @@
 package com.foodmood.models;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
@@ -17,18 +17,13 @@ public class Recipe {
 	Long id;
 	
 	private String recipeName;
-	private List<String> recipeDescription;
-	private List<RecipeComponent> recipeComponents;
-	private List<Ingredient> recipeIngredients;
-	private FoodTag preparationType;
+	private ArrayList<String> recipeDescription;
+	private ArrayList<RecipeComponent> recipeComponents;
+	private ArrayList<Ingredient> recipeIngredients;
+	@OneToOne
+	private FoodTag foodTag;
 
-	public FoodTag getPreparationType() {
-		return preparationType;
-	}
 
-	public void setPreparationType(FoodTag preparationType) {
-		this.preparationType = preparationType;
-	}
 
 	public Recipe() {
 		recipeDescription = new ArrayList<String>();
@@ -44,32 +39,40 @@ public class Recipe {
 		this.recipeName = recipeName;
 	}
 
-	public List<String> getRecipeDescription() {
+	public ArrayList<String> getRecipeDescription() {
 		return recipeDescription;
 	}
 
-	public void setRecipeDescription(List<String> recipeDescription) {
+	public void setRecipeDescription(ArrayList<String> recipeDescription) {
 		this.recipeDescription = recipeDescription;
 	}
 
-	public List<RecipeComponent> getRecipeComponents() {
+	public ArrayList<RecipeComponent> getRecipeComponents() {
 		return recipeComponents;
 	}
 
-	public void setRecipeComponents(List<RecipeComponent> recipeComponents) {
+	public void setRecipeComponents(ArrayList<RecipeComponent> recipeComponents) {
 		this.recipeComponents = recipeComponents;
 	}
 
-	public List<Ingredient> getRecipeIngredients() {
+	public ArrayList<Ingredient> getRecipeIngredients() {
 		return recipeIngredients;
 	}
 
-	public void setRecipeIngredients(List<Ingredient> recipeIngredients) {
+	public void setRecipeIngredients(ArrayList<Ingredient> recipeIngredients) {
 		this.recipeIngredients = recipeIngredients;
 	}
 
 	public Long getId() {
 		return id;
+	}
+	
+	public void setFoodTag(FoodTag foodTag) {
+		this.foodTag = foodTag;
+	}
+	
+	public FoodTag getFoodTag() {
+		return foodTag;
 	}
 	
 	

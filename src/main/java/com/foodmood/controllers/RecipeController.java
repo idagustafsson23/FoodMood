@@ -51,7 +51,6 @@ public class RecipeController {
 		String recipeDescription = request.getParameter("recipeDescription");
 		Recipe recipe = new Recipe();
 		recipe.setRecipeName(recipeName);
-		recipe.setRecipeDescription(recipeDescription);
 		return recipe;
 	}
 	

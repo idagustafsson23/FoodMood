@@ -45,11 +45,11 @@ public void testInputRecipe() {
     request.setRemoteAddr("127.0.0.1"); 
     
     request.setParameter("recipeName", "testName");
-    request.setParameter("recipeDescription", "testDescription");
+    
     
     Recipe recipe = recipeController.createRecipe(request);
     Assert.assertEquals("testName", recipe.getRecipeName());
-    Assert.assertEquals("testDescription", recipe.getRecipeDescription());
+   
     
 }
 

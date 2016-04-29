@@ -1,6 +1,9 @@
-C:\Users\lennard.bohm\Dropbox\code\FoodMood\src\main\java\com\foodmood\Application.java
-C:\Users\lennard.bohm\Dropbox\code\FoodMood\src\main\java\com\foodmood\models\Recipe.java
-C:\Users\lennard.bohm\Dropbox\code\FoodMood\src\main\java\com\foodmood\services\RecipeService.java
-C:\Users\lennard.bohm\Dropbox\code\FoodMood\src\main\java\com\foodmood\controllers\RecipeController.java
-C:\Users\lennard.bohm\Dropbox\code\FoodMood\src\main\java\com\foodmood\repositories\RecipeRepository.java
-C:\Users\lennard.bohm\Dropbox\code\FoodMood\src\main\java\com\foodmood\test\MockTest.java
+C:\Users\Ida\Desktop\projektLIJC\FoodMood\src\main\java\com\foodmood\models\Recipe.java
+C:\Users\Ida\Desktop\projektLIJC\FoodMood\src\main\java\com\foodmood\models\RecipeComponent.java
+C:\Users\Ida\Desktop\projektLIJC\FoodMood\src\main\java\com\foodmood\repositories\RecipeRepository.java
+C:\Users\Ida\Desktop\projektLIJC\FoodMood\src\main\java\com\foodmood\controllers\RecipeController.java
+C:\Users\Ida\Desktop\projektLIJC\FoodMood\src\main\java\com\foodmood\models\Ingredient.java
+C:\Users\Ida\Desktop\projektLIJC\FoodMood\src\main\java\com\foodmood\test\MockTest.java
+C:\Users\Ida\Desktop\projektLIJC\FoodMood\src\main\java\com\foodmood\services\RecipeService.java
+C:\Users\Ida\Desktop\projektLIJC\FoodMood\src\main\java\com\foodmood\Application.java
+C:\Users\Ida\Desktop\projektLIJC\FoodMood\src\main\java\com\foodmood\models\FoodTag.java

@@ -47,7 +47,28 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="login.jsp"><span class="glyphicon glyphicon-log-in"></span> Login admin</a></li>
+      
+  
+  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Login admin<span class="caret"></span></a>
+  
+  <ul class="dropdown-menu">
+          <form  action="#" role="form"
+				method="POST">
+				<div class="form-group">
+					<label for="userName" class="control-label">Användarnamn:</label>
+          			<input type="text" class="form-control" placeholder="Användarnamn" />
+          		</div>
+          		<div class="form-group">
+					<label for="password" class="control-label">Lösenord:</label>
+          			<input type="password" class="form-control" placeholder="Lösenord" />
+          		</div>
+          		<div class="form-group">
+          			<button type="submit" class="btn btn-default">Submit</button>
+          		</div>
+          </form>
+        </ul>
+
+        </li>
       </ul>
     </div>
   </div>

@@ -30,29 +30,19 @@ public class RecipeController {
 	private RecipeService recipeService;
 	
 	
-	@RequestMapping(value="/index", method=RequestMethod.GET)
+	@RequestMapping(value="/addRecipe", method=RequestMethod.POST)
 	@ResponseBody
-	public String index() {
-		System.out.println("conny testing");
-	   return "Testing Recipe!";
-	}
-	
-	@RequestMapping(value = "/addRecipe", method=RequestMethod.POST)
-	@ResponseBody
-	public String addRecipe(HttpServletRequest request, HttpServletResponse response) {		
-		recipeService.saveRecipe(createRecipe(request));
-		ModelAndView modelAndView = new ModelAndView();		
+	public String addRecipe(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("inne i addRecipe");
+		recipeService.saveRecipe(request);
+		
+		//ModelAndView modelAndView = new ModelAndView();
+		
 		return "Recipe Added!";
 	}
 	
 	
-	public Recipe createRecipe(HttpServletRequest request) {
-		String recipeName = request.getParameter("recipeName");
-		String recipeDescription = request.getParameter("recipeDescription");
-		Recipe recipe = new Recipe();
-		recipe.setRecipeName(recipeName);
-		return recipe;
-	}
+	
 	
 	
 }

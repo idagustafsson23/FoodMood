@@ -33,7 +33,9 @@ public class RecipeController {
 	@RequestMapping(value="/addRecipe", method=RequestMethod.POST)
 	@ResponseBody
 	public String addRecipe(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("inne i addRecipe");
 		recipeService.saveRecipe(request);
+		
 		//ModelAndView modelAndView = new ModelAndView();
 		
 		return "Recipe Added!";

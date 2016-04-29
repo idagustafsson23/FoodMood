@@ -8,7 +8,7 @@
 				method="POST">
 				<div class="form-group">
 					<label for="recipeName">Recept namn:</label> <input type="text"
-						class="form-control" id="recipeName">
+						class="form-control" id="recipeName" name="recipeName">
 				</div>
 
 				<div class="form-group">
@@ -76,7 +76,7 @@
 
 				<div class="form-group">
 					<label for="recipeDescription">Recept instruktioner:</label>
-					<textarea class="form-control" rows="3" id="recipeDescripton"></textarea>
+					<textarea class="form-control" rows="3" id="recipeDescripton" name="recipeDescription"></textarea>
 				</div>
 				<div class="form-group">
 					<label for="recipeComponentName">Tillbehör namn:</label> <input
@@ -149,6 +149,11 @@
 					<textarea class="form-control" rows="3"
 						id="recipeComponentDescripton"></textarea>
 				</div>
+				
+				<div class="form-group">
+          			<button type="submit" class="btn btn-default">Submit</button>
+          		</div>
+				
 			</form>
 		</div>
 	</div>

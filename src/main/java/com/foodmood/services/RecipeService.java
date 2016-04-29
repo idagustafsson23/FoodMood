@@ -21,6 +21,12 @@ public class RecipeService {
 		public void saveRecipe(HttpServletRequest request) {
 			Recipe recipe = createRecipe(request);
 			recipeRepository.saveAndFlush(recipe);
+			
+			Recipe recipe2 = readRecipe(2L);
+			System.out.println("antal i array" + recipe2.getRecipeDescription().size());
+			for(String string : recipe2.getRecipeDescription()) {
+				System.out.println(string);
+			}
 		}
 
 		public Recipe readRecipe(Long id) {
@@ -40,6 +46,7 @@ public class RecipeService {
 		
 		public Recipe createRecipe(HttpServletRequest request) {
 			String recipeName = request.getParameter("recipeName");
+			System.out.println("descr:" + request.getParameter("recipeDescription"));
 			String[] arrayOfDescription = request.getParameter("recipeDescription").split("\n");
 			ArrayList<String> recipeDescription = new ArrayList<String>(Arrays.asList(arrayOfDescription));
 			Recipe recipe = new Recipe();

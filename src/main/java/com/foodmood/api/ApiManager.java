@@ -29,7 +29,7 @@ public class ApiManager extends DefaultHandler {
 	public ApiManager(String url) {
 		values = new HashMap<String, String>();
 		try {
-			newURL = new URL("http://www.systembolaget.se/api/assortment/products/xml");
+			newURL = new URL(url);
 		} catch (MalformedURLException max) {			
 			max.printStackTrace();
 		}
@@ -69,11 +69,12 @@ public class ApiManager extends DefaultHandler {
 
 	}
 	
-	public void convertToJSON() throws JSONException {
+	public JSONObject convertToJSON() throws JSONException {
 		StringBuilder stringBuilder = new StringBuilder();
 		for (String jsonvalues : values.values()) {
 			stringBuilder.append(jsonvalues);
 		}
 		JSONObject obj = new JSONObject(stringBuilder.toString());		
+		return obj;
 	}
 }

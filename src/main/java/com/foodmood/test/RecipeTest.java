@@ -45,8 +45,7 @@ public void testInputRecipe() {
     Assert.assertEquals("testName", recipe.getRecipeName());
     Assert.assertEquals("hello1", recipe.getRecipeDescription().get(0));
     Assert.assertEquals("hello2", recipe.getRecipeDescription().get(1));
-   
-    
+      
 }
 
 

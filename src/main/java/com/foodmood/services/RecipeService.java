@@ -30,7 +30,6 @@ public class RecipeService {
 		}
 
 		public Recipe readRecipe(Long id) {
-			System.out.println("here");
 			return (Recipe) recipeRepository.findOne(id);
 		}
 

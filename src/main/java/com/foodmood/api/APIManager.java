@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -18,8 +19,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -47,23 +50,26 @@ public class APIManager extends DefaultHandler {
 		}
 	}
     
-	public Map<String, String> readXMLData() {
+	public String readXMLData() {
 		InputStream xmlFile = null;
-		String value = "";
-		long articleID = 0;
 		try {
 			xmlFile = newURL.openStream();
-			//File file = new File(xmlFile);
-			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();		
-			Document xmlDocument = documentBuilder.parse(xmlFile);
-			xmlDocument.getDocumentElement().normalize();
 			
-			NodeList rootNode = xmlDocument.getChildNodes();
+			SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
+			parser.parse(xmlFile, this);
 			
-			Node root = getNode(rootNode, "artiklar");
-			Node childNode = getNode(root.getChildNodes(), "artikel");
-			String t = getValuesFromArticleID(childNode, 1000005);
+			
+			//DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+			//DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();		
+			//Document xmlDocument = documentBuilder.parse(xmlFile);
+			
+			//Element rootNode = xmlDocument.getDocumentElement();
+			//NodeList nodes = rootNode.getElementsByTagName("artikel");		
+			//String value = getValuesFromArticleNumber(nodes, "7599701");
+			
+			//Node childNode = getNode(rootNode.getChildNodes(), "artikel");
+			//String test = getValuesFromArticleNumber(numberChildNode, "1000005");
+			
 			xmlFile.close();
 		} catch (IOException ioEx) {
 			ioEx.printStackTrace();	
@@ -72,35 +78,55 @@ public class APIManager extends DefaultHandler {
 		} catch (SAXException saxEx) {
 			saxEx.printStackTrace();
 		}
-		return values;
+		return "";
 	}
+	/*	
+	private Node getNode(String tagName, Node node) {
+		NodeList nodeList = node.getChildNodes();
+		Node nodeValue = null;
+	    for ( int x = 0; x < nodeList.getLength(); x++ ) {	    	
+	        nodeValue = nodeList.item(x);     
+	    }	 
+	    return nodeValue;
+	} */
 	
-	private Node getNode(NodeList nodes, String tagName) {
-		Node node = null;
-		for (int i = 0; i < nodes.getLength(); i++) {	
-			node = nodes.item(i);
-			if (node.getNodeName().equalsIgnoreCase(tagName)) {
-				return node;
-			}
+	
+	private String getValuesFromArticleNumber(NodeList nodes, String articleNumber) {
+		Node nodeValue;
+		
+		for (int i = 0; i < nodes.getLength(); i++) {
+			Node n = nodes.item(i).getFirstChild();
+			System.out.println(n.getTextContent());
 		}
-		return null;
-	}
+	
+		return "";
+	} 
 	
 
-	private String getValuesFromArticleID(Node node, long id) {
-		StringBuffer buf = new StringBuffer();
-	    NodeList children = node.getChildNodes();
-	   
-	    for (int i = 0; i < children.getLength(); i++) {
-	        Node textChild = children.item(i);
-	        if (textChild.getNodeType() != Node.TEXT_NODE) {
-	            System.err.println("Mixed content! Skipping child element " + textChild.getNodeName());
-	            continue;
-	        }
-	        buf.append(textChild.getNodeValue());
-	    }
-	    return buf.toString();
-	}
+    @Override
+    public void startDocument() throws SAXException {
+    }
+
+    @Override
+    public void endDocument() throws SAXException {
+    }
+
+    @Override
+    public void startElement(String uri, String localName, String qName,
+            Attributes attributes) throws SAXException {
+    }
+
+    @Override
+    public void endElement(String uri, String localName, String qName)
+            throws SAXException {
+    }
+
+    // To take specific actions for each chunk of character data (such as
+    // adding the data to a node or buffer, or printing it to a file).
+    @Override
+    public void characters(char ch[], int start, int length)
+            throws SAXException {
+    }
 	
 	public String convertToJSON(Map<String, String> val) throws JSONException {
 		StringBuilder stringBuilder = new StringBuilder();

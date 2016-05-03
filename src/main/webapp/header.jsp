@@ -4,6 +4,8 @@
 <%@ page import ="java.util.ArrayList" %>
 <%@ page import="java.io.*,java.util.*" %>
 <%@ page import="javax.servlet.*,java.text.*" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +23,7 @@
 
 	<link rel="stylesheet" type="text/css" href="style/style.css" >
 
-
+	<%@ page isELIgnored="false" %>
 </head>
 
 

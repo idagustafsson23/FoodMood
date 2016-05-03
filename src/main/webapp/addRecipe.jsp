@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<form action="http://localhost:8080/recipe/addRecipe" role="form"
-				method="GET">
+				method="POST">
 				<div class="form-group">
 					<label for="recipeName">Recept namn:</label> <input type="text"
 						class="form-control" id="recipeName" name="recipeName">

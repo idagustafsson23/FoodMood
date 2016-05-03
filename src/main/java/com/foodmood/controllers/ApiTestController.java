@@ -18,7 +18,7 @@ public class ApiTestController {
 	public String getAPIData() {	
 		APIManager apiManager = new APIManager("http://www.systembolaget.se/api/assortment/products/xml");
 	    apiManager.initializeConnection();
-	    Map<String, String> getData = apiManager.readXMLData();
+	    String getData = apiManager.readXMLData();
 	    return "";
 	}
 	

@@ -2,6 +2,7 @@ package com.foodmood.models;
 
 import java.util.ArrayList;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,7 +19,7 @@ public class Ingredient {
 	private String ingredientName;
 	private double amountPerPortion;
 	private String unitOfMeasurement;
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	private FoodTag foodTag;
 	
 	public Ingredient() {
@@ -58,6 +59,7 @@ public class Ingredient {
 	public void setFoodTag(FoodTag foodTag) {
 		this.foodTag = foodTag;
 	}
+	
 	
 	public FoodTag getFoodTag() {
 		return foodTag;

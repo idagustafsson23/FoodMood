@@ -48,12 +48,75 @@
         <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
       </ul>
       
-      <ul class="nav navbar-nav navbar-right">
-      
+      <ul class="nav navbar-nav navbar-right">	
+		  
+		  <%
+			boolean loggedIn = false;
+			String userLoggedIn = "";
+			if(session.getAttribute("userLoggedIn") != null) {
+				loggedIn = true;
+				userLoggedIn = (String) session.getAttribute("userLoggedIn");
+			}
+		%>
+				
+			<%if(!loggedIn) { %>
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in" ></span> Login/register<span class="caret"></span></a>
+				<ul id="login-dropdown" class="dropdown-menu">
+					<li>
+						<div class="row">
+							<div class="col-md-12" id="login-div">
+								<form role="form" method="POST" action="/user/login">
+									<div>
+										<h2 class="text-center form-signin-heading">Login</h2>
+									</div>
+									<div class="form-group col-md-12">
+										<input type="text" name="userName" placeholder="Username">
+									</div>
+									<div class="form-group col-md-12">
+										<input type="password" name="password" placeholder="Password">
+									</div>
+									<div class="form-group col-md-12">
+										<input type="submit" class="btn btn-info" value="Login">
+									</div>
+									<div class="form-group col-md-12">
+									<a href="#">New user? Register here.</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</li>
+			<%} %>
+			
+			<%if(loggedIn) { %>
+			<li class="dropdown"><a class="dropdown-toggle"
+				data-toggle="dropdown" href="#"><%=userLoggedIn %><span class="caret"></span></a>
+				<ul id="user-dropdown" class="dropdown-menu">
+					<li>
+						<div class="row">
+							<div class="col-md-12" id="login-div">
+								<div class="form-group">
+									<a href="#" class="btn btn-info btn-block" role="button">My page</a>	
+											</div>
+											<div class="form-group">
+									<form role="form" method="POST" action="/logout">
+										<input type="submit" class="btn btn-info btn-block" value="Log out">
+									</form>
+								</div>
+							</div>
+						</div>			
+					</li>
+				</ul>
+			</li>
+			<%} %>
+					  
+					
+		
+		<!-- li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Login admin<span class="caret"></span></a>
   
-  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Login admin<span class="caret"></span></a>
-  
-  <ul class="dropdown-menu">
+ 		 <ul class="dropdown-menu">
           <form  action="#" role="form"
 				method="POST">
 				<div class="form-group">
@@ -70,7 +133,10 @@
           </form>
         </ul>
 
-        </li>
+        </li-->
+        
+        
+        
       </ul>
     </div>
   </div>

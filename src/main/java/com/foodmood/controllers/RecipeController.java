@@ -30,15 +30,15 @@ public class RecipeController {
 	private RecipeService recipeService;
 	
 	
-	@RequestMapping(value="/addRecipe", method=RequestMethod.POST)
+	@RequestMapping(value="/addRecipe", method=RequestMethod.GET)
 	@ResponseBody
-	public String addRecipe(HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("inne i addRecipe");
-		recipeService.saveRecipe(request);
+	public ModelAndView addRecipe(HttpServletRequest request, HttpServletResponse response) {
 		
-		//ModelAndView modelAndView = new ModelAndView();
+		Recipe recipe = recipeService.saveRecipe(request);
 		
-		return "Recipe Added!";
+		
+		
+		return new ModelAndView("viewRecipe");
 	}
 	
 	

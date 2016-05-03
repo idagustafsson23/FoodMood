@@ -7,6 +7,8 @@
 				
 				<p>HELLO</p>
 				
+				<h1>${recipe.recipeName}</h1>
+				
 				
 			</div>
 		</div>

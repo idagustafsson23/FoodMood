@@ -47,14 +47,17 @@
         <li class="active"><a href="index.jsp">LIJC</a></li>  
        	<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Food</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
-      </ul>
-      	
-	<div>
-    	<form action="" method="GET">
-    		<label for="txtRecipeSearch" id="lblSearch">Sök Recept:<input type="search" id="txtRecipeSearch" /></label> 
+        <li>
+  	
+    	<form action="searchrecipe.jsp" method="GET">
+    		<label id="lblSearch">Sök Recept:</label><input type="search" id="txtRecipeSearch" /> 
     		<input type="submit" id="btnSearch" />
     	</form>
-    </div>
+        </li>
+      
+      </ul>
+      	
+	
  
       <ul class="nav navbar-nav navbar-right">	
 		  
@@ -157,7 +160,7 @@
 <div class="container">
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Food & Mood!</h1>      
+    <h1>Poop & Mood!</h1>      
     <p>by LIJC &reg;</p>
   </div>
 </div>

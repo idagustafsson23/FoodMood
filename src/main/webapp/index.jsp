@@ -11,7 +11,9 @@
 
 </div>
 
-	
 
+<script type="text/javascript">
+
+</script>
 
 <%@ include file="footer.jsp" %>

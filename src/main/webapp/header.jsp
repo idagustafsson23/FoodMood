@@ -41,19 +41,21 @@
       </button>
       <a class="navbar-brand" href="index.jsp">LIJC</a>
     </div-->
-    <div>
-    	<form action="" method="GET">
-    		<label for="txtRecipeSearch">Sök Recept:<input type="search" id="txtRecipeSearch" /></label> 
-    		<input type="submit" id="btnSearch" />
-    	</form>
-    </div>
+    
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.jsp">LIJC</a></li>  
        	<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Food</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
       </ul>
-      
+      	
+	<div>
+    	<form action="" method="GET">
+    		<label for="txtRecipeSearch" id="lblSearch">Sök Recept:<input type="search" id="txtRecipeSearch" /></label> 
+    		<input type="submit" id="btnSearch" />
+    	</form>
+    </div>
+ 
       <ul class="nav navbar-nav navbar-right">	
 		  
 		  <%
@@ -117,6 +119,8 @@
 				</ul>
 			</li>
 			<%} %>
+		
+      
 					  
 					
 		

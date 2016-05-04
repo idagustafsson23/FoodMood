@@ -4,7 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.authentication.UserServiceBeanDefinitionParser;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,7 +28,6 @@ public class UserController {
 		
 		User user = userService.saveUser(request);
 		
-
 		ModelAndView modelAndView= new ModelAndView("/viewUser.jsp");
 		modelAndView.addObject("user", user);
 		return modelAndView;

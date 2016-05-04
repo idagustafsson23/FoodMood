@@ -10,13 +10,16 @@
 .jumbotron {
 	padding: 10px;
 }
+
+#lblSearch {
+	color: #FFFFFF;
+}
    
    
 footer {
 	  background-color: #f2f2f2;
       padding: 10px;
 }
-
 
 
 

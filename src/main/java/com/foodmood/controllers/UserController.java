@@ -22,13 +22,14 @@ public class UserController {
 	private UserService userService;
 	
 	
-	@RequestMapping(value="/addRecipe", method=RequestMethod.POST)
+	@RequestMapping(value="/addUser", method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView addRecipe(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response) {
 		
 		User user = userService.saveUser(request);
 		
 		ModelAndView modelAndView= new ModelAndView("/viewUser.jsp");
+		System.out.println("saved name: " + user.getName());
 		modelAndView.addObject("user", user);
 		return modelAndView;
 		

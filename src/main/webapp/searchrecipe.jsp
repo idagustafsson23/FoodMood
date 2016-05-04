@@ -12,18 +12,12 @@
 
 <div class="row">
 	<div class="col-md-4">
+	${recipename};
 	</div>
 </div>
 
 
 </div>
 
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		
-	});
-
-</script>
 
 <%@ include file="footer.jsp" %>

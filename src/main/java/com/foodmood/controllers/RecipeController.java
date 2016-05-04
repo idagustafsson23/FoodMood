@@ -14,6 +14,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -53,20 +56,24 @@ public class RecipeController {
 		return modelAndView;		
 	}
 	
-	@RequestMapping(value = "/searchRecipe", method = RequestMethod.POST)
+	@RequestMapping(value = "/searchrecipe", method = RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView searchRecipe(String searchData, Model model) {
-		List<Recipe> recipeList = recipeService.getAllRecipes();
-		ModelAndView recipeResult = new ModelAndView();
+	public ModelAndView searchRecipe(HttpServletRequest request) {
+		String searchData = (String)request.getAttribute("inputsearch");
+		List<Recipe> recipeList = recipeService.getAllRecipes();		
+		ModelAndView mv = new ModelAndView("/searchrecipe.jsp");
 		if (recipeList != null && recipeList.size() > 0) {
 			for (int r = 0; r < recipeList.size(); r++) {
 				Recipe recipe = recipeList.get(r);
 				if (recipe.getRecipeName().indexOf(searchData) > -1) {
-				
+					mv.addObject("recipename", recipe.getRecipeName());
+				}
+				else {
+					mv.addObject("recipemessage", "failed to find recipes");
 				}
 			}
 		}
-		return recipeResult;
+		return mv;
 	}
 	
 }

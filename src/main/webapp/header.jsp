@@ -6,6 +6,7 @@
 <%@ page import="javax.servlet.*,java.text.*" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE html>
 <html>
@@ -49,8 +50,8 @@
         <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
         <li>
   	
-    	<form action="searchrecipe.jsp" method="GET">
-    		<label id="lblSearch">Sök Recept:</label><input type="search" id="txtRecipeSearch" /> 
+    	<form action="/recipe/searchRecipe" method="POST">
+    		<label id="lblSearch">Sök Recept:</label><input type="search" name="inputsearch" id="txtRecipeSearch" /> 
     		<input type="submit" id="btnSearch" />
     	</form>
         </li>

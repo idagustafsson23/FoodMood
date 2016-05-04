@@ -41,6 +41,12 @@
       </button>
       <a class="navbar-brand" href="index.jsp">LIJC</a>
     </div-->
+    <div>
+    	<form action="" method="GET">
+    		<label for="txtRecipeSearch">Sök Recept:<input type="search" id="txtRecipeSearch" /></label> 
+    		<input type="submit" id="btnSearch" />
+    	</form>
+    </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="index.jsp">LIJC</a></li>  

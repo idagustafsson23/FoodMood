@@ -27,7 +27,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 //start of defaulthandler for possible sax xml parser interaction
-public class APIManager extends DefaultHandler {
+public class APIManager {
 	private URL newURL;
 	private Map<String, String> values = null;
 	
@@ -54,18 +54,14 @@ public class APIManager extends DefaultHandler {
 		InputStream xmlFile = null;
 		try {
 			xmlFile = newURL.openStream();
+		
+			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();		
+			Document xmlDocument = documentBuilder.parse(xmlFile);
 			
-			SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
-			parser.parse(xmlFile, this);
-			
-			
-			//DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
-			//DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();		
-			//Document xmlDocument = documentBuilder.parse(xmlFile);
-			
-			//Element rootNode = xmlDocument.getDocumentElement();
-			//NodeList nodes = rootNode.getElementsByTagName("artikel");		
-			//String value = getValuesFromArticleNumber(nodes, "7599701");
+			Element rootNode = xmlDocument.getDocumentElement();
+			NodeList nodes = rootNode.getElementsByTagName("artikel");		
+			Map<String, String> value = getValuesFromArticleNumber(nodes, "101");
 			
 			//Node childNode = getNode(rootNode.getChildNodes(), "artikel");
 			//String test = getValuesFromArticleNumber(numberChildNode, "1000005");
@@ -80,53 +76,26 @@ public class APIManager extends DefaultHandler {
 		}
 		return "";
 	}
-	/*	
-	private Node getNode(String tagName, Node node) {
-		NodeList nodeList = node.getChildNodes();
-		Node nodeValue = null;
-	    for ( int x = 0; x < nodeList.getLength(); x++ ) {	    	
-	        nodeValue = nodeList.item(x);     
-	    }	 
-	    return nodeValue;
-	} */
 	
-	
-	private String getValuesFromArticleNumber(NodeList nodes, String articleNumber) {
-		Node nodeValue;
-		
-		for (int i = 0; i < nodes.getLength(); i++) {
-			Node n = nodes.item(i).getFirstChild();
-			System.out.println(n.getTextContent());
+	private Map<String, String> getValuesFromArticleNumber(NodeList nodes, String articleNumber) {
+		try {
+			//get first 200 articles
+			for (int i = 0; i < 200; i++) {
+				Element element = (Element)nodes.item(i).getFirstChild();
+				if (element.getTextContent().equals(articleNumber)) { //if equal to the entered articleNumber get values starting from parent node
+					NodeList nodeList = element.getParentNode().getChildNodes(); 
+					for (int j = 0; j < nodeList.getLength(); j++) {
+						Element childValues = (Element) nodeList.item(j);
+						values.put(childValues.getNodeName(), childValues.getTextContent());
+					}
+				}
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
 		}
-	
-		return "";
+		return values;
 	} 
-	
 
-    @Override
-    public void startDocument() throws SAXException {
-    }
-
-    @Override
-    public void endDocument() throws SAXException {
-    }
-
-    @Override
-    public void startElement(String uri, String localName, String qName,
-            Attributes attributes) throws SAXException {
-    }
-
-    @Override
-    public void endElement(String uri, String localName, String qName)
-            throws SAXException {
-    }
-
-    // To take specific actions for each chunk of character data (such as
-    // adding the data to a node or buffer, or printing it to a file).
-    @Override
-    public void characters(char ch[], int start, int length)
-            throws SAXException {
-    }
 	
 	public String convertToJSON(Map<String, String> val) throws JSONException {
 		StringBuilder stringBuilder = new StringBuilder();

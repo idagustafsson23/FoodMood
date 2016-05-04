@@ -4,6 +4,7 @@
 <%@ page import ="java.util.ArrayList" %>
 <%@ page import="java.io.*,java.util.*" %>
 <%@ page import="javax.servlet.*,java.text.*" %>
+<%@ page import="com.foodmood.models.User" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -21,7 +22,7 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="style/style.css" >
+	<link rel="stylesheet" type="text/css" href="/style/style.css" >
 
 	<%@ page isELIgnored="false" %>
 </head>
@@ -44,7 +45,7 @@
     
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="index.jsp">LIJC</a></li>  
+        <li class="active"><a href="/index.jsp">LIJC</a></li>  
        	<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Food</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
         <li>
@@ -63,10 +64,10 @@
 		  
 		  <%
 			boolean loggedIn = false;
-			String userLoggedIn = "";
-			if(session.getAttribute("userLoggedIn") != null) {
+			User userLoggedIn = null;
+			if(request.getAttribute("userLoggedIn") != null) {
 				loggedIn = true;
-				userLoggedIn = (String) session.getAttribute("userLoggedIn");
+				userLoggedIn = (User) request.getAttribute("userLoggedIn");
 			}
 		%>
 				
@@ -77,12 +78,12 @@
 					<li>
 						<div class="row">
 							<div class="col-md-12" id="login-div">
-								<form role="form" method="POST" action="/user/login">
+								<form role="form" method="POST" action="/user/loginUser">
 									<div>
 										<h2 class="text-center form-signin-heading">Login</h2>
 									</div>
 									<div class="form-group col-md-12">
-										<input type="text" name="userName" placeholder="Username">
+										<input type="text" name="username" placeholder="Username">
 									</div>
 									<div class="form-group col-md-12">
 										<input type="password" name="password" placeholder="Password">
@@ -91,7 +92,7 @@
 										<input type="submit" class="btn btn-info" value="Login">
 									</div>
 									<div class="form-group col-md-12">
-									<a href="#">New user? Register here.</a>
+									<a href="/registerUser.jsp">New user? Register here.</a>
 									</div>
 								</form>
 							</div>
@@ -102,17 +103,16 @@
 			<%} %>
 			
 			<%if(loggedIn) { %>
-			<li class="dropdown"><a class="dropdown-toggle"
-				data-toggle="dropdown" href="#"><%=userLoggedIn %><span class="caret"></span></a>
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=userLoggedIn.getName() %><span class="caret"></span></a>
 				<ul id="user-dropdown" class="dropdown-menu">
 					<li>
 						<div class="row">
 							<div class="col-md-12" id="login-div">
 								<div class="form-group">
-									<a href="#" class="btn btn-info btn-block" role="button">My page</a>	
+									<a href="/user/userPage/<%=userLoggedIn.getId()%>" class="btn btn-info btn-block" role="button">My page</a>	
 											</div>
 											<div class="form-group">
-									<form role="form" method="POST" action="/logout">
+									<form role="form" method="POST" action="/user/logoutUser">
 										<input type="submit" class="btn btn-info btn-block" value="Log out">
 									</form>
 								</div>
@@ -122,32 +122,7 @@
 				</ul>
 			</li>
 			<%} %>
-		
-      
-					  
-					
-		
-		<!-- li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Login admin<span class="caret"></span></a>
-  
- 		 <ul class="dropdown-menu">
-          <form  action="#" role="form"
-				method="POST">
-				<div class="form-group">
-					<label for="userName" class="control-label">Användarnamn:</label>
-          			<input type="text" class="form-control" placeholder="Användarnamn" />
-          		</div>
-          		<div class="form-group">
-					<label for="password" class="control-label">Lösenord:</label>
-          			<input type="password" class="form-control" placeholder="Lösenord" />
-          		</div>
-          		<div class="form-group">
-          			<button type="submit" class="btn btn-default">Submit</button>
-          		</div>
-          </form>
-        </ul>
-
-        </li-->
-        
+		 
         
         
       </ul>

@@ -38,13 +38,29 @@ public class UserService {
 		return (User) userRepository.findOne(id);
 	}
 
+	
+	
 	public void deleteRecipe(Long id) {
 		userRepository.delete(id);
 	}	
 		
+	
+	
 	public List<User> getAllUsers() {
 		List<User> users = userRepository.findAll();
 		return users;
+	}
+	
+	
+	public User loginUser(String username, String password) {
+		List<User> users = userRepository.findAll();
+		User user = null;
+		for(User currentUser : users ) {
+			if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+				user = currentUser;
+			}
+		}
+		return user;
 	}
 	
 	private User createUser(HttpServletRequest request) {
@@ -68,7 +84,7 @@ public class UserService {
 		//detta gör alla users till admin, fixa sen!!
 		user.setAdmin(true);
 		
-		return new User();
+		return user;
 	}
 
 

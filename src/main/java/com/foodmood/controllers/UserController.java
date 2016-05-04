@@ -2,6 +2,7 @@ package com.foodmood.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -29,11 +30,38 @@ public class UserController {
 		User user = userService.saveUser(request);
 		
 		ModelAndView modelAndView= new ModelAndView("/viewUser.jsp");
-		System.out.println("saved name: " + user.getName());
-		modelAndView.addObject("user", user);
+		modelAndView.addObject("userLoggedIn", user);
+		modelAndView.addObject("message", user.getName() + " added to database and logged on");
 		return modelAndView;
+	}
+	
+	
+	@RequestMapping(value="/loginUser", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView loginUser(HttpServletRequest request, HttpServletResponse response) {
 		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		User user = userService.loginUser(username, password);
+
+		ModelAndView modelAndView= new ModelAndView("/viewUser.jsp");
+		if(user != null) {
+		modelAndView.addObject("userLoggedIn", user);
+		modelAndView.addObject("message", user.getName() + " logged on");
+		}
 		
+		return modelAndView;
+	}
+	
+	
+	@RequestMapping(value="/logoutUser", method=RequestMethod.POST)
+	@ResponseBody
+	public ModelAndView logoutUser(HttpServletRequest request, HttpServletResponse response) {
+		
+		HttpSession session = request.getSession();
+		session.removeAttribute("userLoggedIn");
+		ModelAndView modelAndView= new ModelAndView("/index.jsp");
+		return modelAndView;
 	}
 	
 	

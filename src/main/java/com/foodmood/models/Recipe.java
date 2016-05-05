@@ -1,15 +1,15 @@
 package com.foodmood.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-
-
 
 @Entity
 public class Recipe {
@@ -20,11 +20,17 @@ public class Recipe {
 	
 	private String recipeName;
 	private ArrayList<String> recipeDescription;
+	
 	private ArrayList<RecipeComponent> recipeComponents;
-	private ArrayList<Ingredient> recipeIngredients;
+	
+	/* need to map this as @onetomany, otherwise no relation will be made to ingridients table. 
+	 * use private set<Ingredient> recipeIngredients with annotation
+	 */
+	@OneToMany(cascade = {CascadeType.ALL})
+	private List<Ingredient> recipeIngredients;
+	
 	@OneToOne(cascade = {CascadeType.ALL})
 	private FoodTag foodTag;
-
 
 
 	public Recipe() {
@@ -57,12 +63,12 @@ public class Recipe {
 		this.recipeComponents = recipeComponents;
 	}
 
-	public ArrayList<Ingredient> getRecipeIngredients() {
+	public List<Ingredient> getRecipeIngredients() {
 		return recipeIngredients;
 	}
-
-	public void setRecipeIngredients(ArrayList<Ingredient> recipeIngredients) {
-		this.recipeIngredients = recipeIngredients;
+	
+	public void setRecipeIngredients(List<Ingredient> recipeIngredients) {
+		this.recipeIngredients = recipeIngredients;		
 	}
 
 	public Long getId() {
@@ -77,9 +83,5 @@ public class Recipe {
 	public FoodTag getFoodTag() {
 		return foodTag;
 	}
-	
-	
-	
-	
 	
 }

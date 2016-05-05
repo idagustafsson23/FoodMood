@@ -1,10 +1,7 @@
 <%@ include file="header.jsp"%>
-
-
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				
 				<>h1>${recipe.recipeName}</h1>
 				<br>
 				<c:forEach var="listValue" items="${recipe.recipeDescription}">
@@ -13,6 +10,4 @@
 			</div>
 		</div>
 	</div>
-
-
 <%@ include file="footer.jsp"%>

@@ -51,7 +51,7 @@
         <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
         <li>
   	
-    	<form action="/recipe/searchRecipe" method="POST">
+    	<form action="/recipe/searchrecipe" method="POST">
     		<label id="lblSearch">Sök Recept:</label><input type="search" name="inputsearch" id="txtRecipeSearch" /> 
     		<input type="submit" id="btnSearch" />
     	</form>

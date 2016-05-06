@@ -6,6 +6,9 @@
 <%@ page import="javax.servlet.*,java.text.*" %>
 <%@ page import="com.foodmood.models.User" %>
 <%@ page import="com.foodmood.models.Recipe" %>
+<%@ page import="com.foodmood.models.Ingredient" %>
+<%@ page import="com.foodmood.models.FoodTag" %>
+<%@ page import="com.foodmood.models.RecipeComponent" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>

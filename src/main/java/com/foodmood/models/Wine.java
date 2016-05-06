@@ -2,6 +2,7 @@ package com.foodmood.models;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,9 +17,11 @@ public class Wine {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long id;
 	
-	private String wineSort;
+	private String wineSort; 
 	private ArrayList<String> grapes;
+	@Column(columnDefinition="longblob") 
 	private ArrayList<String> foodTags;
+	@Column(columnDefinition="longblob")
 	private ArrayList<Integer> scoreForFoodTag;
 	
 	public Wine() {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,15 +21,15 @@ public class Recipe {
 	
 	private String recipeName;
 	
+	@Column(columnDefinition="longblob") 
 	private ArrayList<String> recipeDescription;
 	
 	@OneToMany(cascade = {CascadeType.PERSIST})
+	@Column(columnDefinition="longblob")
 	private List<RecipeComponent> recipeComponents;
 	
-	/* need to map this as @onetomany, otherwise no relation will be made to ingridients table. 
-	 * use private set<Ingredient> recipeIngredients with annotation
-	 */
 	@OneToMany(cascade = {CascadeType.ALL})
+	@Column(columnDefinition="longblob")
 	private List<Ingredient> recipeIngredients;
 	
 	@OneToOne(cascade = {CascadeType.ALL})

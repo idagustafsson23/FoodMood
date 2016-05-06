@@ -1,12 +1,15 @@
 package com.foodmood.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
-
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class RecipeComponent {
@@ -14,10 +17,14 @@ public class RecipeComponent {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	Long id;
-	
+
 	private String componentName;
+	@Column(columnDefinition="longblob")
 	private ArrayList<String> componentDescription;
-	private ArrayList<Ingredient> componentIngredients; 
+	
+	@OneToMany(cascade = {CascadeType.ALL})
+	@Column(columnDefinition="longblob")
+	private List<Ingredient> componentIngredients; 
 	
 	public RecipeComponent() {
 		componentDescription = new ArrayList<String>();
@@ -40,11 +47,11 @@ public class RecipeComponent {
 		this.componentDescription = componentDescription;
 	}
 
-	public ArrayList<Ingredient> getComponentIngredients() {
+	public List<Ingredient> getComponentIngredients() {
 		return componentIngredients;
 	}
 
-	public void setComponentIngredients(ArrayList<Ingredient> componentIngredients) {
+	public void setComponentIngredients(List<Ingredient> componentIngredients) {
 		this.componentIngredients = componentIngredients;
 	}
 

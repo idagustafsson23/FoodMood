@@ -25,11 +25,6 @@ public class Ingredient {
 	private FoodTag foodTag;
 	
 	
-	//might need manytoone relation to recipe here
-	
-	@ManyToOne
-	@JoinColumn(name = "recipeID", referencedColumnName = "id")
-	private Recipe recipe;
 	
 	public Ingredient() {
 		

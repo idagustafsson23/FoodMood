@@ -55,7 +55,7 @@ public class RecipeService {
 			String[] arrayOfComponentDescription = request.getParameter("recipeComponentDescripton").split("\n");
 			recipeComponent.setComponentDescription(new ArrayList<String>(Arrays.asList(arrayOfComponentDescription)));
 			
-			ArrayList<Ingredient> recipeComponentIngrediens = new ArrayList<Ingredient>();
+			List<Ingredient> recipeComponentIngrediens = new ArrayList<Ingredient>();
 			Ingredient ingredient = new Ingredient();
 			ingredient.setIngredientName(request.getParameter("componentIngredientName"));
 			ingredient.setAmountPerPortion(Double.parseDouble(request.getParameter("componentIngredientAmount")));
@@ -66,7 +66,7 @@ public class RecipeService {
 			
 			ingredient.setFoodTag(foodTag);
 			recipeComponentIngrediens.add(ingredient);
-			
+			recipeComponent.setComponentIngredients(recipeComponentIngrediens);
 			recipeComponents.add(recipeComponent);
 						
 			List<Ingredient> recipeIngredients = new ArrayList<Ingredient>();

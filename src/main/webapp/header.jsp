@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="ISO-8859-1"%>
     
 <%@ page import ="java.util.ArrayList" %>
 <%@ page import="java.io.*,java.util.*" %>
 <%@ page import="javax.servlet.*,java.text.*" %>
 <%@ page import="com.foodmood.models.User" %>
+<%@ page import="com.foodmood.models.Recipe" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -13,7 +14,7 @@
 <html>
 <head>
 	<title id="pageTitle">LIJC</title>
-	<meta charset="UTF-8">
+	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
@@ -26,6 +27,7 @@
 	<link rel="stylesheet" type="text/css" href="/style/style.css" >
 
 	<%@ page isELIgnored="false" %>
+	<meta charset="utf-8">
 </head>
 
 

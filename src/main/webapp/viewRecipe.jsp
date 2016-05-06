@@ -5,11 +5,15 @@
 		<div class="row">
 			<div class="col-sm-12">
 				
-				<>h1>${recipe.recipeName}</h1>
+				<h1>${recipe.recipeName}</h1>
 				<br>
-				<c:forEach var="listValue" items="${recipe.recipeDescription}">
-					<>h4>${listValue}</h4><br>
-				</c:forEach>
+				<% 
+				Recipe recipe = (Recipe) request.getAttribute("recipe");
+				ArrayList<String> recipeDescription = recipe.getRecipeDescription();
+				for(int i = 0; i < recipeDescription.size(); i++){
+				%>
+					<h5><%= recipeDescription.get(i) %></h5>
+				<%} %>
 			</div>
 		</div>
 	</div>

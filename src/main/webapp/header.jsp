@@ -69,6 +69,10 @@
 			if(request.getAttribute("userLoggedIn") != null) {
 				loggedIn = true;
 				userLoggedIn = (User) request.getAttribute("userLoggedIn");
+				session.setAttribute("userLoggedIn", userLoggedIn);
+			}else if(session.getAttribute("userLoggedIn") != null) {
+				loggedIn = true;
+				userLoggedIn = (User) session.getAttribute("userLoggedIn");
 			}
 		%>
 				
@@ -79,7 +83,7 @@
 					<li>
 						<div class="row">
 							<div class="col-md-12" id="login-div">
-								<form role="form" method="POST" action="/user/loginUser">
+								<form role="form" method="GET" action="/user/loginUser">
 									<div>
 										<h2 class="text-center form-signin-heading">Login</h2>
 									</div>
@@ -107,16 +111,16 @@
 			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><%=userLoggedIn.getName() %><span class="caret"></span></a>
 				<ul id="user-dropdown" class="dropdown-menu">
 					<li>
-						<div class="row">
-							<div class="col-md-12" id="login-div">
-								<div class="form-group">
-									<a href="/user/userPage/<%=userLoggedIn.getId()%>" class="btn btn-info btn-block" role="button">My page</a>	
-											</div>
-											<div class="form-group">
-									<form role="form" method="POST" action="/user/logoutUser">
-										<input type="submit" class="btn btn-info btn-block" value="Log out">
+						<div class="row" id="">
+							<div class="col-md-12" id="logout-div">
+									<div class="form-group">
+										<a href="/user/userPage/<%=userLoggedIn.getId()%>" class="btn btn-info btn-block" role="button">My page</a>	
+									</div>		
+									<form role="form" method="GET" action="/user/logoutUser">
+										<div class="form-group">
+											<input type="submit" class="btn btn-info btn-block" value="Log out">
+										</div>
 									</form>
-								</div>
 							</div>
 						</div>			
 					</li>

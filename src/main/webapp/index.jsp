@@ -5,8 +5,7 @@
 	<div class="col-sm-12">
 		<h1>Välkommen!</h1>		
 		<a href="addRecipe.jsp">Lägg till recept!</a><br>
-		<a href="apitest.jsp">Testa api</a>
-		<a href="registerUser.jsp">Reg user</a>
+		<a href="apitest.jsp">Testa api</a><br>
 		
 	</div>
 </div>

@@ -59,7 +59,7 @@ public class RecipeController {
 	@RequestMapping(value = "/searchrecipe", method = RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView searchRecipe(HttpServletRequest request) {
-		String searchData = (String)request.getAttribute("inputsearch");
+		String searchData = (String)request.getParameter("inputsearch");
 		List<Recipe> recipeList = recipeService.getAllRecipes();		
 		ModelAndView mv = new ModelAndView("/searchrecipe.jsp");
 		if (recipeList != null && recipeList.size() > 0) {
@@ -69,9 +69,12 @@ public class RecipeController {
 					mv.addObject("recipename", recipe.getRecipeName());
 				}
 				else {
-					mv.addObject("recipemessage", "failed to find recipes");
+					mv.addObject("recipemessage", "No More Recipes with that name");
 				}
 			}
+		}
+		else {
+			mv.addObject("recipemessage", "failed to get data from datasource");
 		}
 		return mv;
 	}

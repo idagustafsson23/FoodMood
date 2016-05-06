@@ -5,7 +5,7 @@
 	<div class="col-sm-12">
 
 
-<form class="form-horizontal" role="form" method="post" action="/user/updateUser">
+<form class="form-horizontal" role="form" method="PUT" action="/user/updateUser">
 	
 	
 	<% if(request.getAttribute("message") != null) {%>

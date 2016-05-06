@@ -22,6 +22,8 @@ public class Ingredient {
 	@OneToOne(cascade = {CascadeType.ALL})
 	private FoodTag foodTag;
 	
+	
+	//might need manytoone relation to recipe here
 	public Ingredient() {
 		
 	}
@@ -50,8 +52,6 @@ public class Ingredient {
 		this.unitOfMeasurement = unitOfMeasurement;
 	}
 
-	
-
 	public Long getId() {
 		return id;
 	}
@@ -65,7 +65,5 @@ public class Ingredient {
 		return foodTag;
 	}
 
-	
-	
 	
 }

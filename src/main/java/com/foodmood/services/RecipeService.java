@@ -66,8 +66,7 @@ public class RecipeService {
 			
 			ingredient.setFoodTag(foodTag);
 			recipeComponentIngrediens.add(ingredient);
-			
-			
+						
 			ArrayList<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
 			Ingredient recipeIngredient = new Ingredient();
 			recipeIngredient.setIngredientName(request.getParameter("recipeIngredientName"));
@@ -93,7 +92,6 @@ public class RecipeService {
 			
 			return recipe;
 		}
-
 		
 		
 }

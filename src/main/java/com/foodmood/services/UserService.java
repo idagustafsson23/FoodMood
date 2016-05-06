@@ -4,9 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 
-
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,11 +22,15 @@ import com.foodmood.models.User;
 import com.foodmood.repositories.UserRepository;
 
 @Service
+@Transactional
 public class UserService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
+	//@Resource
+    //private SessionFactory sessionFactory;
+
 	
 	public UserService() {
 		
@@ -52,12 +62,16 @@ public class UserService {
 	}
 	
 	
+	@SuppressWarnings("null")
 	public User loginUser(String username, String password) {
 		List<User> users = userRepository.findAll();
 		User user = null;
 		for(User currentUser : users ) {
-			if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+			System.out.println("username: " + currentUser.getUsername());
+			if(currentUser.getUsername().equals(username) && currentUser.getPassword().equals(password)) {
 				user = currentUser;
+				System.out.println("found user");
+				break;
 			}
 		}
 		return user;
@@ -88,6 +102,45 @@ public class UserService {
 	}
 
 
+	
+	
+	public User updateUser(HttpServletRequest request, Long id) {
+		
+		/*
+		 
+		FORTSÄTT KOLLA UPP sessionfactory och annotation för injection....
+		
+		
+		final Session session = sessionFactory.getCurrentSession();
+		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		String address1 = request.getParameter("address1");
+		String address2 = request.getParameter("address2");
+		String phonenumber = request.getParameter("phonenumber");
+		
+		User user = (User) session.get(User.class, id);
+		
+		user.setUsername(username);
+		user.setPassword(password);
+		user.setName(name);
+		user.setEmail(email);
+		user.setAddress1(address1);
+		user.setAddress2(address2);
+		user.setPhoneNumber(phonenumber);
+		
+		session.update(user);
+		*/
+		return null;
+		
+	}
+
+
+	
+	
+	
 	
 	
 }

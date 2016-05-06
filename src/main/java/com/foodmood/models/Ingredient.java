@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -24,6 +26,11 @@ public class Ingredient {
 	
 	
 	//might need manytoone relation to recipe here
+	
+	@ManyToOne
+	@JoinColumn(name = "recipeID", referencedColumnName = "id")
+	private Recipe recipe;
+	
 	public Ingredient() {
 		
 	}

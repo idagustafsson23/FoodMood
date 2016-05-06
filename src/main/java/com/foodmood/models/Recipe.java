@@ -19,9 +19,11 @@ public class Recipe {
 	Long id;
 	
 	private String recipeName;
+	
 	private ArrayList<String> recipeDescription;
 	
-	private ArrayList<RecipeComponent> recipeComponents;
+	@OneToMany(cascade = {CascadeType.PERSIST})
+	private List<RecipeComponent> recipeComponents;
 	
 	/* need to map this as @onetomany, otherwise no relation will be made to ingridients table. 
 	 * use private set<Ingredient> recipeIngredients with annotation
@@ -55,11 +57,11 @@ public class Recipe {
 		this.recipeDescription = recipeDescription;
 	}
 
-	public ArrayList<RecipeComponent> getRecipeComponents() {
+	public List<RecipeComponent> getRecipeComponents() {
 		return recipeComponents;
 	}
 
-	public void setRecipeComponents(ArrayList<RecipeComponent> recipeComponents) {
+	public void setRecipeComponents(List<RecipeComponent> recipeComponents) {
 		this.recipeComponents = recipeComponents;
 	}
 

@@ -66,8 +66,10 @@ public class RecipeService {
 			
 			ingredient.setFoodTag(foodTag);
 			recipeComponentIngrediens.add(ingredient);
+			
+			recipeComponents.add(recipeComponent);
 						
-			ArrayList<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
+			List<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
 			Ingredient recipeIngredient = new Ingredient();
 			recipeIngredient.setIngredientName(request.getParameter("recipeIngredientName"));
 			recipeIngredient.setAmountPerPortion(Double.parseDouble(request.getParameter("recipeIngredientAmount")));
@@ -78,10 +80,11 @@ public class RecipeService {
 			
 			recipeIngredient.setFoodTag(recipeIngredientfoodTag);
 			
+			recipeIngredients.add(recipeIngredient);
+			
 			FoodTag recipeTag = new FoodTag();
 			recipeTag.setTagName(request.getParameter("recipeTag"));
-			
-			
+						
 			Recipe recipe = new Recipe();
 			
 			recipe.setRecipeName(recipeName);
@@ -89,6 +92,7 @@ public class RecipeService {
 			recipe.setFoodTag(recipeTag);
 			recipe.setRecipeComponents(recipeComponents);
 			recipe.setRecipeIngredients(recipeIngredients);
+	
 			
 			return recipe;
 		}

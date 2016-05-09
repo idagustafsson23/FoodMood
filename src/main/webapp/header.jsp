@@ -39,6 +39,25 @@
 <body>
 
 <div id="wrapAll">
+<div class="bg"></div>
+<div class="jumbotron">
+<div class="container">
+  <div class="container text-center" id = "jumbotrontext">
+    <h1>Food & Mood!</h1>      
+    <p>by LIJC</p>
+  <div id="custom-search-input"> 
+                <div class="input-group col-md-12">
+                    <input type="text" class="form-control input-lg" placeholder="Search" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+  </div>
+</div>
+</div>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -56,13 +75,7 @@
         <li class="active"><a href="/index.jsp">LIJC</a></li>  
        	<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Food</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
-        <li>
-  	
-    	<form action="/recipe/searchrecipe" method="POST">
-    		<label id="lblSearch">Sök Recept:</label><input type="search" name="inputsearch" id="txtRecipeSearch" /> 
-    		<input type="submit" id="btnSearch" />
-    	</form>
-        </li>
+        
       
       </ul>
       	
@@ -144,13 +157,5 @@
 
 
 
-<div class="container">
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>Poop & Mood!</h1>      
-    <p>by LIJC &reg;</p>
-  </div>
-</div>
-</div>
 
 

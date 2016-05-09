@@ -1,9 +1,10 @@
 <div id="push"></div>
 </div>	<!-- avslutar wrapAll diven -->		
 		
-<footer class="container text-center">
-  <p>-- &copy; LIJC --</p>
-</footer>
+
+  
+  <div class="panel-footer" id = "footer">Insert footer info here</div>
+
 	
 	</body>
 </html>

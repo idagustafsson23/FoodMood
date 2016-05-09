@@ -13,6 +13,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,6 +32,11 @@
 	
 	<script type="text/javascript" src="/javascript/foodmood.js"></script>
 	
+
+	<link rel="stylesheet" type="text/css" href="/style/style.css" >
+	
+
+
 	<%@ page isELIgnored="false" %>
 	<meta charset="utf-8" />
 </head>
@@ -48,7 +54,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.jsp">LIJC</a>
+      <a class="navbar-brand" href="/index.jsp">LIJC</a>
     </div-->
     
     <div class="collapse navbar-collapse" id="myNavbar">

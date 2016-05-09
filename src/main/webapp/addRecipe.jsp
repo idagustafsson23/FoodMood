@@ -28,13 +28,13 @@
 					<div class="col-xs-10">
 						<div class="form-inline">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Typ" name="recipeIngredientName"/>
+								<input type="text" class="form-control" placeholder="Typ" name="recipeIngredientName" id="recipeIngredientName"/>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Mängd" name="recipeIngredientAmount"/>
+								<input type="text" class="form-control" placeholder="Mängd" name="recipeIngredientAmount" id="recipeIngredientAmount"/>
 							</div>
 			   				<div class="form-group">
-								<select class="form-control" id="recipeIngridients" name="recipeAmountUnit">
+								<select class="form-control" id="recipeIngridients" name="recipeAmountUnit" id="recipeAmountUnit">
 									<option value="dl">dl</option>
 									<option value="l">l</option>
 									<option value="cl">cl</option>
@@ -44,11 +44,12 @@
 									<option value="krm">krm</option>
 									<option value="g">g</option>
 									<option value="kg">kg</option>
+									<option value="st">st</option>
 
 								</select>
 							</div>
 							<div class="form-group">
-								<select class="form-control" id="recipeIngredientTags" name="recipeIngredientTags">
+								<select class="form-control" id="recipeIngredientTags" name="recipeIngredientTags" id="recipeIngredientTags">
 									<option value="null">Taggar:</option>
 									<option value="Red Meat">Rött Kött</option>
 									<option value="Cured Meat">Chark</option>
@@ -115,6 +116,7 @@
 									<option value="krm">krm</option>
 									<option value="g">g</option>
 									<option value="kg">kg</option>
+									<option value="st">st</option>
 
 								</select>
 							</div>

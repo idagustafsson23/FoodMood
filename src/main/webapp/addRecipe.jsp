@@ -34,7 +34,7 @@
 								<input type="text" class="form-control" placeholder="Mängd" name="recipeIngredientAmount" id="recipeIngredientAmount"/>
 							</div>
 			   				<div class="form-group">
-								<select class="form-control" id="recipeIngridients" name="recipeAmountUnit" id="recipeAmountUnit">
+								<select class="form-control" name="recipeAmountUnit" id="recipeAmountUnit">
 									<option value="dl">dl</option>
 									<option value="l">l</option>
 									<option value="cl">cl</option>
@@ -49,7 +49,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<select class="form-control" id="recipeIngredientTags" name="recipeIngredientTags" id="recipeIngredientTags">
+								<select class="form-control" name="recipeIngredientTags" id="recipeIngredientTags">
 									<option value="null">Taggar:</option>
 									<option value="Red Meat">Rött Kött</option>
 									<option value="Cured Meat">Chark</option>
@@ -83,6 +83,7 @@
 									<option value="Chocolate and Coffee">Choklad och Kaffe</option>
 								</select>
 							</div>
+							    <button type="button" class="btn btn-default" id="btnaddingredient">Lägg till fler ingredienser</button>
 						</div>
 					</div>
 				</div>
@@ -100,13 +101,13 @@
 					<div class="col-xs-10">
 						<div class="form-inline">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Typ" name="componentIngredientName"/>
+								<input type="text" class="form-control" placeholder="Typ" name="componentIngredientName" id="componentIngredientName"/>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Mängd" name="componentIngredientAmount" />
+								<input type="text" class="form-control" placeholder="Mängd" name="componentIngredientAmount" id="componentIngredientAmount" />
 							</div>
 							<div class="form-group">
-								<select class="form-control" id="recipeIngridients" name="componentAmountUnit">
+								<select class="form-control" id="componentAmountUnit" name="componentAmountUnit">
 									<option value="dl">dl</option>
 									<option value="l">l</option>
 									<option value="cl">cl</option>
@@ -121,7 +122,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<select class="form-control" id="recipeIngridients" name="componentIngredientTags">
+								<select class="form-control" id="componentIngredientTags" name="componentIngredientTags">
 									<option value="null">Taggar:</option>
 									<option value="Red Meat">Rött Kött</option>
 									<option value="Cured Meat">Chark</option>
@@ -155,6 +156,7 @@
 									<option value="Chocolate and Coffee">Choklad och Kaffe</option>
 								</select>
 							</div>
+							     			<button type="button" class="btn btn-default" id="btnaddcomponentingredient">Lägg till fler ingredienser</button>
 						</div>
 					</div>
 				</div>
@@ -165,8 +167,9 @@
 				</div>
 				
 				<div class="form-group">
-          			<button type="submit" class="btn btn-default">Lägg Till</button>
-          			<button type="button" class="btn btn-default" id="btnadd">Lägg till fler recept</button>
+          			<button type="button" class="btn btn-default" id="btnaddcomponents">Lägg till fler tillbehör</button>
+          			<button type="button" class="btn btn-default" id="btnaddrecipe">Lägg Till</button>
+     				
           		</div>
 				
 			</form>

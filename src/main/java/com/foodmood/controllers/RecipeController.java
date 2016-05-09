@@ -28,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.foodmood.api.APIManager;
+import com.foodmood.models.Ingredient;
 import com.foodmood.models.Recipe;
 import com.foodmood.services.RecipeService;
 
@@ -63,11 +64,8 @@ public class RecipeController {
 	
 	@RequestMapping(value="/")
 	@ResponseBody //omit this if controller is used as restcontroller
-	public Recipe addMoreRecipes(@RequestBody Recipe recipe) {
-		List<Recipe> allRecipes = recipeService.getAllRecipes();		
-		allRecipes.add(recipe);
-		
-	    return recipe;
+	public void addMoreIngridients(@RequestBody Recipe recipe) {
+		List<Recipe> allRecipes = recipeService.getAllRecipes();
 	}
 	
 

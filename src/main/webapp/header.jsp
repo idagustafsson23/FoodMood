@@ -154,25 +154,12 @@
 			</li>
 			<%} %>
 		 
-        
-        
+   
       </ul>
     </div>
   </div>
 </nav>
 
 
-
-<<<<<<< HEAD
-=======
-<div class="container">
-<div class="jumbotron">
-  <div class="container text-center">
-    <h1>Food and Mood!</h1>      
-    <p>by LIJC &reg;</p>
-  </div>
-</div>
-</div>
->>>>>>> 7cb7be72abc5227ff996b1bd904ad4c17c407d0b
 
 

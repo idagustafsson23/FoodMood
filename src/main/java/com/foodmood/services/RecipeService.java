@@ -66,6 +66,7 @@ public class RecipeService {
 			
 			return recipe;
 		}
+		
 
 		private List<Ingredient> getRecipeIngredients(HttpServletRequest request) {
 			List<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
@@ -110,6 +111,8 @@ public class RecipeService {
 			recipeComponentIngrediens.add(ingredient);
 			return recipeComponentIngrediens;
 		}
+		
+		
 		
 		
 }

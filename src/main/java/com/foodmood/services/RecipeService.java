@@ -23,10 +23,8 @@ public class RecipeService {
 
 		public Recipe saveRecipe(HttpServletRequest request) {
 			Recipe recipe = createRecipe(request);
-			recipe = recipeRepository.saveAndFlush(recipe);
-			
-			return recipe;
-			
+			recipe = recipeRepository.saveAndFlush(recipe);			
+			return recipe;			
 		}
 
 		public Recipe readRecipe(Long id) {

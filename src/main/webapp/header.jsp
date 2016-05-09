@@ -28,11 +28,17 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+	<link rel="stylesheet" type="text/css" href="/style/style.css" />
+	
+	<script type="text/javascript" src="/javascript/foodmood.js"></script>
+	
+
 	<link rel="stylesheet" type="text/css" href="/style/style.css" >
 	
 
+
 	<%@ page isELIgnored="false" %>
-	<meta charset="utf-8">
+	<meta charset="utf-8" />
 </head>
 
 
@@ -157,5 +163,16 @@
 
 
 
+<<<<<<< HEAD
+=======
+<div class="container">
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Food and Mood!</h1>      
+    <p>by LIJC &reg;</p>
+  </div>
+</div>
+</div>
+>>>>>>> 7cb7be72abc5227ff996b1bd904ad4c17c407d0b
 
 

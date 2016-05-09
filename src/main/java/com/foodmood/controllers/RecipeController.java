@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.foodmood.api.APIManager;
 import com.foodmood.models.Recipe;
 import com.foodmood.services.RecipeService;
 
@@ -33,6 +35,8 @@ import com.foodmood.services.RecipeService;
 @Controller
 @RequestMapping("/recipe")
 public class RecipeController {
+	
+	private ModelAndView modelAndView;
 	
 	@Autowired
 	private RecipeService recipeService;
@@ -55,6 +59,18 @@ public class RecipeController {
 		modelAndView.addObject("recipe", recipe);
 		return modelAndView;		
 	}
+	
+	
+	@RequestMapping(value="/")
+	@ResponseBody //omit this if controller is used as restcontroller
+	public Recipe addMoreRecipes(@RequestBody Recipe recipe) {
+		List<Recipe> allRecipes = recipeService.getAllRecipes();		
+		allRecipes.add(recipe);
+		
+	    return recipe;
+	}
+	
+
 	
 	@RequestMapping(value = "/searchrecipe", method = RequestMethod.POST)
 	@ResponseBody

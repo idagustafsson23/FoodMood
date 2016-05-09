@@ -1,23 +1,10 @@
 package com.foodmood.services;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
-
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.foodmood.models.Recipe;
-import com.foodmood.models.RecipeComponent;
 import com.foodmood.models.User;
 import com.foodmood.repositories.UserRepository;
 
@@ -62,7 +49,6 @@ public class UserService {
 	}
 	
 	
-	@SuppressWarnings("null")
 	public User loginUser(String username, String password) {
 		List<User> users = userRepository.findAll();
 		User user = null;
@@ -105,7 +91,18 @@ public class UserService {
 	
 	
 	public User updateUser(HttpServletRequest request, Long id) {
-		
+		User currentUser = null;
+		try {
+			if (id != null && request != null) {
+				currentUser = (User)userRepository.findOne(id);
+				currentUser.setUsername(request.getParameter("username"));
+				userRepository.saveAndFlush(currentUser);
+				request.getSession().setAttribute("updateuser", currentUser);
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			//throw new UserNotFoundException();
+		}
 		/*
 		 
 		FORTSÄTT KOLLA UPP sessionfactory och annotation för injection....
@@ -133,7 +130,7 @@ public class UserService {
 		
 		session.update(user);
 		*/
-		return null;
+		return currentUser;
 		
 	}
 

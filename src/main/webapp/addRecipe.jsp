@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<form action="http://localhost:8080/recipe/addRecipe" role="form"
-				method="POST">
+				method="POST" id="recipeform">
 				<div class="form-group">
 					<label for="recipeName">Recept namn:</label> <input type="text"
 						class="form-control" id="recipeName" name="recipeName">
@@ -69,7 +69,7 @@
 									<option value="Beans and Peas">Bönor och Ärtor</option>
 									<option value="Black pepper">Svartpeppar</option>
 									<option value="Red pepper">Rödpeppar</option>
-									<option value="Hot and Spicy">Hot & Spicy</option>
+									<option value="Hot and Spicy">Hot and Spicy</option>
 									<option value="Herbs">Örter</option>
 									<option value="Baking spices">Baknings kryddor</option>
 									<option value="Exotic and Aromatic spices">Exotiska och Aromatiska kryddor</option>
@@ -140,7 +140,7 @@
 									<option value="Beans and Peas">Bönor och Ärtor</option>
 									<option value="Black pepper">Svartpeppar</option>
 									<option value="Red pepper">Rödpeppar</option>
-									<option value="Hot and Spicy">Hot & Spicy</option>
+									<option value="Hot and Spicy">Hot and Spicy</option>
 									<option value="Herbs">Örter</option>
 									<option value="Baking spices">Baknings kryddor</option>
 									<option value="Exotic and Aromatic spices">Exotiska och Aromatiska kryddor</option>
@@ -164,6 +164,7 @@
 				
 				<div class="form-group">
           			<button type="submit" class="btn btn-default">Lägg Till</button>
+          			<button type="button" class="btn btn-default" id="btnadd">Lägg till fler recept</button>
           		</div>
 				
 			</form>

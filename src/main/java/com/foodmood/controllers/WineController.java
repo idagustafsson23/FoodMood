@@ -24,8 +24,7 @@ public class WineController {
 	@ResponseBody
 	public String addWine(HttpServletRequest request, HttpServletResponse response) {
 		wineService.saveWine(request);
-		
-		
+			
 		return "Wine Added!";
 	}
 

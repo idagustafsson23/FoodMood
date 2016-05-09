@@ -27,10 +27,12 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-	<link rel="stylesheet" type="text/css" href="/style/style.css" >
-
+	<link rel="stylesheet" type="text/css" href="/style/style.css" />
+	
+	<script type="text/javascript" src="/javascript/foodmood.js"></script>
+	
 	<%@ page isELIgnored="false" %>
-	<meta charset="utf-8">
+	<meta charset="utf-8" />
 </head>
 
 
@@ -145,7 +147,7 @@
 <div class="container">
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>Poop & Mood!</h1>      
+    <h1>Food and Mood!</h1>      
     <p>by LIJC &reg;</p>
   </div>
 </div>

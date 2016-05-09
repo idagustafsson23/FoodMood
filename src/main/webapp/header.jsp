@@ -13,6 +13,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,6 +29,7 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="/style/style.css" >
+	
 
 	<%@ page isELIgnored="false" %>
 	<meta charset="utf-8">

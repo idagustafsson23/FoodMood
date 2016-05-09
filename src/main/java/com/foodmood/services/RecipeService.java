@@ -48,39 +48,11 @@ public class RecipeService {
 			String[] arrayOfDescription = request.getParameter("recipeDescription").split("\n");
 			ArrayList<String> recipeDescription = new ArrayList<String>(Arrays.asList(arrayOfDescription));
 			
-			ArrayList<RecipeComponent> recipeComponents = new ArrayList<RecipeComponent>();
-			RecipeComponent recipeComponent = new RecipeComponent();
-			recipeComponent.setComponentName(request.getParameter("recipeComponentName"));
+			ArrayList<RecipeComponent> recipeComponents = getRecipeComponents(request);
 			
-			String[] arrayOfComponentDescription = request.getParameter("recipeComponentDescripton").split("\n");
-			recipeComponent.setComponentDescription(new ArrayList<String>(Arrays.asList(arrayOfComponentDescription)));
-			
-			List<Ingredient> recipeComponentIngrediens = new ArrayList<Ingredient>();
-			Ingredient ingredient = new Ingredient();
-			ingredient.setIngredientName(request.getParameter("componentIngredientName"));
-			ingredient.setAmountPerPortion(Double.parseDouble(request.getParameter("componentIngredientAmount")));
-			ingredient.setUnitOfMeasurement(request.getParameter("componentAmountUnit"));
-			
-			FoodTag foodTag = new FoodTag();
-			foodTag.setTagName(request.getParameter("componentIngredientTags"));
-			
-			ingredient.setFoodTag(foodTag);
-			recipeComponentIngrediens.add(ingredient);
-			recipeComponent.setComponentIngredients(recipeComponentIngrediens);
-			recipeComponents.add(recipeComponent);
 						
-			List<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
-			Ingredient recipeIngredient = new Ingredient();
-			recipeIngredient.setIngredientName(request.getParameter("recipeIngredientName"));
-			recipeIngredient.setAmountPerPortion(Double.parseDouble(request.getParameter("recipeIngredientAmount")));
-			recipeIngredient.setUnitOfMeasurement(request.getParameter("recipeAmountUnit"));
+			List<Ingredient> recipeIngredients = getRecipeIngredients(request);
 			
-			FoodTag recipeIngredientfoodTag = new FoodTag();
-			recipeIngredientfoodTag.setTagName(request.getParameter("recipeIngredientTags"));
-			
-			recipeIngredient.setFoodTag(recipeIngredientfoodTag);
-			
-			recipeIngredients.add(recipeIngredient);
 			
 			FoodTag recipeTag = new FoodTag();
 			recipeTag.setTagName(request.getParameter("recipeTag"));
@@ -95,6 +67,50 @@ public class RecipeService {
 	
 			
 			return recipe;
+		}
+
+		private List<Ingredient> getRecipeIngredients(HttpServletRequest request) {
+			List<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
+			Ingredient recipeIngredient = new Ingredient();
+			recipeIngredient.setIngredientName(request.getParameter("recipeIngredientName"));
+			recipeIngredient.setAmountPerPortion(Double.parseDouble(request.getParameter("recipeIngredientAmount")));
+			recipeIngredient.setUnitOfMeasurement(request.getParameter("recipeAmountUnit"));
+			
+			FoodTag recipeIngredientfoodTag = new FoodTag();
+			recipeIngredientfoodTag.setTagName(request.getParameter("recipeIngredientTags"));
+			
+			recipeIngredient.setFoodTag(recipeIngredientfoodTag);
+			
+			recipeIngredients.add(recipeIngredient);
+			return recipeIngredients;
+		}
+
+		private ArrayList<RecipeComponent> getRecipeComponents(HttpServletRequest request) {
+			ArrayList<RecipeComponent> recipeComponents = new ArrayList<RecipeComponent>();
+			RecipeComponent recipeComponent = new RecipeComponent();
+			recipeComponent.setComponentName(request.getParameter("recipeComponentName"));
+			
+			String[] arrayOfComponentDescription = request.getParameter("recipeComponentDescripton").split("\n");
+			recipeComponent.setComponentDescription(new ArrayList<String>(Arrays.asList(arrayOfComponentDescription)));
+			
+			recipeComponent.setComponentIngredients(getRecipeComponentIngredients(request));
+			recipeComponents.add(recipeComponent);
+			return recipeComponents;
+		}
+
+		private List<Ingredient> getRecipeComponentIngredients(HttpServletRequest request) {
+			List<Ingredient> recipeComponentIngrediens = new ArrayList<Ingredient>();
+			Ingredient ingredient = new Ingredient();
+			ingredient.setIngredientName(request.getParameter("componentIngredientName"));
+			ingredient.setAmountPerPortion(Double.parseDouble(request.getParameter("componentIngredientAmount")));
+			ingredient.setUnitOfMeasurement(request.getParameter("componentAmountUnit"));
+			
+			FoodTag foodTag = new FoodTag();
+			foodTag.setTagName(request.getParameter("componentIngredientTags"));
+			
+			ingredient.setFoodTag(foodTag);
+			recipeComponentIngrediens.add(ingredient);
+			return recipeComponentIngrediens;
 		}
 		
 		

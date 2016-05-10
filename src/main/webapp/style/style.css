@@ -1,13 +1,30 @@
 
 
-/* Remove the navbar's default margin-bottom and rounded borders */ 
+
+
+#myNavbar {
+	background-color: #be290e;
+    border-color: #be290e;    
+}
+#myNavbar > li > a {
+	color: #71ad77
+}
+
 .navbar {
 	
       margin-bottom: 0;
       border-radius: 0;
-      
+     
 }
+#navigationBar {
+	background-color: #be290e;
+    border-color: #be290e;
     
+    
+}
+
+
+
   
 #logout-div div{
 	margin: 15px;
@@ -26,7 +43,7 @@
 
 #lblSearch {
 	margin-top:15px;
-	color: #000000;
+	color: #41ae88;
 }
    
    
@@ -99,7 +116,7 @@ html, body {
 #custom-search-input button:hover{
     border: 0;
     box-shadow: none;
-    border-left: solid 1px #ccc;
+    border-left: solid 1px #f32628;
 }
 
 #custom-search-input .glyphicon-search{
@@ -109,4 +126,6 @@ html, body {
 #jumbotrontext{
 	color: #FFFFFF;
 }
-
+.nav.navbar-nav {
+    color: blue;
+}

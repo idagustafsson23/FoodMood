@@ -47,6 +47,7 @@ public class RecipeController {
 	@ResponseBody
 	public ModelAndView addRecipe(HttpServletRequest request, HttpServletResponse response) {		
 		Recipe recipe = recipeService.saveRecipe(request);
+		
 		ModelAndView modelAndView= new ModelAndView("/viewRecipe.jsp");
 		modelAndView.addObject("recipe", recipe);
 		return modelAndView;	
@@ -59,6 +60,17 @@ public class RecipeController {
 		ModelAndView modelAndView= new ModelAndView("/viewRecipe.jsp");
 		modelAndView.addObject("recipe", recipe);
 		return modelAndView;		
+	}
+	
+	@RequestMapping(value = "/getAllRecipes", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView getAllRecipes() {
+		List<Recipe> allRecipes = recipeService.getAllRecipes();
+		
+		ModelAndView modelAndView = new ModelAndView("/viewRecipes.jsp");
+		modelAndView.addObject("listOfRecipes", allRecipes);
+		return modelAndView;
+		
 	}
 	
 	

@@ -49,7 +49,7 @@
 <div class="jumbotron">
 <div class="container">
   <div class="container text-center" id = "jumbotrontext">
-    <h1>Food & Mood!</h1>      
+    <h1>FoodMood</h1>      
     <p>by LIJC</p>
   <div id="custom-search-input"> 
                 <div class="input-group col-md-12">
@@ -65,20 +65,13 @@
 </div>
 </div>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" id="navigationBar">
   <div class="container-fluid">
-    <!--div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="/index.jsp">LIJC</a>
-    </div-->
+  
     
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/index.jsp">LIJC</a></li>  
+        <li class="active"  ><a href="/index.jsp">LIJC</a></li>  
        	<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Food</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
         

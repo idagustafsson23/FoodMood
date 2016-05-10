@@ -6,6 +6,7 @@
 		<h1>Välkommen!</h1>		
 		<a href="addRecipe.jsp">Lägg till recept!</a><br>
 		<a href="apitest.jsp">Testa api</a><br>
+		<a href="/recipe/getAllRecipes">Se alla recept</a><br>
 		
 	</div>
 </div>

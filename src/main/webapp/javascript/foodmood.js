@@ -7,18 +7,16 @@ $(document).ready(function() {
 	$("#btnaddingredient").on('click', function() {
 		addRecipeIngredient();
 	   //clearRecipeIngredientsFields();
-	   console.log(recipeIngredientstore);
+
 	});
 	$("#btnaddcomponentingredient").on('click', function() {
 		addComponentIngredient();
 		//clearComponentIngredientsFields();
-	   console.log(componentIngredientStore);
 	});
 	$("#btnaddcomponents").on('click', function() {
 		addComponentIngredient();
 		addComponent();
-		//clearComponentFields();
-	   console.log(componentStore);
+		//clearComponentFields()
 
 	});
 	$("#btnaddrecipe").on('click', function() {
@@ -26,24 +24,11 @@ $(document).ready(function() {
 		addComponentIngredient();
 		addComponent();
 		addRecipe();
-		
-
-	});
-	
+	});	
 });
-
-function clearRecipeIngredientsField() {
-	
-}
-
-function clearFields() {
-
-}
-
 
 
 function addRecipeIngredient() {
-	//need to add every value from addrecipe form control and send to spring controller	
 	var $ingredientName = $("#recipeIngredientName").val();
 	var $ingredientAmount = $("#recipeIngredientAmount").val();
 	var $amountUnit = $("#recipeAmountUnit").val();
@@ -62,7 +47,6 @@ function addRecipeIngredient() {
 }
 
 function addComponentIngredient() {
-	//need to add every value from addrecipe form control and send to spring controller	
 	var $ingredientName = $("#componentIngredientName").val();
 	var $ingredientAmount = $("#componentIngredientAmount").val();
 	var $amountUnit = $("#componentAmountUnit").val();
@@ -77,11 +61,11 @@ function addComponentIngredient() {
 	
 	
 	componentIngredientStore.push(componentIngredient);
-		
+	console.log(componentIngredientStore);
 }
 
 function addComponent() {
-	//need to add every value from addrecipe form control and send to spring controller	
+
 	var $componentName = $("#recipeComponentName").val();
 	var $componentDescription = $("#recipeComponentDescripton").val();
 	
@@ -90,10 +74,8 @@ function addComponent() {
 			recipeComponentDescription : $componentDescription,
 			componentIngredients : componentIngredientStore
 	};
-	
-	
-	componentStore.push(component);
-		
+
+	componentStore.push(component);		
 }
 
 function addRecipe() {
@@ -114,7 +96,7 @@ function addRecipe() {
 	$.ajax({
 		type : "POST",
 		contentType : "application/json",
-		url : "/",
+		url : "/addmorerecipes",
 		data : JSON.stringify($recipe),
 		dataType : 'json',
 		timeout : 100000,

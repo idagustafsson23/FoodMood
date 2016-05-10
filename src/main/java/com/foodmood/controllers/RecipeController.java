@@ -62,7 +62,7 @@ public class RecipeController {
 	}
 	
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/addmorerecipes")
 	@ResponseBody //omit this if controller is used as restcontroller
 	public void addMoreIngridients(@RequestBody Recipe recipe) {
 		List<Recipe> allRecipes = recipeService.getAllRecipes();

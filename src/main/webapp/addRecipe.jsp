@@ -168,7 +168,7 @@
 				
 				<div class="form-group">
           			<button type="button" class="btn btn-default" id="btnaddcomponents">Lägg till fler tillbehör</button>
-          			<button type="submit" class="btn btn-default" id="btnaddrecipe">Lägg Till</button>
+          			<button type="button" class="btn btn-default" id="btnaddrecipe">Lägg Till</button>
      				
           		</div>
 				

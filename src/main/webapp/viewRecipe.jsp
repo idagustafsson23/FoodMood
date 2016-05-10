@@ -86,7 +86,7 @@
   <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
 </p>
 						
-						<div id="slider"></div>
+						<div id="slider">jsdfjdkfd</div>
 					</div>
 				</form>
 			</div>

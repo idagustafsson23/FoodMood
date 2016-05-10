@@ -33,24 +33,21 @@ public class UserService {
 
 	public User readUser(Long id) {
 		return (User) userRepository.findOne(id);
-	}
-
-	
+	}	
 	
 	public void deleteRecipe(Long id) {
 		userRepository.delete(id);
 	}	
-		
-	
-	
+			
 	public List<User> getAllUsers() {
 		List<User> users = userRepository.findAll();
 		return users;
 	}
 	
 	
-	public User loginUser(String username, String password) {
+	public User loginUser(Long id, String username, String password)  {
 		List<User> users = userRepository.findAll();
+		User getUser = userRepository.findOne(id); //get only one user
 		User user = null;
 		for(User currentUser : users ) {
 			System.out.println("username: " + currentUser.getUsername());
@@ -80,9 +77,12 @@ public class UserService {
 		user.setAddress1(address1);
 		user.setAddress2(address2);
 		user.setPhoneNumber(phonenumber);
-		
+		user.setId(user.getId());
+			
 		//detta gör alla users till admin, fixa sen!!
-		user.setAdmin(true);
+		//user.setAdmin(true);
+		
+		
 		
 		return user;
 	}

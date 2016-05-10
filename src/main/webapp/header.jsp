@@ -29,10 +29,11 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="/style/style.css" />
-	
+		
+		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>	
 	<script type="text/javascript" src="/javascript/foodmood.js"></script>
 	<script type="text/javascript" src="/javascript/controls.js"></script>
-	<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+
 	
 	
 

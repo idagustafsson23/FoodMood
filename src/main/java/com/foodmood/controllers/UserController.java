@@ -42,16 +42,20 @@ public class UserController {
 	@RequestMapping(value="/loginUser", method=RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView loginUser(HttpServletRequest request, HttpServletResponse response) {
+
+		//get user from session or whereever its stored
 		
+		User currentUser = (User) request.getSession().getAttribute("userLoggedIn");
+		Long id = currentUser.getId();
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		System.out.println("user name & password from request: " + username + password);
-		User user = userService.loginUser(username, password);
+		User user = userService.loginUser(id, username, password);
 
 		ModelAndView modelAndView = new ModelAndView("/viewUser.jsp");
 		if(user != null) {
-		modelAndView.addObject("userLoggedIn", user);
-		modelAndView.addObject("message", user.getName() + " logged on");
+			modelAndView.addObject("userLoggedIn", user);
+			modelAndView.addObject("message", user.getName() + " logged on");
 		}
 		
 		return modelAndView;
@@ -79,8 +83,8 @@ public class UserController {
 		ModelAndView modelAndView = new ModelAndView("/viewUser.jsp");
 		
 		if(userRequestedToShow.getId().equals(userLoggedOn.getId())) {		//kolla att man bara kan komma åt sin egen sida
-		if(userRequestedToShow != null) {
-		modelAndView.addObject("userLoggedIn", userRequestedToShow);
+			if(userRequestedToShow != null) {
+				modelAndView.addObject("userLoggedIn", userRequestedToShow);
 			}	
 		}
 		return modelAndView;

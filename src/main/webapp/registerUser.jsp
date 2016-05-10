@@ -11,7 +11,7 @@
   <div class="form-group">  
   	<div class="col-sm-2"></div>
     <div class="col-sm-10">
-    <label>Registrera ny Little Bronie</label>
+    <label>Profilbild</label>
     </div>
   </div>
   <div class="form-group">  

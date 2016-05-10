@@ -76,6 +76,21 @@
 			</div>
 		</div>
 		<%} %>
+		<div class="row">
+			<div class="col-sm-12">
+				<form action="http://localhost:8080/recipe/getWine" role="form"
+				method="POST" id="wineform">
+					<div class="form-group">
+						<p>
+  <label for="amount">Price range:</label>
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+						
+						<div id="slider"></div>
+					</div>
+				</form>
+			</div>
+		</div>
 		
 	</div>
 <%@ include file="footer.jsp"%>

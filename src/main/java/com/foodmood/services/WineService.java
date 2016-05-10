@@ -1,6 +1,8 @@
 package com.foodmood.services;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.foodmood.models.Recipe;
 import com.foodmood.models.Wine;
 import com.foodmood.repositories.WineRepository;
 
@@ -112,5 +114,51 @@ public class WineService {
 		foodTags.add("Chocolate and Coffee");
 		
 		return foodTags;
+	}
+	
+	public Wine getMatchingWine(Recipe recipe){
+		ArrayList<Wine> allWines = (ArrayList<Wine>) getAllWines();
+		ArrayList<Integer> totalScoreForWines = new ArrayList<Integer>();
+		
+		for(int i = 0; i < allWines.size(); i++){
+			totalScoreForWines.add(0);
+			ArrayList<String> allFoodTags = allWines.get(i).getFoodTags();
+			for(int a = 0; a < allFoodTags.size(); a++){
+				if(allFoodTags.get(a).equals(recipe.getFoodTag().getTagName())){
+					int score = allWines.get(i).getScoreForFoodTag().get(a);
+					int oldScore = totalScoreForWines.get(i);
+					totalScoreForWines.set(i, score + oldScore);
+				}
+				
+				for(int b = 0; b < recipe.getRecipeIngredients().size(); b++){
+					if(allFoodTags.get(a).equals(recipe.getRecipeIngredients().get(b).getFoodTag().getTagName())){
+						int score = allWines.get(i).getScoreForFoodTag().get(a);
+						int oldScore = totalScoreForWines.get(i);
+						totalScoreForWines.set(i, score + oldScore);
+					}
+				}
+				for(int b = 0; b < recipe.getRecipeComponents().size(); b++){
+					for(int c = 0; c < recipe.getRecipeComponents().get(b).getComponentIngredients().size(); c++){
+						String componentIngredientTag = recipe.getRecipeComponents().get(b).getComponentIngredients().get(c).getFoodTag().getTagName();
+						if(allFoodTags.get(a).equals(componentIngredientTag)){
+							int score = allWines.get(i).getScoreForFoodTag().get(a);
+							int oldScore = totalScoreForWines.get(i);
+							totalScoreForWines.set(i, score + oldScore);
+						}
+					}
+				}
+			}
+			
+		}
+		
+		int indexForTopScore = 0;
+		for(int i = 0; i < totalScoreForWines.size(); i++){
+			if(totalScoreForWines.get(i) > totalScoreForWines.get(indexForTopScore)){
+				indexForTopScore = i;
+			}
+		}
+		
+		Wine wine = allWines.get(indexForTopScore);
+		return wine;
 	}
 }

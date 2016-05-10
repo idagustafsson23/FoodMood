@@ -78,16 +78,37 @@
 		<%} %>
 		<div class="row">
 			<div class="col-sm-12">
-				<form action="http://localhost:8080/recipe/getWine" role="form"
+				<form action="http://localhost:8080/wine/getWine" role="form"
 				method="POST" id="wineform">
 					<div class="form-group">
 						<p>
-  <label for="amount">Price range:</label>
-  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-</p>
+  							<label for="amount">Vin pris:</label>
+  							<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+						</p>
 						
+<<<<<<< HEAD
 						<div id="slider">jsdfjdkfd</div>
+=======
+						<div id="priceslider"></div>
+>>>>>>> aa1f8ad8c9d992321c643dfc52465d6ca743873e
 					</div>
+					<div class="form-group">
+						<label for="mood">Humör:</label>
+						<select class="form-control" id="mood" name="mood">
+							<option value="flirty">Flörtig</option>
+							<option value="happy">Glad</option>
+							<option value="party">Festlig</option>
+							<option value="sad">Ledsen</option>
+							<option value="angry">Arg</option>
+						</select>
+					</div>
+					<div class="form-group">
+					<input type="hidden" name="minPrice" id="minPrice" value="">
+					<input type="hidden" name="maxPrice" id="maxPrice" value="">
+						<input type="hidden" name="recipeId" id="recipeId" value="<%=recipe.getId()%>">
+						<button type="submit" class="btn btn-default" id="btnsearchwine">sök viner</button>
+					</div>
+					
 				</form>
 			</div>
 		</div>

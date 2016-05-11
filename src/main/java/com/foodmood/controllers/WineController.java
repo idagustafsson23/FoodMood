@@ -45,23 +45,23 @@ public class WineController {
 		Long recipeId = Long.parseLong(request.getParameter("recipeId"));
 		Recipe recipe = recipeService.readRecipe(recipeId);
 		Wine wine = wineService.getMatchingWine(recipe);
-//		String usersMood = request.getParameter("mood");
-//		ArrayList<Mood> allMoods = (ArrayList<Mood>) moodService.getAllMoods();
-//		ArrayList<String> grapesOfMood = new ArrayList<String>();
-//		for(Mood mood : allMoods){
-//			if(mood.getTheMood().equals(usersMood)){
-//				grapesOfMood = mood.getGrapesForMood();
-//			}
-//		}
-//		ArrayList<String> grapesOfWine = wine.getGrapes();
-//		String theGrapeToUse = null;
-//		for(String wineGrape : grapesOfWine){
-//			for(String moodGrape : grapesOfMood){
-//				if(wineGrape.equals(moodGrape)){
-//					theGrapeToUse = moodGrape;
-//				}
-//			}
-//		}
+		String usersMood = request.getParameter("mood");
+		ArrayList<Mood> allMoods = (ArrayList<Mood>) moodService.getAllMoods();
+		ArrayList<String> grapesOfMood = new ArrayList<String>();
+		for(Mood mood : allMoods){
+			if(mood.getTheMood().equals(usersMood)){
+				grapesOfMood = mood.getGrapesForMood();
+			}
+		}
+		ArrayList<String> grapesOfWine = wine.getGrapes();
+		String theGrapeToUse = null;
+		for(String wineGrape : grapesOfWine){
+			for(String moodGrape : grapesOfMood){
+				if(wineGrape.equals(moodGrape)){
+					theGrapeToUse = moodGrape;
+				}
+			}
+		}
 		
 		String minPrice = request.getParameter("minPrice");
 		String maxPrice = request.getParameter("maxPrice");

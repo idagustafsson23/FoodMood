@@ -33,8 +33,6 @@
 	<script src="/javascript/jquery-ui.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="/style/style.css" />
-		
-			
 	<script type="text/javascript" src="/javascript/foodmood.js"></script>
 	
 	

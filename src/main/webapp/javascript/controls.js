@@ -11,7 +11,9 @@
     });
     $( "#amount" ).val( "$" + $( "#priceslider" ).slider( "values", 0 ) +
       " - $" + $( "#priceslider" ).slider( "values", 1 ) );
-    $("#minPrice").val($("priceslider").slider("values", 0));
-    $("#maxPrice").val($("priceslider").slider("values", 1));
+
+
+    
+   
   });
 

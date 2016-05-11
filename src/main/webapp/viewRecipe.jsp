@@ -87,8 +87,6 @@
 						</p>
 						
 
-						
-
 						<div id="priceslider"></div>
 
 					</div>

@@ -86,11 +86,9 @@
   							<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
 						</p>
 						
-<<<<<<< HEAD
-						<div id="slider">jsdfjdkfd</div>
-=======
+
 						<div id="priceslider"></div>
->>>>>>> aa1f8ad8c9d992321c643dfc52465d6ca743873e
+
 					</div>
 					<div class="form-group">
 						<label for="mood">Humör:</label>

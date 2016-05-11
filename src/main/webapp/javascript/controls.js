@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-$(document).ready(function() {
-	$("#slider").slider();
-});
-=======
+
   $(function() {
     $( "#priceslider" ).slider({
       range: true,
@@ -15,7 +11,9 @@ $(document).ready(function() {
     });
     $( "#amount" ).val( "$" + $( "#priceslider" ).slider( "values", 0 ) +
       " - $" + $( "#priceslider" ).slider( "values", 1 ) );
-    $("#minPrice").val($("priceslider").slider("values", 0));
-    $("#maxPrice").val($("priceslider").slider("values", 1));
+
+
+    
+   
   });
->>>>>>> aa1f8ad8c9d992321c643dfc52465d6ca743873e
+

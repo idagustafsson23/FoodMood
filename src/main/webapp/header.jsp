@@ -34,7 +34,7 @@
 
 	<link rel="stylesheet" type="text/css" href="/style/style.css" />
 		
-		<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>	
+			
 	<script type="text/javascript" src="/javascript/foodmood.js"></script>
 	
 	
@@ -81,9 +81,10 @@
     
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"  ><a href="/index.jsp">LIJC</a></li>  
-       	<li><a href="#"><span class="glyphicon glyphicon-wrench"></span> Food</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-fire"></span> Mood</a></li>
+        <li><a href="/index.jsp">LIJC</a></li>  
+       	<li><a href="/recipe/getAllRecipes"><span class="glyphicon glyphicon-cutlery"></span> ALLA RECEPT</a></li>
+       	<li><a href="/addRecipe.jsp"><span class="glyphicon glyphicon-pencil"></span> LÄGG TILL RECEPT</a></li>
+        
         
       
       </ul>

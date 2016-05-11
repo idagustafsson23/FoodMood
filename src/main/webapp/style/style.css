@@ -3,12 +3,11 @@
 
 
 #myNavbar {
-	background-color: #be290e;
-    border-color: #be290e;    
+	background-color: #bb1012;
+    border-color: #bb1012;    
 }
-#myNavbar > li > a {
-	color: #71ad77
-}
+
+
 
 .navbar {
 	
@@ -16,14 +15,30 @@
       border-radius: 0;
      
 }
+
+.navbar .nav > li > a {
+	color: #fcf9ff;
+}
+.navbar .nav > li > a:hover {
+	color: #fff3ef;
+	background-color: #91000e;
+}
 #navigationBar {
-	background-color: #be290e;
-    border-color: #be290e;
+	background-color: #bb1012;
+    border-color: #bb1012;
     
     
 }
 
-
+li.active {
+	color: #be290e;
+}
+a {
+	color: #91000e
+}
+a:hover {
+	color: #58000a;
+}
 
   
 #logout-div div{
@@ -50,6 +65,7 @@
 #footer {
 	  background-color: #f2f2f2;
       padding: 10px;
+      text-align: center;
       
 }
 
@@ -57,7 +73,7 @@
 
 html, body {
         height: 100%;
-        /* The html and body elements cannot have any padding or margin. */
+        
       }
 
 
@@ -126,6 +142,6 @@ html, body {
 #jumbotrontext{
 	color: #FFFFFF;
 }
-.nav.navbar-nav {
-    color: blue;
+.col-sm-12 {
+	padding-top:30px;
 }

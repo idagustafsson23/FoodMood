@@ -3,7 +3,7 @@
 		
 
   
-  <div class="panel-footer" id = "footer">Insert footer info here</div>
+  <div class="panel-footer" id = "footer">Footer</div>
 
 	
 	</body>

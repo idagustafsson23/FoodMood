@@ -59,16 +59,18 @@
   <div class="container text-center" id = "jumbotrontext">
     <h1>FoodMood</h1>      
     <p>by LIJC</p>
+  <form method="GET" action="recipe/searchrecipe">  
   <div id="custom-search-input"> 
-                <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
-            </div>
+     <div class="input-group col-md-12">
+        <input type="text" class="form-control input-lg" placeholder="Sök Recept" name="inputsearch" />
+           <span class="input-group-btn">
+               <button id="btnSearch" class="btn btn-info btn-lg" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+               </button>
+            </span>
+      	</div>
+   	</div>
+   </form>
   </div>
 </div>
 </div>
@@ -163,5 +165,4 @@
 </nav>
 
 
-
-
++

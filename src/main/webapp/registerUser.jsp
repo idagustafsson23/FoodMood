@@ -4,8 +4,6 @@
 <div class="row">
 	<div class="col-sm-12">
 
-
-
 <form class="form-horizontal" role="form" method="post" action="/user/addUser">
 
   <div class="form-group">  
@@ -64,18 +62,10 @@
 </form>
 
 
-
-
-
-
-
-
 	</div>
 </div>
 
 </div>
-
-	
 
 
 <%@ include file="footer.jsp" %>

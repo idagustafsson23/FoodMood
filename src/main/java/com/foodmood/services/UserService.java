@@ -2,6 +2,7 @@ package com.foodmood.services;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,7 @@ public class UserService {
 	}
 	
 
-	public User readUser(Long id) {
+	public User getUser(Long id) {
 		return (User) userRepository.findOne(id);
 	}	
 	
@@ -78,12 +79,9 @@ public class UserService {
 		user.setAddress2(address2);
 		user.setPhoneNumber(phonenumber);
 		user.setId(user.getId());
-			
 		//detta gör alla users till admin, fixa sen!!
 		//user.setAdmin(true);
-		
-		
-		
+					
 		return user;
 	}
 

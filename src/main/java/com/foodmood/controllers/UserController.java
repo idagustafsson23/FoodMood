@@ -25,39 +25,44 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	private ModelAndView modelAndView;
 	
 	@RequestMapping(value="/addUser", method=RequestMethod.POST)
 	@ResponseBody
 	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response) {
-		
-		User user = userService.saveUser(request);
-		
-		ModelAndView modelAndView= new ModelAndView("/viewUser.jsp");
-		modelAndView.addObject("userLoggedIn", user);
-		modelAndView.addObject("message", user.getName() + " added to database and logged on");
+		try {
+			User user = userService.saveUser(request);		
+			modelAndView= new ModelAndView("/viewUser.jsp");
+			modelAndView.addObject("userLoggedIn", user);
+			modelAndView.addObject("message", user.getName() + " added to database and logged on");
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		return modelAndView;
 	}
 	
 	
-	@RequestMapping(value="/loginUser", method=RequestMethod.GET)
+	@RequestMapping(value="/loginUser/")
 	@ResponseBody
-	public ModelAndView loginUser(HttpServletRequest request, HttpServletResponse response) {
-
+	public ModelAndView loginUser(Long id, HttpServletRequest request, HttpServletResponse response) {
+		ModelAndView modelAndView = null;
 		//get user from session or whereever its stored
-		
-		User currentUser = (User) request.getSession().getAttribute("userLoggedIn");
-		Long id = currentUser.getId();
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		System.out.println("user name & password from request: " + username + password);
-		User user = userService.loginUser(id, username, password);
+		try {
+			User currentUser = userService.getUser(id);
+			//Long id = currentUser.getId();
+			String username = request.getParameter("username");
+			String password = request.getParameter("password");
+			System.out.println("user name & password from request: " + username + password);
+			User user = userService.loginUser(null, username, password);
 
-		ModelAndView modelAndView = new ModelAndView("/viewUser.jsp");
+			modelAndView = new ModelAndView("/viewUser.jsp");
 		if(user != null) {
 			modelAndView.addObject("userLoggedIn", user);
 			modelAndView.addObject("message", user.getName() + " logged on");
 		}
-		
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 		return modelAndView;
 	}
 	
@@ -77,7 +82,7 @@ public class UserController {
 	@RequestMapping(value= "/userPage/{id:[\\d]+}", method = RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView getUserPage(@PathVariable("id") Long id, HttpServletRequest request) {
-		User userRequestedToShow = userService.readUser(id);	
+		User userRequestedToShow = userService.getUser(id);	
 		User userLoggedOn = (User) request.getSession().getAttribute("userLoggedIn");
 		
 		ModelAndView modelAndView = new ModelAndView("/viewUser.jsp");

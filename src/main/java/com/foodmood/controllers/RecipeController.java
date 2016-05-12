@@ -82,9 +82,9 @@ public class RecipeController {
 	
 
 	
-	@RequestMapping(value = "/searchrecipe", method = RequestMethod.POST)
+	@RequestMapping(value = "/searchrecipe", method = RequestMethod.GET)
 	@ResponseBody
-	public ModelAndView searchRecipe(HttpServletRequest request) {
+	public ModelAndView searchRecipe(HttpServletRequest request) throws Exception {
 		String searchData = (String)request.getParameter("inputsearch");
 		List<Recipe> recipeList = recipeService.getAllRecipes();		
 		ModelAndView mv = new ModelAndView("/searchrecipe.jsp");

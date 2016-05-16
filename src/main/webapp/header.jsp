@@ -61,7 +61,11 @@
 
     <p>by LIJCO</p>
 
+
+  
+
   <form method="GET" action="recipe/searchrecipe">  
+
 
   <div id="custom-search-input"> 
      <div class="input-group col-md-12">

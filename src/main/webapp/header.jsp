@@ -17,7 +17,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title id="pageTitle">LIJC</title>
+	<title id="pageTitle">LIJCO</title>
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -58,7 +58,7 @@
 <div class="container">
   <div class="container text-center" id = "jumbotrontext">
     <h1>FoodMood</h1>      
-    <p>by LIJC</p>
+    <p>by LIJCO</p>
   <div id="custom-search-input"> 
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control input-lg" placeholder="Search" />
@@ -79,7 +79,7 @@
     
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="/index.jsp">LIJC</a></li>  
+        <li><a href="/index.jsp">LIJCO</a></li>  
        	<li><a href="/recipe/getAllRecipes"><span class="glyphicon glyphicon-cutlery"></span> ALLA RECEPT</a></li>
        	<li><a href="/addRecipe.jsp"><span class="glyphicon glyphicon-pencil"></span> LÄGG TILL RECEPT</a></li>
         

@@ -58,17 +58,22 @@
 <div class="container">
   <div class="container text-center" id = "jumbotrontext">
     <h1>FoodMood</h1>      
+
     <p>by LIJCO</p>
+
+  <form method="GET" action="recipe/searchrecipe">  
+
   <div id="custom-search-input"> 
-                <div class="input-group col-md-12">
-                    <input type="text" class="form-control input-lg" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-info btn-lg" type="button">
-                            <i class="glyphicon glyphicon-search"></i>
-                        </button>
-                    </span>
-                </div>
-            </div>
+     <div class="input-group col-md-12">
+        <input type="text" class="form-control input-lg" placeholder="Sök Recept" name="inputsearch" />
+           <span class="input-group-btn">
+               <button id="btnSearch" class="btn btn-info btn-lg" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+               </button>
+            </span>
+      	</div>
+   	</div>
+   </form>
   </div>
 </div>
 </div>
@@ -81,10 +86,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/index.jsp">LIJCO</a></li>  
        	<li><a href="/recipe/getAllRecipes"><span class="glyphicon glyphicon-cutlery"></span> ALLA RECEPT</a></li>
-       	<li><a href="/addRecipe.jsp"><span class="glyphicon glyphicon-pencil"></span> LÄGG TILL RECEPT</a></li>
-        
-        
-      
+       	<li><a href="/addRecipe.jsp"><span class="glyphicon glyphicon-pencil"></span> LÄGG TILL RECEPT</a></li>                     
       </ul>
       	
 	
@@ -161,7 +163,3 @@
     </div>
   </div>
 </nav>
-
-
-
-

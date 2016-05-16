@@ -48,6 +48,11 @@ public void testInputRecipe() {
       
 }
 
+@Test
+public void testSearchRecipe() {
+	
+}
+
 
 
 }

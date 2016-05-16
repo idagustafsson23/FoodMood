@@ -84,25 +84,29 @@ public class RecipeController {
 	
 	@RequestMapping(value = "/searchrecipe", method = RequestMethod.GET)
 	@ResponseBody
-	public ModelAndView searchRecipe(HttpServletRequest request) throws Exception {
-		String searchData = (String)request.getParameter("inputsearch");
-		List<Recipe> recipeList = recipeService.getAllRecipes();		
-		ModelAndView mv = new ModelAndView("/searchrecipe.jsp");
-		if (recipeList != null && recipeList.size() > 0) {
-			for (int r = 0; r < recipeList.size(); r++) {
-				Recipe recipe = recipeList.get(r);
-				if (recipe.getRecipeName().indexOf(searchData) > -1) {
-					mv.addObject("recipename", recipe.getRecipeName());
-				}
-				else {
-					mv.addObject("recipemessage", "No More Recipes with that name");
-				}
+	public ModelAndView searchRecipe(HttpServletRequest request) {
+		try {
+			String searchData = (String)request.getParameter("inputsearch");
+			List<Recipe> recipeList = recipeService.getAllRecipes();		
+			modelAndView = new ModelAndView("/searchrecipe.jsp");
+			if (recipeList != null && recipeList.size() > 0) {
+				for (int r = 0; r < recipeList.size(); r++) {
+					Recipe recipe = recipeList.get(r);
+					if (recipe.getRecipeName().indexOf(searchData) > -1) {
+						modelAndView.addObject("recipename", recipe.getRecipeName());
+					}
+					else {
+						modelAndView.addObject("recipemessage", "No More Recipes with that name");
+					}
 			}
 		}
 		else {
-			mv.addObject("recipemessage", "failed to get data from datasource");
+			modelAndView.addObject("recipemessage", "failed to get data from datasource");
 		}
-		return mv;
+		} catch (Exception ex) {
+			
+		}
+		return modelAndView;
 	}
 	
 }

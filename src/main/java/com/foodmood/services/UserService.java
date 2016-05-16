@@ -80,7 +80,7 @@ public class UserService {
 		user.setPhoneNumber(phonenumber);
 		user.setId(user.getId());
 		//detta gör alla users till admin, fixa sen!!
-		//user.setAdmin(true);
+		user.setAdmin(true);
 					
 		return user;
 	}

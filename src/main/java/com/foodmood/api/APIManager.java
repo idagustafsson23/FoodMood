@@ -96,14 +96,4 @@ public class APIManager {
 		return values;
 	} 
 
-	
-	public String convertToJSON(Map<String, String> val) throws JSONException {
-		StringBuilder stringBuilder = new StringBuilder();
-		for (String jsonvalues : val.values()) {
-			stringBuilder.append(jsonvalues);
-		}
-		JSONObject obj = new JSONObject(stringBuilder.toString());		
-		JSONArray jsonarray = new JSONArray();
-		return obj.getString(stringBuilder.toString());
-	}
 }

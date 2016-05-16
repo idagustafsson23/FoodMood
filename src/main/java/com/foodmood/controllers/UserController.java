@@ -42,13 +42,14 @@ public class UserController {
 	}
 	
 	
-	@RequestMapping(value="/loginUser/")
+	@RequestMapping(value="/loginUser")
 	@ResponseBody
-	public ModelAndView loginUser(Long id, HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView loginUser(HttpServletRequest request, HttpServletResponse response) {
 		ModelAndView modelAndView = null;
 		//get user from session or whereever its stored
 		try {
-			User currentUser = userService.getUser(id);
+		    //User u = (User) request.getSession().getAttribute("userLoggedIn");
+			//User currentUser = userService.getUser(id);
 			//Long id = currentUser.getId();
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");

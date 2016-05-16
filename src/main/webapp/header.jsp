@@ -83,10 +83,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/index.jsp">LIJC</a></li>  
        	<li><a href="/recipe/getAllRecipes"><span class="glyphicon glyphicon-cutlery"></span> ALLA RECEPT</a></li>
-       	<li><a href="/addRecipe.jsp"><span class="glyphicon glyphicon-pencil"></span> LÄGG TILL RECEPT</a></li>
-        
-        
-      
+       	<li><a href="/addRecipe.jsp"><span class="glyphicon glyphicon-pencil"></span> LÄGG TILL RECEPT</a></li>                     
       </ul>
       	
 	
@@ -163,6 +160,3 @@
     </div>
   </div>
 </nav>
-
-
-+

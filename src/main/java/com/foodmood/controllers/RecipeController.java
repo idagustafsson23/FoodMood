@@ -74,39 +74,40 @@ public class RecipeController {
 	}
 	
 	
-	@RequestMapping(value="/addmorerecipes")
+	@RequestMapping(value = "/addmorerecipes")
 	@ResponseBody //omit this if controller is used as restcontroller
 	public void addMoreIngridients(@RequestBody Recipe recipe) {
-		List<Recipe> allRecipes = recipeService.getAllRecipes();
+	
 	}
 	
 
 	
 	@RequestMapping(value = "/searchrecipe", method = RequestMethod.GET)
 	@ResponseBody
-	public ModelAndView searchRecipe(HttpServletRequest request) {
-		try {
-			String searchData = (String)request.getParameter("inputsearch");
-			List<Recipe> recipeList = recipeService.getAllRecipes();		
+	public Recipe searchRecipe(HttpServletRequest request) {
+		Recipe recipe = null;
+		RecipeService recipeService = new RecipeService();
+		try {					
 			modelAndView = new ModelAndView("/searchrecipe.jsp");
-			if (recipeList != null && recipeList.size() > 0) {
+			if (recipeService.getAllRecipes() != null && recipeService.getAllRecipes().size() > 0) {
+				List<Recipe> recipeList = recipeService.getAllRecipes();	
 				for (int r = 0; r < recipeList.size(); r++) {
-					Recipe recipe = recipeList.get(r);
-					if (recipe.getRecipeName().indexOf(searchData) > -1) {
+					recipe = recipeList.get(r);
+					if (recipe.getRecipeName().indexOf(request.getParameter("inputsearch")) > -1) {
 						modelAndView.addObject("recipename", recipe.getRecipeName());
 					}
 					else {
 						modelAndView.addObject("recipemessage", "No More Recipes with that name");
 					}
+				}
 			}
-		}
-		else {
-			modelAndView.addObject("recipemessage", "failed to get data from datasource");
-		}
+			else {
+				modelAndView.addObject("recipemessage", "failed to get data from datasource");
+			}
 		} catch (Exception ex) {
-			
+			ex.printStackTrace();
 		}
-		return modelAndView;
+		return recipe;
 	}
 	
 }

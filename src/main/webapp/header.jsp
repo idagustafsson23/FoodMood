@@ -58,7 +58,7 @@
 <div class="container">
   <div class="container text-center" id = "jumbotrontext">
     <h1>FoodMood</h1>      
-    <p>by LIJC</p>
+    <p>by LIJCO</p>
   <div id="custom-search-input"> 
                 <div class="input-group col-md-12">
                     <input type="text" class="form-control input-lg" placeholder="Search" />

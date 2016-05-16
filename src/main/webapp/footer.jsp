@@ -3,7 +3,7 @@
 		
 
   
-  <div class="panel-footer" id = "footer">Footer</div>
+  <div class="panel-footer" id ="footer">&copyCopyright 2016 LIJCO</div>
 
 	
 	</body>

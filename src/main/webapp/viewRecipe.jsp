@@ -81,14 +81,13 @@
 				<form action="http://localhost:8080/wine/getWine" role="form"
 				method="POST" id="wineform">
 					<div class="form-group">
-						<p>
-  							<label for="amount">Vin pris:</label>
-  							<input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-						</p>
-						
-
-						<div id="priceslider"></div>
-
+						<label for="winePrice">Vin pris:</label>
+						<select class="form-control" id="winePrice" name="winePrice">
+							<option value="0-99">under 100 kr</option>
+							<option value="100-300">100 - 300 kr</option>
+							<option value="301-500">301 - 500 kr</option>
+							<option value="501-5000">över 500 kr</option>
+						</select>
 					</div>
 					<div class="form-group">
 						<label for="mood">Humör:</label>
@@ -101,8 +100,6 @@
 						</select>
 					</div>
 					<div class="form-group">
-					<input type="hidden" name="minPrice" id="minPrice" value="">
-					<input type="hidden" name="maxPrice" id="maxPrice" value="">
 						<input type="hidden" name="recipeId" id="recipeId" value="<%=recipe.getId()%>">
 						<button type="submit" class="btn btn-default" id="btnsearchwine">sök viner</button>
 					</div>

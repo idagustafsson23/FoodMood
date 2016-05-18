@@ -5,11 +5,11 @@
 	<div class="row">
 		<div class="col-sm-12">
 		<!-- ta bort action för testning via jquery -->
-			<form role="form" method="POST" id="recipeform">
+			<form role="form" method="POST" id="recipeform" action="http://localhost:8080/recipe/addRecipe" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="recipeName">Recept namn:</label> <input type="text"
 						class="form-control" id="recipeName" name="recipeName">
-						<input type = "file" />
+						<input type = "file" name="file"/>
 				</div>
 				
 				<div class="form-group">
@@ -93,7 +93,7 @@
 					<label for="recipeDescription">Recept instruktioner:</label>
 					<textarea class="form-control" rows="3" id="recipeDescripton" name="recipeDescription"></textarea>
 				</div>
-				<button type="button" class="btn btn-default" id="btnaddrecipe">Lägg Till Recept</button>
+				<button type="submitt" class="btn btn-default" id="btnaddrecipe">Lägg Till Recept</button>
 				
 			</form>
 		</div>

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,8 +46,9 @@ public class RecipeController {
 	
 	@RequestMapping(value="/addRecipe", method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView addRecipe(HttpServletRequest request, HttpServletResponse response) {		
-		Recipe recipe = recipeService.saveRecipe(request);
+	public ModelAndView addRecipe(@RequestParam("file") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {	
+		byte[] bytes = file.getBytes();
+		Recipe recipe = recipeService.saveRecipe(request, bytes);
 		
 		ModelAndView modelAndView= new ModelAndView("/viewRecipe.jsp");
 		modelAndView.addObject("recipe", recipe);

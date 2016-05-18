@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -34,6 +35,10 @@ public class Recipe {
 	
 	@OneToOne(cascade = {CascadeType.ALL})
 	private FoodTag foodTag;
+	
+	@Column(columnDefinition="longblob")
+	@Lob
+	private byte[] picture;
 
 
 	public Recipe() {
@@ -85,6 +90,12 @@ public class Recipe {
 	
 	public FoodTag getFoodTag() {
 		return foodTag;
+	}
+	public void setPicture(byte[] picture) {
+		this.picture = picture;
+	}
+	public byte[] getPicture() {
+		return picture;
 	}
 	
 }

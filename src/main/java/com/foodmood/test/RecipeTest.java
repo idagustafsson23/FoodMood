@@ -1,3 +1,4 @@
+
 package com.foodmood.test;
 
 import static org.mockito.Mockito.*;
@@ -55,14 +56,14 @@ public void init() {
 public void testInputRecipe() {
 	MockHttpServletRequest request = new MockHttpServletRequest();
     MockHttpServletResponse response = new MockHttpServletResponse();
-    
+    byte[] by = new byte[1];
     
     request.setParameter("recipeName", "skalman");
     request.setParameter("recipeDescription", "hello1\nhello2");
     request.setParameter("recipeIngredientName", "Superman");
     request.setParameter("recipeIngredientAmount", "20");
     
-    Recipe recipe = recipeService.createRecipe(request);
+    Recipe recipe = recipeService.createRecipe(request, by);
     Assert.assertEquals("skalman", recipe.getRecipeName());
     Assert.assertEquals("hello1", recipe.getRecipeDescription().get(0));
     Assert.assertEquals("hello2", recipe.getRecipeDescription().get(1));

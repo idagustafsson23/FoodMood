@@ -122,8 +122,7 @@ public class APIManager {
 			
 			
 			try {
-				//get first 200 articles
-				for (int i = 0; i < 200; i++) {
+				for (int i = 0; i < nodeList.getLength(); i++) {
 					Element element = (Element)nodeList.item(i).getFirstChild();
 					if (element.getTextContent().equals(articleNumber)) { 			//if equal to the entered articleNumber get values starting from parent node
 						NodeList subNodeList = element.getParentNode().getChildNodes(); 

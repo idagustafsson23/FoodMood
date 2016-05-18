@@ -7,7 +7,7 @@
 			<form action="http://localhost:8080/recipe/addRecipe" role="form"
 				method="POST" id="recipeform">
 				<div class="form-group">
-					<label for="recipeName">Recept namn:</label> <input type="text"
+					<label for="recipeName">Receptnamn:</label> <input type="text"
 						class="form-control" id="recipeName" name="recipeName">
 				</div>
 				
@@ -19,13 +19,15 @@
 						<option value="Smoked">Rökt</option>
 						<option value="Roasted">Rostat</option>
 						<option value="Poached or Steamed">Kokt eller ångkokt</option>
+						<option value="other">Annat tillagningssätt</option>
 
 					</select>
 				</div>
 
 				<div class="form-group">
-					<label for="recipeIngridients" class="col-xs-2 control-label">Recept ingredienser:</label>
-					<div class="col-xs-10">
+					<label for="recipeIngridients">Recept-ingredienser:</label>
+					<p id="addRecipeIngredientsLabel"></p>
+					<div>
 						<div class="form-inline">
 							<div class="form-group">
 								<input type="text" class="form-control" placeholder="Typ" name="recipeIngredientName" id="recipeIngredientName"/>
@@ -49,7 +51,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<select class="form-control" name="recipeIngredientTags" id="recipeIngredientTags">
+								<select class="form-control" name="recipeIngredientTag" id="recipeIngredientTag">
 									<option value="null">Taggar:</option>
 									<option value="Red Meat">Rött Kött</option>
 									<option value="Cured Meat">Chark</option>
@@ -83,7 +85,9 @@
 									<option value="Chocolate and Coffee">Choklad och Kaffe</option>
 								</select>
 							</div>
-							    <button type="button" class="btn btn-default" id="btnaddingredient">Lägg till fler ingredienser</button>
+							<div>
+							    <button type="button" class="btn btn-primary" id="btnAddRecipeIngredient">Lägg till</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -92,22 +96,26 @@
 					<label for="recipeDescription">Recept instruktioner:</label>
 					<textarea class="form-control" rows="3" id="recipeDescripton" name="recipeDescription"></textarea>
 				</div>
+				
+				
+				<div id="wrapAddComponent1" class="wrapAddComponent">
 				<div class="form-group">
-					<label for="recipeComponentName">Tillbehör namn:</label> <input
-						type="text" class="form-control" id="recipeComponentName" name="recipeComponentName">
+					<label for="recipeComponentName1">Tillbehör 1:</label> 
+					<input type="text" class="form-control" id="recipeComponentName1" name="recipeComponentName1">
 				</div>
 				<div class="form-group">
-					<label for="recipeComponentIngredient" class="col-xs-2 control-label">Tillbehör ingredienser:</label>
-					<div class="col-xs-10">
+					<label for="recipeComponentIngredient">Tillbehör 1 ingredienser:</label>
+					<p id="addComponent1IngredientsLabel"></p>
+					<div>
 						<div class="form-inline">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Typ" name="componentIngredientName" id="componentIngredientName"/>
+								<input type="text" class="form-control" placeholder="Typ" name="componentIngredientName1" id="componentIngredientName1"/>
 							</div>
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Mängd" name="componentIngredientAmount" id="componentIngredientAmount" />
+								<input type="text" class="form-control" placeholder="Mängd" name="componentIngredientAmount1" id="componentIngredientAmount1" />
 							</div>
 							<div class="form-group">
-								<select class="form-control" id="componentAmountUnit" name="componentAmountUnit">
+								<select class="form-control" id="componentAmountUnit1" name="componentAmountUnit1">
 									<option value="dl">dl</option>
 									<option value="l">l</option>
 									<option value="cl">cl</option>
@@ -122,7 +130,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<select class="form-control" id="componentIngredientTags" name="componentIngredientTags">
+								<select class="form-control" id="componentIngredientTag1" name="componentIngredientTag1">
 									<option value="null">Taggar:</option>
 									<option value="Red Meat">Rött Kött</option>
 									<option value="Cured Meat">Chark</option>
@@ -156,21 +164,195 @@
 									<option value="Chocolate and Coffee">Choklad och Kaffe</option>
 								</select>
 							</div>
-							     			<button type="button" class="btn btn-default" id="btnaddcomponentingredient">Lägg till fler ingredienser</button>
+						<div class="">
+							<button type="button" class="btn btn-primary" id="btnAddComponentIngredient1">Lägg till</button>
+						</div>
+
 						</div>
 					</div>
 				</div>
 				<div class="form-group">
-					<label for="recipeComponentDescription">Tillbehör instruktioner:</label>
+					<label for="recipeComponentDescription">Tillbehör 1 instruktioner:</label>
 					<textarea class="form-control" rows="3"
-						id="recipeComponentDescripton" name="recipeComponentDescripton"></textarea>
+						id="recipeComponentDescripton1" name="recipeComponentDescripton1"></textarea>
+				</div>
 				</div>
 				
+				
+				
+				<div id="wrapAddComponent2" class="wrapAddComponent">
 				<div class="form-group">
-          			<button type="button" class="btn btn-default" id="btnaddcomponents">Lägg till fler tillbehör</button>
-          			<button type="submit" class="btn btn-default" id="btnaddrecipe">Lägg Till</button>
-     				
+					<label for="recipeComponentName2">Tillbehör 2:</label> 
+					<input type="text" class="form-control" id="recipeComponentName2" name="recipeComponentName2">
+				</div>
+				<div class="form-group">
+					<label for="recipeComponentIngredient2">Tillbehör 2 ingredienser:</label>
+					<p id="addComponent2IngredientsLabel"></p>
+					<div>
+						<div class="form-inline">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Typ" name="componentIngredientName2" id="componentIngredientName2"/>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Mängd" name="componentIngredientAmount2" id="componentIngredientAmount2" />
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="componentAmountUnit2" name="componentAmountUnit2">
+									<option value="dl">dl</option>
+									<option value="l">l</option>
+									<option value="cl">cl</option>
+									<option value="ml">ml</option>
+									<option value="msk">msk</option>
+									<option value="tsk">tsk</option>
+									<option value="krm">krm</option>
+									<option value="g">g</option>
+									<option value="kg">kg</option>
+									<option value="st">st</option>
+
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="componentIngredientTag2" name="componentIngredientTag2">
+									<option value="null">Taggar:</option>
+									<option value="Red Meat">Rött Kött</option>
+									<option value="Cured Meat">Chark</option>
+									<option value="Pork">Fläsk Kött</option>
+									<option value="Poultry">Fågel</option>
+									<option value="Mollusk">Blötdjur</option>
+									<option value="Fish">Fisk</option>
+									<option value="Lobster and Shellfish">Skaldjur</option>
+									<option value="Soft cheese and Cream">Mjukost och Grädde</option>
+									<option value="Pungent cheese">Mögelost</option>
+									<option value="Hard cheese">Hård ost</option>
+									<option value="Alliums">Lök</option>
+									<option value="Green vegetables">Gröna grönsaker</option>
+									<option value="Root vegetables and Squash">Rotfrukter och Squash</option>
+									<option value="Nightshades">Tomat, Aubergine och Paprika</option>
+									<option value="Funghi">Svamp</option>
+									<option value="Nuts and Seeds">Nötter och Frön</option>
+									<option value="Beans and Peas">Bönor och Ärtor</option>
+									<option value="Black pepper">Svartpeppar</option>
+									<option value="Red pepper">Rödpeppar</option>
+									<option value="Hot and Spicy">Hot and Spicy</option>
+									<option value="Herbs">Örter</option>
+									<option value="Baking spices">Baknings kryddor</option>
+									<option value="Exotic and Aromatic spices">Exotiska och Aromatiska kryddor</option>
+									<option value="White starches">Vita stärkelser</option>
+									<option value="Whole wheat grains">Hela vetekorn</option>
+									<option value="Sweet starchy vegetables">Söta stärkelserika grönsaker</option>
+									<option value="Potato">Potatis</option>
+									<option value="Fruit and Berries">Frukt och Bär</option>
+									<option value="Vanilla and Caramel">Vanilj och Karamel</option>
+									<option value="Chocolate and Coffee">Choklad och Kaffe</option>
+								</select>
+							</div>
+						<div class="">
+							<button type="button" class="btn btn-primary" id="btnAddComponentIngredient2">Lägg till</button>
+						</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="recipeComponentDescription">Tillbehör 2 instruktioner:</label>
+					<textarea class="form-control" rows="3"
+						id="recipeComponentDescripton2" name="recipeComponentDescripton2"></textarea>
+				</div>
+				</div>
+				
+				
+				
+				<div id="wrapAddComponent3" class="wrapAddComponent">
+				<div class="form-group">
+					<label for="recipeComponentName3">Tillbehör 3:</label> 
+					<input type="text" class="form-control" id="recipeComponentName3" name="recipeComponentName3">
+				</div>
+				<div class="form-group">
+					<label for="recipeComponentIngredient3">Tillbehör 3 ingredienser:</label>
+					<p id="addComponent3IngredientsLabel"></p>
+					<div>
+						<div class="form-inline">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Typ" name="componentIngredientName3" id="componentIngredientName3"/>
+							</div>
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Mängd" name="componentIngredientAmount3" id="componentIngredientAmount3" />
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="componentAmountUnit3" name="componentAmountUnit3">
+									<option value="dl">dl</option>
+									<option value="l">l</option>
+									<option value="cl">cl</option>
+									<option value="ml">ml</option>
+									<option value="msk">msk</option>
+									<option value="tsk">tsk</option>
+									<option value="krm">krm</option>
+									<option value="g">g</option>
+									<option value="kg">kg</option>
+									<option value="st">st</option>
+
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" id="componentIngredientTag3" name="componentIngredientTag3">
+									<option value="null">Taggar:</option>
+									<option value="Red Meat">Rött Kött</option>
+									<option value="Cured Meat">Chark</option>
+									<option value="Pork">Fläsk Kött</option>
+									<option value="Poultry">Fågel</option>
+									<option value="Mollusk">Blötdjur</option>
+									<option value="Fish">Fisk</option>
+									<option value="Lobster and Shellfish">Skaldjur</option>
+									<option value="Soft cheese and Cream">Mjukost och Grädde</option>
+									<option value="Pungent cheese">Mögelost</option>
+									<option value="Hard cheese">Hård ost</option>
+									<option value="Alliums">Lök</option>
+									<option value="Green vegetables">Gröna grönsaker</option>
+									<option value="Root vegetables and Squash">Rotfrukter och Squash</option>
+									<option value="Nightshades">Tomat, Aubergine och Paprika</option>
+									<option value="Funghi">Svamp</option>
+									<option value="Nuts and Seeds">Nötter och Frön</option>
+									<option value="Beans and Peas">Bönor och Ärtor</option>
+									<option value="Black pepper">Svartpeppar</option>
+									<option value="Red pepper">Rödpeppar</option>
+									<option value="Hot and Spicy">Hot and Spicy</option>
+									<option value="Herbs">Örter</option>
+									<option value="Baking spices">Baknings kryddor</option>
+									<option value="Exotic and Aromatic spices">Exotiska och Aromatiska kryddor</option>
+									<option value="White starches">Vita stärkelser</option>
+									<option value="Whole wheat grains">Hela vetekorn</option>
+									<option value="Sweet starchy vegetables">Söta stärkelserika grönsaker</option>
+									<option value="Potato">Potatis</option>
+									<option value="Fruit and Berries">Frukt och Bär</option>
+									<option value="Vanilla and Caramel">Vanilj och Karamel</option>
+									<option value="Chocolate and Coffee">Choklad och Kaffe</option>
+								</select>
+							</div>
+						<div class="">
+							<button type="button" class="btn btn-primary" id="btnAddComponentIngredient3">Lägg till</button>
+						</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="recipeComponentDescription">Tillbehör 3 instruktioner:</label>
+					<textarea class="form-control" rows="3"
+						id="recipeComponentDescripton3" name="recipeComponentDescripton3"></textarea>
+				</div>
+				</div>
+				
+				
+
+				
+				
+				<div>
+          			<button type="button" class="btn btn-primary" id="btnAddComponent">Lägg till (fler) tillbehör</button>
           		</div>
+          		
+          		<div class="col-md-12 text-center">
+          		<button type="submit" class="btn btn-primary text-center" id="btnAddRecipe">Spara recept!</button>
+				</div>
 				
 			</form>
 		</div>

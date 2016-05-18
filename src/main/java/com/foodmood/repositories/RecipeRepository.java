@@ -7,6 +7,5 @@ import com.foodmood.models.Recipe;
 
 public interface RecipeRepository extends JpaRepository<Recipe, Long> {
 
-	
 
 }

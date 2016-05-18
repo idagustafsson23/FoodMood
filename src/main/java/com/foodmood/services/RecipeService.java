@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.foodmood.models.FoodTag;
 import com.foodmood.models.Ingredient;
@@ -20,12 +21,7 @@ public class RecipeService {
 
 		@Autowired
 		private RecipeRepository recipeRepository;
-
-		public Recipe saveRecipe(HttpServletRequest request) {
-			Recipe recipe = createRecipe(request);
-			recipe = recipeRepository.saveAndFlush(recipe);			
-			return recipe;			
-		}
+		
 
 		public Recipe readRecipe(Long id) {
 			return (Recipe) recipeRepository.findOne(id);
@@ -41,32 +37,64 @@ public class RecipeService {
 		}
 		
 		
-		public Recipe createRecipe(HttpServletRequest request) {
-			String recipeName = request.getParameter("recipeName");
-			String[] arrayOfDescription = request.getParameter("recipeDescription").split("\n");
-			ArrayList<String> recipeDescription = new ArrayList<String>(Arrays.asList(arrayOfDescription));
-			
-			ArrayList<RecipeComponent> recipeComponents = getRecipeComponents(request);
-			
-						
-			List<Ingredient> recipeIngredients = getRecipeIngredients(request);
-			
-			
-			FoodTag recipeTag = new FoodTag();
-			recipeTag.setTagName(request.getParameter("recipeTag"));
-						
-			Recipe recipe = new Recipe();
-			
-			recipe.setRecipeName(recipeName);
-			recipe.setRecipeDescription(recipeDescription);
-			recipe.setFoodTag(recipeTag);
-			recipe.setRecipeComponents(recipeComponents);
-			recipe.setRecipeIngredients(recipeIngredients);
+		public Recipe saveRecipe(HttpServletRequest request) {
+			Recipe recipe = null;
+			try {
+				recipe = createRecipe(request);
+				recipe = recipeRepository.saveAndFlush(recipe);		
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			return recipe;			
+		}
+
 	
+		public Recipe createRecipe(HttpServletRequest request) {
+			Recipe recipe = null;
+			try {
+				String recipeName = request.getParameter("recipeName");
+				String[] arrayOfDescription = request.getParameter("recipeDescription").split("\n");
+				ArrayList<String> recipeDescription = new ArrayList<String>(Arrays.asList(arrayOfDescription));
+			
+				//ArrayList<RecipeComponent> recipeComponents = getRecipeComponents(request);
+									
+				List<Ingredient> recipeIngredients = getRecipeIngredients(request);
+			
+			
+				FoodTag recipeTag = new FoodTag();
+				recipeTag.setTagName(request.getParameter("recipeTag"));
+						
+				recipe = new Recipe();
+			
+				recipe.setRecipeName(recipeName);
+				recipe.setRecipeDescription(recipeDescription);
+				recipe.setFoodTag(recipeTag);
+				//recipe.setRecipeComponents(recipeComponents);
+				recipe.setRecipeIngredients(recipeIngredients);
+			} catch(Exception ex) {
+				ex.printStackTrace();
+			}
 			
 			return recipe;
 		}
 		
+		public Recipe searchRecipe(HttpServletRequest request) {
+			Recipe recipe = null;	
+
+			try {			
+				if (this.getAllRecipes() != null && this.getAllRecipes().size() > 0) {				
+					for (int r = 0; r < this.getAllRecipes().size(); r++) {
+						recipe = this.getAllRecipes().get(r);
+						if (recipe.getRecipeName().indexOf(request.getParameter("inputsearch")) > -1) {
+							break;
+						}
+					}
+				}			
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			return recipe;
+		}
 
 		private List<Ingredient> getRecipeIngredients(HttpServletRequest request) {
 			List<Ingredient> recipeIngredients = new ArrayList<Ingredient>();
@@ -111,8 +139,5 @@ public class RecipeService {
 			recipeComponentIngrediens.add(ingredient);
 			return recipeComponentIngrediens;
 		}
-		
-		
-		
-		
+			
 }

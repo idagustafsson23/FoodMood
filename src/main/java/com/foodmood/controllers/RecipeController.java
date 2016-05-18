@@ -57,7 +57,7 @@ public class RecipeController {
 	@ResponseBody
 	public ModelAndView getRecipe(@PathVariable("id") Long id) {
 		Recipe recipe = recipeService.readRecipe(id);		
-		ModelAndView modelAndView= new ModelAndView("/viewRecipe.jsp");
+		ModelAndView modelAndView = new ModelAndView("/viewRecipe.jsp");
 		modelAndView.addObject("recipe", recipe);
 		return modelAndView;		
 	}
@@ -73,41 +73,25 @@ public class RecipeController {
 		
 	}
 	
-	
-	@RequestMapping(value = "/addmorerecipes")
-	@ResponseBody //omit this if controller is used as restcontroller
-	public void addMoreIngridients(@RequestBody Recipe recipe) {
-	
-	}
-	
 
-	
+
 	@RequestMapping(value = "/searchrecipe", method = RequestMethod.GET)
 	@ResponseBody
-	public Recipe searchRecipe(HttpServletRequest request) {
-		Recipe recipe = null;
-		RecipeService recipeService = new RecipeService();
-		try {					
+	public ModelAndView searchRecipe(HttpServletRequest request) {
+		Recipe recipe = null;	
+		//List<Recipe> recipeList = recipeService.getAllRecipes();	
+		try {
+			Recipe recipeResult = recipeService.searchRecipe(request);
 			modelAndView = new ModelAndView("/searchrecipe.jsp");
-			if (recipeService.getAllRecipes() != null && recipeService.getAllRecipes().size() > 0) {
-				List<Recipe> recipeList = recipeService.getAllRecipes();	
-				for (int r = 0; r < recipeList.size(); r++) {
-					recipe = recipeList.get(r);
-					if (recipe.getRecipeName().indexOf(request.getParameter("inputsearch")) > -1) {
-						modelAndView.addObject("recipename", recipe.getRecipeName());
-					}
-					else {
-						modelAndView.addObject("recipemessage", "No More Recipes with that name");
-					}
-				}
-			}
-			else {
-				modelAndView.addObject("recipemessage", "failed to get data from datasource");
+			if (recipeResult != null) {		
+				modelAndView.addObject("recipename", recipeResult.getRecipeName());
+			} else {
+				modelAndView.addObject("recipename", " ");
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		return recipe;
+		return modelAndView;
 	}
 	
 }

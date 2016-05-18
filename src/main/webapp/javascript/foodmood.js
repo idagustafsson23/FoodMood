@@ -46,7 +46,7 @@ function addRecipe() {
 	$.ajax({
 		type : "POST",
 		contentType : "application/json",
-		url : "/recipe/addmorerecipes",
+		url : "/recipe/addrecipe",
 		data : JSON.stringify($recipe),
 		dataType : 'json',
 		timeout : 100000,

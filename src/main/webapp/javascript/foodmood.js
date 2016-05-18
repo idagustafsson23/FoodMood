@@ -1,116 +1,46 @@
-var recipeIngredientstore = [];
-var componentIngredientStore = [];
-var componentStore = [];
-var componentIngredient;
-var added = false;
-
+var $recipe;
+var $ingredients = [];
 // jQuery begin 
 $(document).ready(function() {
-	//do same class call here to fix cleaner code for event calls
-	$("#btnaddingredient").on('click', function() {
-		addRecipeIngredient();
-	   //clearRecipeIngredientsFields();
-		
-	});
-	$("#btnaddcomponentingredient").on('click', function() {
-		addComponentIngredient();				
-		//clearComponentIngredientsFields();
-	});
-	$("#btnaddcomponents").on('click', function() {
-		addComponent();
 	
-		//clearComponentFields()
+	$("#btnaddingredient").on('click', function() {
+		addIngredient();
 	});
+
 	$("#btnaddrecipe").on('click', function() {
-		//addRecipeIngredient();
-		//addComponentIngredient();
-		//addComponent();
 		addRecipe();
 	});	
 });
 
-function clearComponentIngredientsFields() {
-	
-}
 
-function addRecipeIngredient() {
+
+function addIngredient() {
 	var $ingredientName = $("#recipeIngredientName").val();
 	var $ingredientAmount = $("#recipeIngredientAmount").val();
 	var $amountUnit = $("#recipeAmountUnit").val();
 	var $ingredientTags = $("#recipeIngredientTags").val();
 	
-	var recipeIngredient = {
-			recipeIngredientName: $ingredientName,
-			recipeIngredientAmount : $ingredientAmount,
-			recipeAmountUnit : $amountUnit,
-			recipeIngredientTags : $ingredientTags
+	$ingredient = {			
+			IngredientName: $ingredientName,
+			IngredientAmount : $ingredientAmount,
+			AmountUnit : $amountUnit,
+			IngredientTags : $ingredientTags			
 	};
 	
-	recipeIngredientstore.push(recipeIngredient);
-
+	$ingredients.push($ingredient);
 	
-	console.log(recipeIngredientstore);
+	console.log($ingredients);
 }
 
-
-function addComponentIngredient() {
-	var $componentName = $("#recipeComponentName").val();
-	var $ingredientName = $("#componentIngredientName").val();
-	var $ingredientAmount = $("#componentIngredientAmount").val();
-	var $amountUnit = $("#componentAmountUnit").val();
-	var $ingredientTags = $("#componentIngredientTags").val();
-	
-	componentIngredient = {			
-			componentIngredientName: $ingredientName,
-			componentIngredientAmount : $ingredientAmount,
-			componentAmountUnit : $amountUnit,
-			componentIngredientTags : $ingredientTags			
-	};
-	
-	componentIngredientStore.push(componentIngredient);
-	
-	console.log(componentIngredientStore);
-}
-
-function updateList(currentArray, values) {
-	for (var j = 0; j < currentArray.length; j++) {
-		currentArray[j] = values;
-	}
-}
-
-function addComponent() {
-
-	var $componentName = $("#recipeComponentName").val();
-	var $componentDescription = $("#recipeComponentDescripton").val();
-	
-	
-	var component = {
-			recipeComponentName : $componentName,
-			recipeComponentDescription : $componentDescription,
-			componentIngredients : componentIngredientStore
-	};	
-		
-	componentStore.push(component);		
-	
-	//update componentIngredientStore list with new values either from 0 or from last indexed position
-	updateList(componentIngredientStore, componentIngredient);
-	
-	console.log(componentStore);
-}
 
 function addRecipe() {
-	var $name = $("#recipeName").val();
-	var $description = $("#recipeDescripton").val();
-	var $tag = $("#recipeTag").val();
-	
-	var $recipe = {
-			recipeName : $name,
-			recipeDescription : $description,
-			recipeTag : $tag,
-			recipeIngredints : recipeIngredientstore,
-			recipeComponents : componentStore
+	$recipeName = $("#recipeName").val();
+	$recipeDescription = $("#recipeDescripton").val();
+	$recipe = {
+		recipename : $recipeName,
+		recipedescription : $recipeDescription,
+		ingridients : $ingredients
 	};
-	
 	console.log($recipe);
 	
 	$.ajax({

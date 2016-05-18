@@ -61,7 +61,11 @@
 
     <p>by LIJCO</p>
 
+
+  
+
   <form method="GET" action="recipe/searchrecipe">  
+
 
   <div id="custom-search-input"> 
      <div class="input-group col-md-12">
@@ -113,7 +117,7 @@
 					<li>
 						<div class="row">
 							<div class="col-md-12" id="login-div">
-								<form role="form" method="GET" action="/user/loginUser">
+								<form role="form" method="POST" action="/user/loginUser">
 									<div>
 										<h2 class="text-center form-signin-heading">Login</h2>
 									</div>

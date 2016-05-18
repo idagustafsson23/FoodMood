@@ -1,11 +1,23 @@
 package com.foodmood.services;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import javax.annotation.Resource;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.foodmood.models.Recipe;
+import com.foodmood.models.RecipeComponent;
 import com.foodmood.models.User;
 import com.foodmood.repositories.UserRepository;
 
@@ -32,23 +44,27 @@ public class UserService {
 	}
 	
 
-	public User getUser(Long id) {
+	public User readUser(Long id) {
 		return (User) userRepository.findOne(id);
-	}	
+	}
+
+	
 	
 	public void deleteRecipe(Long id) {
 		userRepository.delete(id);
 	}	
-			
+		
+	
+	
 	public List<User> getAllUsers() {
 		List<User> users = userRepository.findAll();
 		return users;
 	}
 	
 	
-	public User loginUser(Long id, String username, String password)  {
+	@SuppressWarnings("null")
+	public User loginUser(String username, String password) {
 		List<User> users = userRepository.findAll();
-		User getUser = userRepository.findOne(id); //get only one user
 		User user = null;
 		for(User currentUser : users ) {
 			System.out.println("username: " + currentUser.getUsername());
@@ -78,10 +94,10 @@ public class UserService {
 		user.setAddress1(address1);
 		user.setAddress2(address2);
 		user.setPhoneNumber(phonenumber);
-		user.setId(user.getId());
+		
 		//detta gör alla users till admin, fixa sen!!
 		user.setAdmin(true);
-					
+		
 		return user;
 	}
 
@@ -89,18 +105,7 @@ public class UserService {
 	
 	
 	public User updateUser(HttpServletRequest request, Long id) {
-		User currentUser = null;
-		try {
-			if (id != null && request != null) {
-				currentUser = (User)userRepository.findOne(id);
-				currentUser.setUsername(request.getParameter("username"));
-				userRepository.saveAndFlush(currentUser);
-				request.getSession().setAttribute("updateuser", currentUser);
-			}
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			//throw new UserNotFoundException();
-		}
+		
 		/*
 		 
 		FORTSÄTT KOLLA UPP sessionfactory och annotation för injection....
@@ -128,7 +133,7 @@ public class UserService {
 		
 		session.update(user);
 		*/
-		return currentUser;
+		return null;
 		
 	}
 

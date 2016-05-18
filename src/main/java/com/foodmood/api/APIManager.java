@@ -77,7 +77,10 @@ public class APIManager {
 		return "";
 	}
 	
-	private Map<String, String> getValuesFromArticleNumber(NodeList nodes, String articleNumber) {
+	
+	
+	
+	public Map<String, String> getValuesFromArticleNumber(NodeList nodes, String articleNumber) {
 		try {
 			//get first 200 articles
 			for (int i = 0; i < 200; i++) {
@@ -95,5 +98,64 @@ public class APIManager {
 		}
 		return values;
 	} 
+	
+	
+	
+	
+	
+	public Map<String, String> getMapFromArticleNumber(String articleNumber) {
+		
+		Map<String, String> map = new HashMap<String, String>();
+		
+		
+		InputStream xmlFile = null;
+		try {
+			xmlFile = newURL.openStream();
+		
+			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();		
+			Document xmlDocument = documentBuilder.parse(xmlFile);
+			
+			Element rootNode = xmlDocument.getDocumentElement();
+			NodeList nodeList = rootNode.getElementsByTagName("artikel");		
+
+			
+			
+			try {
+				//get first 200 articles
+				for (int i = 0; i < 200; i++) {
+					Element element = (Element)nodeList.item(i).getFirstChild();
+					if (element.getTextContent().equals(articleNumber)) { 			//if equal to the entered articleNumber get values starting from parent node
+						NodeList subNodeList = element.getParentNode().getChildNodes(); 
+						for (int j = 0; j < subNodeList.getLength(); j++) {
+							Element childValues = (Element) subNodeList.item(j);
+							map.put(childValues.getNodeName(), childValues.getTextContent());
+						}
+					}
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		
+			
+			xmlFile.close();
+		} catch (IOException ioEx) {
+			ioEx.printStackTrace();	
+		} catch (ParserConfigurationException pcEx) {
+			pcEx.printStackTrace();
+		} catch (SAXException saxEx) {
+			saxEx.printStackTrace();
+		}
+		
+		
+		return map;
+	} 
+	
+	
+	
+	
+	
+	
+	
 
 }

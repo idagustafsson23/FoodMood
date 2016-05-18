@@ -62,13 +62,18 @@ public class WineController {
 				}
 			}
 		}
+		String priceRange = request.getParameter("winePrice");
+		String[] priceArray = priceRange.split("-");
+		String minPrice = priceArray[0];
+		String maxPrice = priceArray[1];
 		
-		String minPrice = request.getParameter("minPrice");
-		String maxPrice = request.getParameter("maxPrice");
+		String[] aSingleGrape = theGrapeToUse.split(" /");
+		theGrapeToUse = aSingleGrape[0];
 		
+		System.out.println("Vin sort: " + wine.getWineSort());
 		System.out.println("MinPrice: " + minPrice );
 		System.out.println("MaxPrice: " + maxPrice);
-		
+		System.out.println("Druva: " + theGrapeToUse);
 		
 		return new ModelAndView();
 	}

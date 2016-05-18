@@ -1,11 +1,17 @@
 package com.foodmood.services;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.tomcat.util.http.fileupload.ByteArrayOutputStream;
+import org.eclipse.jdt.internal.core.CreateTypeHierarchyOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +29,8 @@ public class RecipeService {
 		@Autowired
 		private RecipeRepository recipeRepository;
 
-		public Recipe saveRecipe(HttpServletRequest request) {
-			Recipe recipe = createRecipe(request);
+		public Recipe saveRecipe(HttpServletRequest request, byte[] bytes) {
+			Recipe recipe = createRecipe(request, bytes);
 			recipe = recipeRepository.saveAndFlush(recipe);			
 			return recipe;			
 		}
@@ -44,10 +50,7 @@ public class RecipeService {
 		
 		
 		
-		
-		
-		
-		public Recipe createRecipe(HttpServletRequest request) {
+		public Recipe createRecipe(HttpServletRequest request, byte[] bytes) {
 			
 			Recipe recipe = new Recipe();
 			List<Ingredient> listOfRecipeIngredients = new ArrayList<Ingredient>();
@@ -88,7 +91,7 @@ public class RecipeService {
 			recipe.setFoodTag(recipeTag);
 			recipe.setRecipeIngredients(listOfRecipeIngredients);
 			recipe.setRecipeComponents(listOfRecipeComponents);
-	
+			recipe.setPicture(bytes);
 			
 			return recipe;
 		}

@@ -4,11 +4,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			<form action="http://localhost:8080/recipe/addRecipe" role="form"
-				method="POST" id="recipeform">
+		<!-- ta bort action för testning via jquery -->
+			<form role="form" method="POST" id="recipeform" action="http://localhost:8080/recipe/addRecipe" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="recipeName">Receptnamn:</label> <input type="text"
 						class="form-control" id="recipeName" name="recipeName">
+						<input type = "file" name="file"/>
 				</div>
 				
 				<div class="form-group">
@@ -96,7 +97,7 @@
 					<label for="recipeDescription">Recept instruktioner:</label>
 					<textarea class="form-control" rows="3" id="recipeDescripton" name="recipeDescription"></textarea>
 				</div>
-				
+			
 				
 				<div id="wrapAddComponent1" class="wrapAddComponent">
 				<div class="form-group">
@@ -353,6 +354,7 @@
           		<div class="col-md-12 text-center">
           		<button type="submit" class="btn btn-primary text-center" id="btnAddRecipe">Spara recept!</button>
 				</div>
+
 				
 			</form>
 		</div>

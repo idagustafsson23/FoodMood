@@ -9,6 +9,7 @@
 <%@ page import="com.foodmood.models.Ingredient" %>
 <%@ page import="com.foodmood.models.FoodTag" %>
 <%@ page import="com.foodmood.models.RecipeComponent" %>
+<%@ page import="java.util.Random" %>
 <%@ page import="java.util.Base64" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

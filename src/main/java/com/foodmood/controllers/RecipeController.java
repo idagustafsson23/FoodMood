@@ -75,6 +75,17 @@ public class RecipeController {
 		
 	}
 	
+	
+	@RequestMapping(value = "/firstPage", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView getFirstPage() {
+		List<Recipe> allRecipes = recipeService.getAllRecipes();
+		
+		ModelAndView modelAndView = new ModelAndView("/index.jsp");
+		modelAndView.addObject("listOfRecipes", allRecipes);
+		return modelAndView;
+		
+	}
 
 
 	@RequestMapping(value = "/searchrecipe", method = RequestMethod.GET)

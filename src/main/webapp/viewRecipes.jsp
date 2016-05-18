@@ -11,8 +11,6 @@
 
 	
 	
-	%>
-	<%
 			for(int i = 0; i < allRecipes.size(); i++){	
 			%>
 				<div class = "col-sm-4">

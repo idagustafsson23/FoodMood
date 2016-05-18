@@ -7,10 +7,10 @@ spring:
       naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
       ddl-auto: update
   datasource:
-    driverClassName: org.apache.commons.dbcp.BasicDataSource
-    url: postgres://dqnyrgywjowsur:4DKeTXKrCov1n8PjFbAsa_22KC@ec2-54-228-219-2.eu-west-1.compute.amazonaws.com:5432/d43vsjt9ulorg3
-    username: dqnyrgywjowsur
-    password: 4DKeTXKrCov1n8PjFbAsa_22KC
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/foodmood?useSSL=false
+    username: root
+    password: password
   jackson:
     serialization:
       fail-on-empty-beans: false

@@ -9,6 +9,7 @@
 				<div class="form-group">
 					<label for="recipeName">Recept namn:</label> <input type="text"
 						class="form-control" id="recipeName" name="recipeName">
+						<input type = "file" />
 				</div>
 				
 				<div class="form-group">

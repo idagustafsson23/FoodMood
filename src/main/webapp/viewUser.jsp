@@ -5,7 +5,7 @@
 	<div class="col-sm-12">
 
 
-<form class="form-horizontal" role="form" method="PUT" action="/user/updateUser">
+<form class="form-horizontal" role="form" method="POST" action="/user/updateUser/<%=userLoggedIn.getId()%>">
 	
 	
 	<% if(request.getAttribute("message") != null) {%>
@@ -68,6 +68,7 @@
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-primary">Uppdatera</button>
       <a href="/index.jsp" class="btn btn-primary" role="button">Avbryt</a>
+      <a href="/user/removeUser/<%=userLoggedIn.getId()%>" class="btn btn-danger" role="button">Ta bort denna användare</a>
     </div>
   </div>
 </form>

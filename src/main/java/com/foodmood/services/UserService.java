@@ -28,10 +28,7 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 
-	//@Resource
-    //private SessionFactory sessionFactory;
 
-	
 	public UserService() {
 		
 	}
@@ -50,7 +47,7 @@ public class UserService {
 
 	
 	
-	public void deleteRecipe(Long id) {
+	public void deleteUser(Long id) {
 		userRepository.delete(id);
 	}	
 		
@@ -106,13 +103,6 @@ public class UserService {
 	
 	public User updateUser(HttpServletRequest request, Long id) {
 		
-		/*
-		 
-		FORTSÄTT KOLLA UPP sessionfactory och annotation för injection....
-		
-		
-		final Session session = sessionFactory.getCurrentSession();
-		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String name = request.getParameter("name");
@@ -121,7 +111,7 @@ public class UserService {
 		String address2 = request.getParameter("address2");
 		String phonenumber = request.getParameter("phonenumber");
 		
-		User user = (User) session.get(User.class, id);
+		User user = readUser(id);
 		
 		user.setUsername(username);
 		user.setPassword(password);
@@ -131,9 +121,9 @@ public class UserService {
 		user.setAddress2(address2);
 		user.setPhoneNumber(phonenumber);
 		
-		session.update(user);
-		*/
-		return null;
+		userRepository.save(user);
+		
+		return user;
 		
 	}
 

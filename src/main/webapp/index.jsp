@@ -3,6 +3,16 @@
 <div class="container">	
 <div class="row">
 	<div class="col-sm-12">
+	
+		<% if(request.getAttribute("message") != null) {%>
+		<div class="form-group">
+			<div class="col-sm-2"></div>
+	    	<div class="col-sm-10">
+	   		 <label> ${message}</label>
+	    	</div>
+			</div>
+		<%}%>
+	
 		<h1>Välkommen!</h1>		
 		<a href="addRecipe.jsp">Lägg till recept!</a><br>
 		

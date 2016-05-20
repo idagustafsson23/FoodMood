@@ -64,7 +64,7 @@ public class UserController {
 		
 		HttpSession session = request.getSession();
 		session.removeAttribute("userLoggedIn");
-		ModelAndView modelAndView= new ModelAndView("/index.jsp");
+		ModelAndView modelAndView= new ModelAndView("/recipe/firstPage");
 		return modelAndView;
 	}
 	
@@ -88,25 +88,47 @@ public class UserController {
 	
 	
 	
-	//Fungerar inte ännu....
-	@RequestMapping(value="/updateUser", method=RequestMethod.PUT)
+
+	@RequestMapping(value="/updateUser/{id:[\\d]+}", method=RequestMethod.POST)
 	@ResponseBody
-	public ModelAndView updateUser(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView updateUser(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response) {
+		User userRequestedToShow = userService.readUser(id);	
+		User userLoggedOn = (User) request.getSession().getAttribute("userLoggedIn");
 		
-		User userToFetchId = (User) request.getSession().getAttribute("userLoggedIn");
-		Long id = userToFetchId.getId();
+
+		ModelAndView modelAndView = new ModelAndView("/viewUser.jsp");
 		
-		User user = userService.updateUser(request, id);
-		
-		ModelAndView modelAndView= new ModelAndView("/viewUser.jsp");
-		modelAndView.addObject("userLoggedIn", user);
-		modelAndView.addObject("message", user.getName() + " updated and logged on");
-		return modelAndView;
-		
+		if(userRequestedToShow.getId().equals(userLoggedOn.getId())) {		//kolla att man bara kan uppdatera sin egen user
+			if(userRequestedToShow != null) {
+				User user = userService.updateUser(request, id);
+				modelAndView.addObject("userLoggedIn", user);
+				modelAndView.addObject("message", user.getName() + " updated and logged on");
+			}	
+		}
+		return modelAndView;		
 	}
 	
 	
 	
+	@RequestMapping(value="/removeUser/{id:[\\d]+}", method=RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView removeUser(@PathVariable("id") Long id, HttpServletRequest request, HttpServletResponse response) {
+		User userRequestedToShow = userService.readUser(id);	
+		User userLoggedOn = (User) request.getSession().getAttribute("userLoggedIn");
+		
+		ModelAndView modelAndView = new ModelAndView("/recipe/firstPage");
+		
+		if(userRequestedToShow.getId().equals(userLoggedOn.getId())) {		//kolla att man bara kan ta bort sin egen user
+			if(userRequestedToShow != null) {
+				String userName = userRequestedToShow.getUsername();
+				userService.deleteUser(id);
+				HttpSession session = request.getSession();
+				session.removeAttribute("userLoggedIn");
+				modelAndView.addObject("message", userName + " has been removed");
+			}	
+		}
+		return modelAndView;		
+	}
 	
 	
 	

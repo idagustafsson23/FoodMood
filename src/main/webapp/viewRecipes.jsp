@@ -14,7 +14,7 @@
 			for(int i = 0; i < allRecipes.size(); i++){	
 			%>
 				<div class = "col-sm-4">
-					<h1><a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><%= allRecipes.get(i).getRecipeName() %></a></h1>
+					<h1><a href="/recipe/getRecipe/<%=allRecipes.get(i).getId()%> "><%= allRecipes.get(i).getRecipeName() %></a></h1>
 					<a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><div id="picture"><%
 						byte[] rawPicture = allRecipes.get(i).getPicture();
 					String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);

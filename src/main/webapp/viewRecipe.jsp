@@ -49,13 +49,21 @@
 		
 		<div class="col-sm-6">
 			<br>
-			<div id="picture">
+			<div class="" id="picture">
 			<%byte[] rawPicture = recipe.getPicture();
 				String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);
 				%><img alt="FoodMood" src="<%=url%>"></div>
-		</div>			
-		
-	</div>
+			</div>			
+			<br>
+			<%if(loggedIn) {
+				if(userLoggedIn.isAdmin()) {%>
+			<div class="pull-right">
+				<a href="/recipe/updateRecipe/<%=recipe.getId()%>" class="btn btn-primary" role="button">Edit Recipe</a>
+				<a href="/recipe/removeRecipe/<%=recipe.getId()%>" class="btn btn-warning" role="button">Delete Recipe</a>
+			</div>
+					<%} 
+				}%>
+		</div>
 
 
 					

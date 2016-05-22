@@ -64,6 +64,28 @@ public class RecipeController {
 		return modelAndView;		
 	}
 	
+	
+	@RequestMapping(value= "/removeRecipe/{id:[\\d]+}", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView removeRecipe(@PathVariable("id") Long id) {
+		recipeService.deleteRecipe(id);		
+		
+		List<Recipe> allRecipes = recipeService.getAllRecipes();
+		ModelAndView modelAndView = new ModelAndView("/viewRecipes.jsp");
+		modelAndView.addObject("listOfRecipes", allRecipes);
+		return modelAndView;
+	}
+	
+	@RequestMapping(value= "/updateRecipe/{id:[\\d]+}", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView updateRecipe(@PathVariable("id") Long id) {
+		Recipe recipe = recipeService.readRecipe(id);		
+		ModelAndView modelAndView = new ModelAndView("/updateRecipe.jsp");
+		modelAndView.addObject("recipe", recipe);
+		return modelAndView;
+	}
+	
+	
 	@RequestMapping(value = "/getAllRecipes", method = RequestMethod.GET)
 	@ResponseBody
 	public ModelAndView getAllRecipes() {
@@ -72,8 +94,8 @@ public class RecipeController {
 		ModelAndView modelAndView = new ModelAndView("/viewRecipes.jsp");
 		modelAndView.addObject("listOfRecipes", allRecipes);
 		return modelAndView;
-		
 	}
+	
 	
 	
 	@RequestMapping(value = "/firstPage", method = RequestMethod.GET)
@@ -84,7 +106,6 @@ public class RecipeController {
 		ModelAndView modelAndView = new ModelAndView("/index.jsp");
 		modelAndView.addObject("listOfRecipes", allRecipes);
 		return modelAndView;
-		
 	}
 
 
@@ -106,5 +127,10 @@ public class RecipeController {
 		}
 		return modelAndView;
 	}
+	
+	
+	
+	
+	
 	
 }

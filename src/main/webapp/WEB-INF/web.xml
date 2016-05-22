@@ -4,16 +4,6 @@
   <display-name>Archetype Created Web Application</display-name>
 
 <servlet-mapping>
-<servlet-name>indexMapping</servlet-name>
-<url-pattern>/index.jsp</url-pattern>
-</servlet-mapping>
-
-<servlet>
-<servlet-name>indexMapping</servlet-name>
-<jsp-file>index.jsp/recipe/firstPage</jsp-file>
-</servlet>
-
-<servlet-mapping>
 <servlet-name>appServlet</servlet-name>
 <url-pattern>/</url-pattern>
 </servlet-mapping>

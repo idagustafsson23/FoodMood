@@ -62,10 +62,10 @@ function addRecipeIngredient() {
 	var $ingredientTag = $("#recipeIngredientTag").val();
 	
 	var $txt = $("<p></p>").text($ingredientName + " " + $ingredientAmount + " " + $amountUnit);   
-	var $hiddenName = "<input type=hidden name='recipeIngredientName" + recipeIngredientCount + "' value='" + $ingredientName + "'>";
-	var $hiddenAmount = "<input type=hidden name='recipeIngredientAmount" + recipeIngredientCount + "' value='" + $ingredientAmount + "'>";
-	var $hiddenAmountUnit = "<input type=hidden name='recipeIngredientAmountUnit" + recipeIngredientCount + "' value='" + $amountUnit + "'>";
-	var $hiddenIngredientTag = "<input type=hidden name='recipeIngredientTag" + recipeIngredientCount + "' value='" + $ingredientTag + "'>";
+	var $hiddenName = "<input type='hidden' name='recipeIngredientName" + recipeIngredientCount + "' value='" + $ingredientName + "'>";
+	var $hiddenAmount = "<input type='hidden' name='recipeIngredientAmount" + recipeIngredientCount + "' value='" + $ingredientAmount + "'>";
+	var $hiddenAmountUnit = "<input type='hidden' name='recipeIngredientAmountUnit" + recipeIngredientCount + "' value='" + $amountUnit + "'>";
+	var $hiddenIngredientTag = "<input type='hidden' name='recipeIngredientTag" + recipeIngredientCount + "' value='" + $ingredientTag + "'>";
 	
 	$("#addRecipeIngredientsLabel").after($txt);
 	$("#addRecipeIngredientsLabel").after($hiddenName);
@@ -115,10 +115,10 @@ function addComponentIngredient1() {
 	var $componentIngredientTag = $("#componentIngredientTag1").val();
 	
 	var $txt = $("<p></p>").text($componentIngredientName + " " + $componentIngredientAmount + " " + $componentAmountUnit);   
-	var $hiddenName = "<input type=hidden name='component1IngredientName" + component1IngredientCount + "' value='" + $componentIngredientName + "'>";
-	var $hiddenAmount = "<input type=hidden name='component1IngredientAmount" + component1IngredientCount + "' value='" + $componentIngredientAmount + "'>";
-	var $hiddenAmountUnit = "<input type=hidden name='component1IngredientAmountUnit" + component1IngredientCount + "' value='" + $componentAmountUnit + "'>";
-	var $hiddenIngredientTag = "<input type=hidden name='component1IngredientTag" + component1IngredientCount + "' value='" + $componentIngredientTag + "'>";
+	var $hiddenName = "<input type='hidden' name='component1IngredientName" + component1IngredientCount + "' value='" + $componentIngredientName + "'>";
+	var $hiddenAmount = "<input type='hidden' name='component1IngredientAmount" + component1IngredientCount + "' value='" + $componentIngredientAmount + "'>";
+	var $hiddenAmountUnit = "<input type='hidden' name='component1IngredientAmountUnit" + component1IngredientCount + "' value='" + $componentAmountUnit + "'>";
+	var $hiddenIngredientTag = "<input type='hidden' name='component1IngredientTag" + component1IngredientCount + "' value='" + $componentIngredientTag + "'>";
 	
 	$("#addComponent1IngredientsLabel").after($txt);
 	$("#addComponent1IngredientsLabel").after($hiddenName);
@@ -145,10 +145,10 @@ function addComponentIngredient2() {
 	var $componentIngredientTag = $("#componentIngredientTag2").val();
 	
 	var $txt = $("<p></p>").text($componentIngredientName + " " + $componentIngredientAmount + " " + $componentAmountUnit);   
-	var $hiddenName = "<input type=hidden name='component2IngredientName" + component1IngredientCount + "' value='" + $componentIngredientName + "'>";
-	var $hiddenAmount = "<input type=hidden name='component2IngredientAmount" + component1IngredientCount + "' value='" + $componentIngredientAmount + "'>";
-	var $hiddenAmountUnit = "<input type=hidden name='component2IngredientAmountUnit" + component1IngredientCount + "' value='" + $componentAmountUnit + "'>";
-	var $hiddenIngredientTag = "<input type=hidden name='component2IngredientTag" + component1IngredientCount + "' value='" + $componentIngredientTag + "'>";
+	var $hiddenName = "<input type='hidden' name='component2IngredientName" + component1IngredientCount + "' value='" + $componentIngredientName + "'>";
+	var $hiddenAmount = "<input type='hidden' name='component2IngredientAmount" + component1IngredientCount + "' value='" + $componentIngredientAmount + "'>";
+	var $hiddenAmountUnit = "<input type='hidden' name='component2IngredientAmountUnit" + component1IngredientCount + "' value='" + $componentAmountUnit + "'>";
+	var $hiddenIngredientTag = "<input type='hidden' name='component2IngredientTag" + component1IngredientCount + "' value='" + $componentIngredientTag + "'>";
 	
 	$("#addComponent2IngredientsLabel").after($txt);
 	$("#addComponent2IngredientsLabel").after($hiddenName);
@@ -175,10 +175,10 @@ function addComponentIngredient3() {
 	var $componentIngredientTag = $("#componentIngredientTag3").val();
 	
 	var $txt = $("<p></p>").text($componentIngredientName + " " + $componentIngredientAmount + " " + $componentAmountUnit);   
-	var $hiddenName = "<input type=hidden name='component3IngredientName" + component1IngredientCount + "' value='" + $componentIngredientName + "'>";
-	var $hiddenAmount = "<input type=hidden name='component3IngredientAmount" + component1IngredientCount + "' value='" + $componentIngredientAmount + "'>";
-	var $hiddenAmountUnit = "<input type=hidden name='component3IngredientAmountUnit" + component1IngredientCount + "' value='" + $componentAmountUnit + "'>";
-	var $hiddenIngredientTag = "<input type=hidden name='component3IngredientTag" + component1IngredientCount + "' value='" + $componentIngredientTag + "'>";
+	var $hiddenName = "<input type='hidden' name='component3IngredientName" + component1IngredientCount + "' value='" + $componentIngredientName + "'>";
+	var $hiddenAmount = "<input type='hidden' name='component3IngredientAmount" + component1IngredientCount + "' value='" + $componentIngredientAmount + "'>";
+	var $hiddenAmountUnit = "<input type='hidden' name='component3IngredientAmountUnit" + component1IngredientCount + "' value='" + $componentAmountUnit + "'>";
+	var $hiddenIngredientTag = "<input type='hidden' name='component3IngredientTag" + component1IngredientCount + "' value='" + $componentIngredientTag + "'>";
 	
 	$("#addComponent3IngredientsLabel").after($txt);
 	$("#addComponent3IngredientsLabel").after($hiddenName);

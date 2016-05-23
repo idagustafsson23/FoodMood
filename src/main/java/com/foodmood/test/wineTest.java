@@ -1,4 +1,4 @@
-package com.foodmood.test;
+/*package com.foodmood.test;
 
 import static org.junit.Assert.*;
 
@@ -45,3 +45,4 @@ public class wineTest {
 	}
 
 }
+*/

@@ -1,4 +1,4 @@
-
+/*
 package com.foodmood.test;
 
 import static org.junit.Assert.*;
@@ -36,3 +36,4 @@ public class UserTest {
 
 }
 
+*/

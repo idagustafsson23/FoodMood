@@ -1,6 +1,6 @@
-/*
-package com.foodmood.test;
 
+package com.foodmood.test;
+/*
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -10,9 +10,9 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.mock.web.MockHttpServletRequest;
 
 import com.foodmood.services.UserService;
-
+*/
 public class UserTest {
-		
+/*		
 	@Before
 	public void init() {
 		MockitoAnnotations.initMocks(this);
@@ -33,7 +33,7 @@ public class UserTest {
 	public void testUserLogin() {
 		
 	}
-
+*/
 }
 
-*/
+

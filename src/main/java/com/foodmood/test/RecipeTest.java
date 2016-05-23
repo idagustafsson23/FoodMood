@@ -1,4 +1,4 @@
-
+/*
 package com.foodmood.test;
 
 import static org.mockito.Mockito.*;
@@ -60,7 +60,7 @@ public void testInputRecipe() {
     request.setParameter("recipeName", "gryta");
     request.setParameter("recipeDescription", "desc-row1\ndesc-row2");
     
-    request.setParameter("recipeIngredientName1", "kött");
+    request.setParameter("recipeIngredientName1", "kÃ¶tt");
     request.setParameter("recipeIngredientAmount1", "12");
     request.setParameter("recipeIngredientAmountUnit1", "dl");
     
@@ -115,3 +115,4 @@ public void testSearchRecipeName() {
 
 
 }
+*/

@@ -68,7 +68,7 @@
 
 					
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-6">
 				<form action="http://localhost:8080/wine/getWine" role="form"
 				method="POST" id="wineform">
 					<div class="form-group">

@@ -14,22 +14,24 @@
 		<%}%>
 	
 		<h1>Välkommen!</h1>		
-		<a href="addRecipe.jsp">Lägg till recept!</a><br>
 		
-		<a href="/recipe/getAllRecipes">Se alla recept</a><br>
 		<%
 		ArrayList<Recipe> allRecipes = (ArrayList<Recipe>) request.getAttribute("listOfRecipes");
 		%>
 		<% if (allRecipes.size() < 10) { 
 				for(int i = 0; i < allRecipes.size(); i++ ){
 		%>
-					<div class = "col-sm-4">
+					<div class = "col-sm-3">
 					<h1><a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><%= allRecipes.get(i).getRecipeName() %></a></h1>
 					<a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><div id="picture"><%
 						byte[] rawPicture = allRecipes.get(i).getPicture();
 					String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);
-					%> <img alt="FoodMood" src="<%=url%>"></div></a>
+					%> <div class="center-cropped"
+							style="background-image: url('<%=url%>');">
+						<img alt="FoodMood" src="<%=url%>"></div></a>
 					</div>
+					</div>
+					
 			
 			<%
 				}

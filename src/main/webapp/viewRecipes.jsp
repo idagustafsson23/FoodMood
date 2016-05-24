@@ -13,12 +13,24 @@
 	
 			for(int i = 0; i < allRecipes.size(); i++){	
 			%>
-				<div class = "col-sm-4">
-					<h1><a href="/recipe/getRecipe/<%=allRecipes.get(i).getId()%> "><%= allRecipes.get(i).getRecipeName() %></a></h1>
-					<a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><div id="picture"><%
+				
+				
+ 				 
+  				  <div class="col-sm-3">
+  				  		<h1><a href="/recipe/getRecipe/<%=allRecipes.get(i).getId()%> "><%= allRecipes.get(i).getRecipeName() %></a></h1>
+						<a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><div id="picture"><%
 						byte[] rawPicture = allRecipes.get(i).getPicture();
-					String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);
-					%> <img alt="FoodMood" src="<%=url%>"></div></a>
+						String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);
+						%> <div class="center-cropped"
+							style="background-image: url('<%=url%>');">
+						<img alt="FoodMood" src="<%=url%>"></div></a>
+					</div>
+					
+  				  
+  				  
+ 				
+ 				
+				
 				</div>
 				
 				

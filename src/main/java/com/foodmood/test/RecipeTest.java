@@ -1,6 +1,6 @@
 
 package com.foodmood.test;
-
+/*
 import static org.mockito.Mockito.*;
 
 import java.util.List;
@@ -29,10 +29,10 @@ import com.foodmood.models.Recipe;
 import com.foodmood.repositories.RecipeRepository;
 import com.foodmood.services.RecipeService;
 
-
+*/
 public class RecipeTest {
 		
-
+/*
 @InjectMocks
 private RecipeService recipeService;
 
@@ -60,7 +60,7 @@ public void testInputRecipe() {
     request.setParameter("recipeName", "gryta");
     request.setParameter("recipeDescription", "desc-row1\ndesc-row2");
     
-    request.setParameter("recipeIngredientName1", "kött");
+    request.setParameter("recipeIngredientName1", "kÃ¶tt");
     request.setParameter("recipeIngredientAmount1", "12");
     request.setParameter("recipeIngredientAmountUnit1", "dl");
     
@@ -98,14 +98,14 @@ public void testInputRecipe() {
     
 }
 
-/*
+
 @Test
 public void testSearchEmptyInput() {
 	MockHttpServletRequest httpRequest = new MockHttpServletRequest();
 	httpRequest.setParameter("inputstring", "Skalman");	
 	Recipe recipe = otherService.searchRecipe(httpRequest);
 	Assert.assertEquals(" ", recipe.getRecipeName());	
-} */
+} 
 
 
 @Test 
@@ -113,5 +113,6 @@ public void testSearchRecipeName() {
 	
 }
 
-
+*/
 }
+

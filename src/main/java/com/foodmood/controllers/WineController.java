@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.secure.spi.GrantedPermission;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,7 +49,13 @@ public class WineController {
 		Long recipeId = Long.parseLong(request.getParameter("recipeId"));
 		Recipe recipe = recipeService.readRecipe(recipeId);
 		Wine wine = wineService.getMatchingWine(recipe);
+		
+		for(String grape : wine.getGrapes()) {
+			System.out.println(wine.getWineSort() + " grape: " + grape);
+		}
+		
 		String usersMood = request.getParameter("mood");
+		System.out.println(usersMood);
 		ArrayList<Mood> allMoods = (ArrayList<Mood>) moodService.getAllMoods();
 		ArrayList<String> grapesOfMood = new ArrayList<String>();
 		for(Mood mood : allMoods){

@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,15 +27,17 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import com.foodmood.models.ApiWine;
+
 //start of defaulthandler for possible sax xml parser interaction
 public class APIManager {
 	private URL newURL;
 	private Map<String, String> values = null;
 	
-	public APIManager(String url) {
+	public APIManager() {
 		values = new HashMap<String, String>();
 		try {
-			newURL = new URL(url);
+			newURL = new URL("http://www.systembolaget.se/api/assortment/products/xml");
 		} catch (MalformedURLException max) {			
 			max.printStackTrace();
 		}
@@ -101,7 +104,7 @@ public class APIManager {
 	
 	
 	
-	
+
 	
 	public Map<String, String> getMapFromArticleNumber(String articleNumber) {
 		
@@ -148,6 +151,79 @@ public class APIManager {
 		
 		
 		return map;
+	} 
+	
+	
+	
+	
+
+	
+	public ArrayList<ApiWine> getMatchingWines(int numberOfResults, String grape, double minprice, double maxprice) {
+		
+		
+		ArrayList<ApiWine> wineList = new ArrayList<ApiWine>();
+		
+		InputStream xmlFile = null;
+		try {
+			xmlFile = newURL.openStream();
+		
+			DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder documentBuilder = documentBuilderFactory.newDocumentBuilder();		
+			Document xmlDocument = documentBuilder.parse(xmlFile);
+			
+			Element rootNode = xmlDocument.getDocumentElement();
+			NodeList nodeList = rootNode.getElementsByTagName("artikel");		
+
+			
+			
+			try {
+				int counter = 0;
+				for (int i = 0; i < nodeList.getLength(); i++) {
+					Element element = (Element)nodeList.item(i).getChildNodes().item(4);
+					
+					
+					if (element.getTextContent().toLowerCase().contains(grape.toLowerCase())) { 			//if equal to the entered articleNumber get values starting from parent node
+						NodeList subNodeList = element.getParentNode().getChildNodes(); 
+						
+						Map<String, String> map = new HashMap<String, String>();
+						
+						for (int j = 0; j < subNodeList.getLength(); j++) {
+							Element childValues = (Element) subNodeList.item(j);
+							map.put(childValues.getNodeName(), childValues.getTextContent());
+						}
+						if((Double.parseDouble(map.get("Prisinklmoms")) < maxprice) && (Double.parseDouble(map.get("Prisinklmoms")) > minprice)) {
+							ApiWine currentWine = new ApiWine();
+							currentWine.setName(map.get("Namn"));
+							currentWine.setPrice(map.get("Prisinklmoms"));
+							currentWine.setGrape(grape);
+							currentWine.setUrl("http://www.systembolaget.se/" + map.get("nr"));
+							counter++;
+							wineList.add(currentWine);
+							
+						}
+						
+						if(counter >= numberOfResults) {
+							break;
+						}
+					}
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+		
+			
+			xmlFile.close();
+		} catch (IOException ioEx) {
+			ioEx.printStackTrace();	
+		} catch (ParserConfigurationException pcEx) {
+			pcEx.printStackTrace();
+		} catch (SAXException saxEx) {
+			saxEx.printStackTrace();
+		}
+		
+	
+		
+		return wineList;
 	} 
 	
 	

@@ -19,7 +19,7 @@ public class ApiTestController {
 	@RequestMapping(value="/apitest/{id:[\\d]+}", method = RequestMethod.GET)
 	@ResponseBody
 	public String getAPIData(@PathVariable("id") Long id) {	
-		APIManager apiManager = new APIManager("http://www.systembolaget.se/api/assortment/products/xml");
+		APIManager apiManager = new APIManager();
 	    apiManager.initializeConnection();
 	    
 	    
@@ -34,5 +34,21 @@ public class ApiTestController {
 	    
 	    return nr + " " + namn2 + "" + typ;
 	}
+	
+	
+	
+	@RequestMapping(value="/apitest2", method = RequestMethod.GET)
+	@ResponseBody
+	public void getWine() {	
+		
+		APIManager apiManager = new APIManager();
+	    apiManager.initializeConnection();
+		apiManager.getMatchingWines(1, "riesling", 100d, 100d);
+	    
+	}
+	
+	
+	
+	
 	
 }

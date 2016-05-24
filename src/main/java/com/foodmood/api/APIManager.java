@@ -182,7 +182,7 @@ public class APIManager {
 					Element element = (Element)nodeList.item(i).getChildNodes().item(4);
 					
 					
-					if (element.getTextContent().toLowerCase().contains(grape)) { 			//if equal to the entered articleNumber get values starting from parent node
+					if (element.getTextContent().toLowerCase().contains(grape.toLowerCase())) { 			//if equal to the entered articleNumber get values starting from parent node
 						NodeList subNodeList = element.getParentNode().getChildNodes(); 
 						
 						Map<String, String> map = new HashMap<String, String>();

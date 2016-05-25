@@ -74,35 +74,36 @@
 			</div>
 		</div>
 		<br>
-		<%
-			if (loggedIn) {
-				if (userLoggedIn.isAdmin()) {
-		%>
-		<div class="pull-right">
-			<a href="/recipe/updateRecipe/<%=recipe.getId()%>"
-				class="btn btn-primary" role="button">Edit Recipe</a> <a
-				href="/recipe/removeRecipe/<%=recipe.getId()%>"
-				class="btn btn-warning" role="button">Delete Recipe</a>
-		</div>
-		<%
-			}
-			}
-		%>
+		
 	</div>
+	
+	
 	<div class="row">
-		<%
+		<%! int listSize = 3; %>
+		
+		<%		
+			String druvsort = (String) request.getAttribute("grape");
 			ArrayList<ApiWine> apiWines = (ArrayList<ApiWine>) request.getAttribute("apiWines");
-			for (ApiWine wine : apiWines) {
-		%>
-		<div class="col-sm-4">
-			<h1><%= wine.getName() %></h1>
-			<h4>Druva: <%= wine.getGrape() %></h4>
-			<h3>Pris: <%= wine.getPrice() %></h3>
-			<h4><a href="<%=wine.getUrl()%>">Länk till Systembolaget!</a></h4>
-		</div>
-		<%
+			if(apiWines.size() < 3) {
+				listSize = apiWines.size();
 			}
+			
+		if(apiWines.size() == 0) {%>
+			<h3>Tyvärr hittade vi inga matchande vin att köpa, vi tror att ett vin med druvsorten <strong><%=druvsort%></strong> skulle passa till denna måltid</h3>
+		<% }else {%>
+			<h3>Vi har matchat din måltid med följande vin (innehållande druvsorten <strong><%=druvsort%></strong>) som finns att köpa på Systembolaget</h3>
+			<br>
+		<%}	
+		for (int i = 0; i < listSize && listSize > 0; i++) {
 		%>
+		<div class="col-sm-3 wrapAddComponent">
+			<h1><%= apiWines.get(i).getName() %></h1>
+			<h3>Pris: <%= apiWines.get(i).getPrice() %></h3>
+			<h4><a href="<%=apiWines.get(i).getUrl()%>">Mer info</a></h4>
+		</div>
+		<div class="col-sm-1"></div>
+		<%}%>
+		
 	</div>
 </div>
 <%@ include file="footer.jsp"%>

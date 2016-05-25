@@ -11,39 +11,43 @@
 	
 		
 	<div class="row">
-		<div class="col-sm-6">
-			<h1>${recipe.recipeName}</h1>
+		<div class="col-sm-12 wrapAddComponent">
+		<div class="col-sm-6" >
+			<div class="text-center"><h1><strong>${recipe.recipeName}</strong></h1></div>
 			<br>
-			
+				<h3><strong>Ingredienser:</strong></h3>
 			<%for(int i = 0; i < recipeIngredients.size(); i++){%>
-					<%= recipeIngredients.get(i).getIngredientName() %>
+					<h4><%= recipeIngredients.get(i).getIngredientName() %>
 					<%= recipeIngredients.get(i).getAmountPerPortion() %>
 					<%= recipeIngredients.get(i).getUnitOfMeasurement() %>
-					<br>
+					</h4>
 			<%}%>
 			
-			
+				<h3><strong>Instruktioner:</strong></h3>
 			<%for(int i = 0; i < recipeDescription.size(); i++){%>
-				<h5><%= recipeDescription.get(i) %></h5>
+				<h4><%= recipeDescription.get(i) %></h4>
 			<%}%>
 	
 	
-			<%for (int i = 0; i < recipeComponents.size(); i++){
-				List<Ingredient> recipeComponentIngredients = recipeComponents.get(i).getComponentIngredients();
+			<%for (int i = 0; i < recipeComponents.size(); i++){%>
+				<div class="wrapAddComponent">
+				<%List<Ingredient> recipeComponentIngredients = recipeComponents.get(i).getComponentIngredients();
 				ArrayList<String> recipeComponentDescription = recipeComponents.get(i).getComponentDescription();
 				%>
 
-				<h3><%=recipeComponents.get(i).getComponentName() %></h3>
+				<h3><strong><%=recipeComponents.get(i).getComponentName()%></strong></h3>
+					<h4><strong>Ingredienser:</strong></h4>
 				<%for(int p = 0; p < recipeComponentIngredients.size(); p++){%>
-						<%= recipeComponentIngredients.get(p).getIngredientName() %>
+						<h5><%= recipeComponentIngredients.get(p).getIngredientName() %>
 						<%= recipeComponentIngredients.get(p).getAmountPerPortion() %>
 						<%= recipeComponentIngredients.get(p).getUnitOfMeasurement() %>
-						<br>
+						</h5>
 				<%}%>
-
+					<h4><strong>Instruktioner:</strong></h4>
 				<%for(int d = 0; d < recipeComponentDescription.size(); d++){%>
 					<h5><%= recipeComponentDescription.get(d) %></h5>
 				<%}%>
+				</div>
 			<%}%>
 		</div>
 		
@@ -54,17 +58,9 @@
 				String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);
 				%><img alt="FoodMood" src="<%=url%>"></div>
 			</div>			
-			<br>
-			<%if(loggedIn) {
-				if(userLoggedIn.isAdmin()) {%>
-			<div class="pull-right">
-				<a href="/recipe/updateRecipe/<%=recipe.getId()%>" class="btn btn-primary" role="button">Edit Recipe</a>
-				<a href="/recipe/removeRecipe/<%=recipe.getId()%>" class="btn btn-warning" role="button">Delete Recipe</a>
-			</div>
-					<%} 
-				}%>
+			
 		</div>
-
+		</div>
 
 					
 		<div class="row">
@@ -97,6 +93,18 @@
 					
 				</form>
 			</div>
+			<div class=col-sm-6>
+			<br>
+			<%if(loggedIn) {
+				if(userLoggedIn.isAdmin()) {%>
+			<div class="pull-right">
+				<a href="/recipe/updateRecipe/<%=recipe.getId()%>" class="btn btn-primary" role="button">Edit Recipe</a>
+				<a href="/recipe/removeRecipe/<%=recipe.getId()%>" class="btn btn-warning" role="button">Delete Recipe</a>
+			</div>
+					<%} 
+				}%>
+			</div>
+			
 		</div>
 		
 	</div>

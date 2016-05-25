@@ -65,7 +65,18 @@
     <p>by LIJCO</p>
 
 
-  
+    <%
+			boolean loggedIn = false;
+			User userLoggedIn = null;
+			if(request.getAttribute("userLoggedIn") != null) {
+				loggedIn = true;
+				userLoggedIn = (User) request.getAttribute("userLoggedIn");
+				session.setAttribute("userLoggedIn", userLoggedIn);
+			}else if(session.getAttribute("userLoggedIn") != null) {
+				loggedIn = true;
+				userLoggedIn = (User) session.getAttribute("userLoggedIn");
+			}
+		%>
 
   <form method="GET" action="recipe/searchrecipe">  
 
@@ -93,27 +104,16 @@
       <ul class="nav navbar-nav">
         <li><a href="/recipe/firstPage">LIJCO</a></li>  
        	<li><a href="/recipe/getAllRecipes"><span class="glyphicon glyphicon-cutlery"></span> ALLA RECEPT</a></li>
+       	<%if(loggedIn) {
+       		if(userLoggedIn.isAdmin()) {%>
        	<li><a href="/addRecipe.jsp"><span class="glyphicon glyphicon-pencil"></span> LÄGG TILL RECEPT</a></li>                     
+       	<%}
+       	}%>
       </ul>
       	
-	
- 
-      <ul class="nav navbar-nav navbar-right">	
+     <ul class="nav navbar-nav navbar-right">	
 		  
-		  <%
-			boolean loggedIn = false;
-			User userLoggedIn = null;
-			if(request.getAttribute("userLoggedIn") != null) {
-				loggedIn = true;
-				userLoggedIn = (User) request.getAttribute("userLoggedIn");
-				session.setAttribute("userLoggedIn", userLoggedIn);
-			}else if(session.getAttribute("userLoggedIn") != null) {
-				loggedIn = true;
-				userLoggedIn = (User) session.getAttribute("userLoggedIn");
-			}
-		%>
-				
-			<%if(!loggedIn) { %>
+		<%if(!loggedIn) { %>
 			<li class="dropdown"><a class="dropdown-toggle"
 				data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in" ></span> Login/register<span class="caret"></span></a>
 				<ul id="login-dropdown" class="dropdown-menu">
@@ -131,10 +131,10 @@
 										<input type="password" name="password" placeholder="Password">
 									</div>
 									<div class="form-group col-md-12">
-										<input type="submit" class="btn btn-info" value="Login">
+										<input type="submit" class="btn btn-primary" value="Login">
 									</div>
 									<div class="form-group col-md-12">
-									<a href="/registerUser.jsp">New user? Register here.</a>
+									<a href="/registerUser.jsp">Register new User</a>
 									</div>
 								</form>
 							</div>
@@ -151,11 +151,11 @@
 						<div class="row" id="">
 							<div class="col-md-12" id="logout-div">
 									<div class="form-group">
-										<a href="/user/userPage/<%=userLoggedIn.getId()%>" class="btn btn-info btn-block" role="button">My page</a>	
+										<a href="/user/userPage/<%=userLoggedIn.getId()%>" class="btn btn-primary btn-block" role="button">My page</a>	
 									</div>		
 									<form role="form" method="GET" action="/user/logoutUser">
 										<div class="form-group">
-											<input type="submit" class="btn btn-info btn-block" value="Log out">
+											<input type="submit" class="btn btn-primary btn-block" value="Log out">
 										</div>
 									</form>
 							</div>

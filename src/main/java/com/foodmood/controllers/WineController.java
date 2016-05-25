@@ -90,6 +90,7 @@ public class WineController {
 		
 		ModelAndView modelAndView = new ModelAndView("/results.jsp");
 		modelAndView.addObject("recipe", recipe);
+		modelAndView.addObject("grape", theGrapeToUse);
 		modelAndView.addObject("apiWines", listOfMatchingWines);
 		return modelAndView;
 	}

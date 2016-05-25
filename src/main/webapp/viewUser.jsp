@@ -5,9 +5,6 @@
 	<div class="col-sm-12">
 
 
-<form class="form-horizontal" role="form" method="POST" action="/user/updateUser/<%=userLoggedIn.getId()%>">
-	
-	
 	<% if(request.getAttribute("message") != null) {%>
 	<div class="form-group">
 		<div class="col-sm-2"></div>
@@ -16,6 +13,10 @@
     	</div>
 	</div>
 	<%}%>
+	
+	<% if(request.getAttribute("userLoggedIn") != null) {%>
+<form class="form-horizontal" role="form" method="POST" action="/user/updateUser/<%=userLoggedIn.getId()%>">
+	
   <div class="form-group">  
   	<div class="col-sm-2"></div>
     <div class="col-sm-10">
@@ -72,7 +73,7 @@
     </div>
   </div>
 </form>
-
+	<%}%>
 
 	</div>
 </div>

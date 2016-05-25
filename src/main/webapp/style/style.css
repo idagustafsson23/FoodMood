@@ -1,12 +1,19 @@
 
 
-.wrapAddComponent {
+.wrapAddComponent{
 	border: solid black 1px;
 	border-radius: 10px;
 	padding: 10px;	
+	margin: 10px;
 }
 
 
+.result{
+	border: solid black 1px;
+	border-radius: 10px;
+	padding: 10px;	
+	margin: 10px;
+}
 
 #myNavbar {
 	background-color: #bb1012;
@@ -91,6 +98,7 @@ html, body {
         height: 100%;
         /* Negative indent footer by it's height */
         margin: 0 auto -60px;
+        background-color: #FFB598;
 }
 
 /* Set the fixed height of the footer here */

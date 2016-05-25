@@ -21,10 +21,10 @@
 						<a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><div id="picture"><%
 						byte[] rawPicture = allRecipes.get(i).getPicture();
 						String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);
-						%> <div class="center-cropped"
-							style="background-image: url('<%=url%>');">
-						<img alt="FoodMood" src="<%=url%>"></div></a>
-					</div>
+						%> 
+						<div class="img-thumbnail">
+						<img src="<%=url%>" class="img-thumbnail" alt="FoodMood"></div></a>
+						</div>
 					
   				  
   				  
@@ -38,6 +38,6 @@
 			}
 			%>
 </div>
-
+<br>
 </div>
 <%@ include file="footer.jsp"%>

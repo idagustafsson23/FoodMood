@@ -92,8 +92,8 @@ public class UserService {
 		user.setAddress2(address2);
 		user.setPhoneNumber(phonenumber);
 		
-		//detta gör alla users till admin, fixa sen!!
-		user.setAdmin(true);
+		//detta gör alla users till icke-admin, fixa sen!!
+		user.setAdmin(false);
 		
 		return user;
 	}

@@ -11,6 +11,7 @@ spring:
     url: jdbc:mysql://sql7.freemysqlhosting.net/sql7120896?useSSL=false
     username: sql7120896
     password: CRkVCSeDSD
+
   jackson:
     serialization:
       fail-on-empty-beans: false

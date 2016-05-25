@@ -52,6 +52,8 @@ public class UserController {
 		if(user != null) {
 		modelAndView.addObject("userLoggedIn", user);
 		modelAndView.addObject("message", user.getName() + " logged on");
+		}else {
+			modelAndView.addObject("message", "username and/or password was incorrect");	
 		}
 		
 		return modelAndView;

@@ -5,21 +5,22 @@
 	<div class="col-sm-12">
 
 
-<form class="form-horizontal" role="form" method="POST" action="/user/updateUser/<%=userLoggedIn.getId()%>">
-	
-	
 	<% if(request.getAttribute("message") != null) {%>
 	<div class="form-group">
 		<div class="col-sm-2"></div>
     	<div class="col-sm-10">
-   		 <label> ${message}</label>
+   		 <label>${message}</label>
     	</div>
 	</div>
 	<%}%>
+	
+	<% if(request.getAttribute("userLoggedIn") != null) {%>
+<form class="form-horizontal" role="form" method="POST" action="/user/updateUser/<%=userLoggedIn.getId()%>">
+	
   <div class="form-group">  
   	<div class="col-sm-2"></div>
     <div class="col-sm-10">
-    <label>Uppdatera din Little Broonie avatar här om du vill...</label>
+    <label> Här kan du uppdatera din profil...</label>
     </div>
   </div>
   <div class="form-group">  
@@ -67,12 +68,12 @@
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" class="btn btn-primary">Uppdatera</button>
-      <a href="/index.jsp" class="btn btn-primary" role="button">Avbryt</a>
+      <a href="/recipe/firstPage" class="btn btn-primary" role="button">Avbryt</a>
       <a href="/user/removeUser/<%=userLoggedIn.getId()%>" class="btn btn-danger" role="button">Ta bort denna användare</a>
     </div>
   </div>
 </form>
-
+	<%}%>
 
 	</div>
 </div>

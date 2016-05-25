@@ -22,6 +22,6 @@ public class MoodController {
 	public String addMood(HttpServletRequest request, HttpServletResponse response) {
 		moodService.saveMood(request);
 			
-		return "Wine Added!";
+		return "Mood Added!";
 	}
 }

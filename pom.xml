@@ -103,6 +103,9 @@
   		<version>2.11.0</version>
   	</dependency>
   </dependencies>
+  <properties>
+  	<start-class>com.foodmood.Application</start-class>
+  </properties>
   <build>
     <finalName>FoodMood</finalName>
   </build>

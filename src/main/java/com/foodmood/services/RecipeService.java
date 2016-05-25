@@ -146,7 +146,12 @@ public class RecipeService {
 				Ingredient recipeIngredient = new Ingredient();
 				
 				recipeIngredient.setIngredientName(request.getParameter(parameter + "Name" + counter));
-				recipeIngredient.setAmountPerPortion(Double.parseDouble(request.getParameter(parameter + "Amount" + counter)));
+				try{
+					recipeIngredient.setAmountPerPortion(Double.parseDouble(request.getParameter(parameter + "Amount" + counter)));
+				}catch(Exception ex) {
+					recipeIngredient.setAmountPerPortion(0d);
+					ex.printStackTrace();
+				}
 				recipeIngredient.setUnitOfMeasurement(request.getParameter(parameter + "AmountUnit" + counter));
 				FoodTag foodTag = new FoodTag();
 				foodTag.setTagName(request.getParameter(parameter + "Tag" + counter));

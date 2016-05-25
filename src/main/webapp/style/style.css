@@ -98,6 +98,7 @@ html, body {
         height: 100%;
         /* Negative indent footer by it's height */
         margin: 0 auto -60px;
+        background-color: #FFB598;
 }
 
 /* Set the fixed height of the footer here */

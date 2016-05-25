@@ -35,7 +35,7 @@
 				ArrayList<String> recipeComponentDescription = recipeComponents.get(i).getComponentDescription();
 				%>
 
-				<h3><strong><%=recipeComponents.get(i).getComponentName()%></strong></h3>
+				<div class="text-center"><h3><strong><%=recipeComponents.get(i).getComponentName()%></strong></h3></div>
 					<h4><strong>Ingredienser:</strong></h4>
 				<%for(int p = 0; p < recipeComponentIngredients.size(); p++){%>
 						<h5><%= recipeComponentIngredients.get(p).getIngredientName() %>
@@ -53,10 +53,11 @@
 		
 		<div class="col-sm-6">
 			<br>
-			<div class="" id="picture">
+			<div class="img-thumbnail" id="picture">
 			<%byte[] rawPicture = recipe.getPicture();
 				String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);
-				%><img alt="FoodMood" src="<%=url%>"></div>
+				%>
+				<img src="<%=url%>" class="img-thumbnail" alt="FoodMood"></div>
 			</div>			
 			
 		</div>

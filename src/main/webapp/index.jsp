@@ -21,9 +21,9 @@
 		<% if (allRecipes.size() < 10) { 
 				for(int i = 0; i < allRecipes.size(); i++ ){
 		%>
-					<div class = "col-sm-3">
+					<div class = "col-sm-4">
 					<h1><a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><%= allRecipes.get(i).getRecipeName() %></a></h1>
-					<a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><div id="picture"><%
+					<a href="/recipe/getRecipe/ <%=allRecipes.get(i).getId()%> "><!--div id="picture"--><%
 						byte[] rawPicture = allRecipes.get(i).getPicture();
 					String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);
 					%> <div class="img-thumbnail">
@@ -53,7 +53,7 @@
 		%>
 			<div class = "col-sm-4">
 					<h1><a href="/recipe/getRecipe/ <%=allRecipes.get(randomIndex.get(i)).getId()%> "><%= allRecipes.get(randomIndex.get(i)).getRecipeName() %></a></h1>
-					<a href="/recipe/getRecipe/ <%=allRecipes.get(randomIndex.get(i)).getId()%> "><div id="picture"><%
+					<a href="/recipe/getRecipe/ <%=allRecipes.get(randomIndex.get(i)).getId()%> "><!-- div id="picture"--><%
 						byte[] rawPicture = allRecipes.get(randomIndex.get(i)).getPicture();
 					String url = "data:image/jpg;base64," + Base64.getEncoder().encodeToString(rawPicture);
 					%> 
